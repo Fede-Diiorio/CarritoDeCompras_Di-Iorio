@@ -1,15 +1,4 @@
-const producto1 = 1000;
-const producto2 = 500;
-const producto3 = 2000;
-const producto4 = 750;
-const producto5 = 1225;
-let contador1 = 0;
-let contador2 = 0;
-let contador3 = 0;
-let contador4 = 0;
-let contador5 = 0;
-let numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Corroborar Montos\n0. Salir"));
-
+// FUNCIONES
 function contarProductos() {
     productos = contador1 + contador2 + contador3 + contador4 + contador5;
     return productos;
@@ -90,6 +79,14 @@ function consultarCarrito() {
     alert("Producto1 = " + contador1 + "\nProducto2 = " + contador2 + "\nProducto3 = " + contador3 + "\nProducto4 = " + contador4 + "\nProducto5 = " + contador5 + "\nUsted tiene agregados " + contarProductos() + " productos al carrito sumando un total de $" + sumarTotal());
 }
 
+function terminarCompra() {
+    if (sumarTotal() > 0) {
+        alert("El total de su compra es de: $" + sumarTotal() + "\nMuchas gracias por confiar en nosotros.");
+    } else {
+        alert("No hay ningun producto agregado al carrito.");
+    }
+}
+
 function carrito(numero) {
 
     while (numero !== 0) {
@@ -111,12 +108,27 @@ function carrito(numero) {
                 break;
         }
 
-        numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Corroborar Montos\n0. Salir"));
+        numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Corroborar Montos\n0. Terminar Compra"));
+
     }
+
+    terminarCompra();
 }
 
-function terminarCompra() {
+// VARIABLES
+const producto1 = 1000;
+const producto2 = 500;
+const producto3 = 2000;
+const producto4 = 750;
+const producto5 = 1225;
+let contador1 = 0;
+let contador2 = 0;
+let contador3 = 0;
+let contador4 = 0;
+let contador5 = 0;
 
-}
-
+// INICIO DEL PROGRAMA
+let numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Corroborar Montos\n0. Terminar compra"));
 carrito(numero);
+
+// FINAL DEL PROGRAMA
