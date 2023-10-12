@@ -1,0 +1,108 @@
+.footer {
+    background-color: $primarioOscuro;
+    margin-top: 4rem;
+
+    p {
+        text-align: center;
+        margin: 0 auto;
+        padding: 1rem 0 2rem 0;
+    }
+
+    .footer__contenedor {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding-top: 2rem;
+        gap: 2rem;
+
+        .footer__resumen {
+
+            ul {
+                list-style: none;
+
+                img {
+                    width: 10rem;
+                }
+
+                p {
+                    text-align: start;
+                }
+            }
+        }
+
+        .footer__menu {
+
+            border-left: 1px solid $secundario;
+            padding-left: 2rem;
+
+            h4 {
+                font-weight: bold;
+                color: $secundario;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
+                li {
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        gap: 2rem;
+                        color: $blanco;
+                        text-decoration: none;
+                        transition: color 0.3s ease-in-out;
+
+                        &:hover {
+                            color: $secundario;
+                        }
+
+                        p {
+                            padding: 0;
+                        }
+
+                        i {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    .footer__nav--active {
+                        i {
+                            color: $secundario;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .footer {
+
+        .footer__contenedor {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 520px) {
+
+    .footer {
+
+        .footer__contenedor {
+            display: block;
+
+            .footer__menu {
+                border-left: none;
+                margin-top: 2rem;
+            }
+        }
+
+    }
+}

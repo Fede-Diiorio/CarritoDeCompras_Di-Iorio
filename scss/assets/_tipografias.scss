@@ -1,0 +1,34 @@
+h1,
+h2,
+h3 {
+    font-family: $fuenteTitulo;
+    text-align: center;
+    empty-cells: show;
+    margin: 3rem 0;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2.25rem;
+}
+
+h4 {
+    font-size: 1.9rem;
+}
+
+p,
+a,
+input,
+label,
+textarea {
+    font-size: 1.6rem;
+    font-family: $fuenteParrafos;
+    line-height: 2;
+}

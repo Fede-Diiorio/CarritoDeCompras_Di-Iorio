@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="keywords"
+        content="informatica, computadora, tecnología, servicio tecnico, SyS PC, servicios, limpieza, programas, mantenimiento, presupuesto">
+    <meta name="description"
+        content="Ofrecemos una amplia gama de servicios que van desde limpiezas internas hasta instalación de programas. ">
+    <link rel="icon" href="../img/SysPcIcono.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Servicios | SyS PC</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+
+            <!-- Barra de Navegacion -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+
+                <!-- Logo de syspc -->
+                <a class="navbar-brand" href="../index.html"><img src="../img/logob.png" alt="Logo de SyS PC"></a>
+
+                <!-- boton de hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links de navegacion -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  header__nav--activo" href="./servicios.html">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./descargas.html">Descargas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <h1>Servicios</h1>
+
+        <p class="text-center">Solicita informacion de los presupuestos completando los siguientes formularios.</p>
+
+        <!-- Formulario de mantenimiento -->
+        <section>
+            <h2>Mantenimiento</h2>
+
+            <div class="container">
+                <div class="formulario-servicios">
+
+                    <img class="formulario-servicios__img" src="../img/servicios1.webp" alt="Imagen de PC desarmada">
+
+                    <!-- Formulario -->
+                    <form class="formulario-servicios__form" method="get">
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('limpieza')">
+                            <label for="">Limpieza interna</label>
+                            <input type="checkbox" id="limpieza" name="limpieza" onclick="toggleInput('limpieza')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('pasta')">
+                            <label for="">Cambio de pasta térmica</label>
+                            <input type="checkbox" id="pasta" name="pasta" onclick="toggleInput('pasta')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('bisagras')">
+                            <label for="">Desajuste de Bisagras</label>
+                            <input type="checkbox" id="bisagras" name="bisagras" onclick="toggleInput('bisagras')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('optimizacion')">
+                            <label for="">Optimización de sistema</label>
+                            <input type="checkbox" id="optimizacion" name="optimizacion"
+                                onclick="toggleInput('optimizacion')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('reinstalacion')">
+                            <label for="">Reinstalación de sistema</label>
+                            <input type="checkbox" id="reinstalacion" name="reinstalacion"
+                                onclick="toggleInput('reinstalacion')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('programas')">
+                            <label for="">Instalación de programas</label>
+                            <input type="checkbox" id="programas" name="programas" onclick="toggleInput('programas')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div>
+                            <input class="boton" type="submit" value="Enviar">
+                        </div>
+                    </form>
+                    <!-- .formulario-servicios__form -->
+                </div>
+                <!-- .formulario-servicios -->
+            </div>
+            <!-- .container -->
+        </section>
+
+        <!-- formulario de programas -->
+        <section>
+            <h2>Instalación de Programas</h2>
+
+            <div class="container">
+                <div class="formulario-servicios">
+
+                    <img class="formulario-servicios__img" src="../img/servicios2.webp" alt="Imagen de PC desarmada">
+
+                    <!-- Formulario -->
+                    <form class="formulario-servicios__form">
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('programas-oficina')">
+                            <label for="">Programas de oficina</label>
+                            <input type="checkbox" id="programas-oficina" name="programas-oficina"
+                                onclick="toggleInput('programas-oficina')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('photoshop')">
+                            <label for="">Photoshop</label>
+                            <input type="checkbox" id="photoshop" name="photoshop" onclick="toggleInput('photoshop')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('illustrator')">
+                            <label for="">Illustrator</label>
+                            <input type="checkbox" id="illustrator" name="illustrator"
+                                onclick="toggleInput('illustrator')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('sketchup')">
+                            <label for="">SketchUp</label>
+                            <input type="checkbox" id="sketchup" name="sketchup" onclick="toggleInput('sketchup')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('autocad')">
+                            <label for="">AutoCAD</label>
+                            <input type="checkbox" id="autocad" name="autocad" onclick="toggleInput('autocad')">
+                        </div>
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__condicion" onclick="toggleInput('lumion')">
+                            <label for="">Lumion</label>
+                            <input type="checkbox" id="lumion" name="lumion" onclick="toggleInput('lumion')">
+                        </div>
+
+
+                        <!-- Campo -->
+                        <div class="formulario-servicios__textarea">
+                            <label for="">Otros programas:</label>
+                            <textarea name="" id="" cols="30" rows="10"
+                                placeholder="Especifique otros programas"></textarea>
+                        </div>
+
+                        <!-- Campo -->
+                        <div>
+                            <input class="boton" type="submit" value="Enviar">
+                        </div>
+                    </form>
+                    <!-- .formulario-servicios__form -->
+                </div>
+                <!-- .formulario-servicios -->
+            </div>
+            <!-- .container -->
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__contenedor">
+
+            <!-- Footer Resumen -->
+            <div class="footer__resumen">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <img src="../img/logob.png" alt="Logo de SyS PC">
+                        </a>
+                    </li>
+                    <li>
+                        <p>Somos una pequeña empresa que se dedica al servicio técnico y reparaciones de equipos
+                            informáticos.</p>
+                    </li>
+                </ul>
+
+
+            </div>
+
+            <!-- Footer Navegacion -->
+            <div class="footer__menu">
+                <h4>Menú</h4>
+                <nav class="footer__nav">
+                    <ul>
+                        <li>
+                            <a href="./nosotros.html">
+                                <i class="fa-solid fa-user-group"></i>
+                                <p>Nosotros</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="footer__nav--active" href="./servicios.html">
+                                <i class="fa-solid fa-gear"></i>
+                                <p>Servicios</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./productos.html">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <p>Productos</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./descargas.html">
+                                <i class="fa-solid fa-download"></i>
+                                <p>Descargas</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./contacto.html">
+                                <i class="fa-solid fa-user"></i>
+                                <p>Contacto</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Footer Redes Sociales -->
+            <div class="footer__menu">
+                <h4>Redes Sociales</h4>
+                <nav class="footer__nav">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/SySPCTuService/" target="_blank">
+                                <i class="fa-brands fa-facebook"></i>
+                                <p>Facebook</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.instagram.com/syspctuservice/?hl=es" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                                <p>Instagram</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Footer Contacto y Ubicacion -->
+            <div class="footer__menu">
+                <h4>Contacto</h4>
+                <nav class="footer__nav">
+                    <ul>
+                        <li>
+                            <a href="https://goo.gl/maps/uDZFQDHmQXG5CJ3W9" target="_blank">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p>Mar del Plata, Buenos Aires</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://goo.gl/maps/F72BfuH8ucfEoofD9" target="_blank">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p>Deán Funes 3301</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=%2B542236973896&data=ARC0UnpDnGpVJKRunuhzfM3ibdtkZE6ZtObdd6odfv19sC2d0_tv_EFFqGdKTTeQs1xdx1rZpCyMoAXUJOj87GuAsEjtoq6SUedG2Ya_Ul-3mUjtW8fofWTg5zqYBIYYiOxRZG3Txg5Bwvg6kAzbhaA&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwAR0VzFpVwu7AIwxstm1QhlBsNDNYkC4ytvQr4OQoL09izwxoyWWHZnPLQmo"
+                                target="_blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <p>Whatsapp</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- .container .footer__contenedor -->
+
+        <p>Copyright © 2015-2023 SyS PC Informatica - Director: Federico Di Iorio</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>

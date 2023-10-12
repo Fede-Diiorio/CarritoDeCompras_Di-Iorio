@@ -1,3 +1,9 @@
+// CODIGO DE JAVASCRIPT APLICADO PREVIO AL CURSO
+function toggleInput(inputId) {
+    var input = document.getElementById(inputId);
+    input.checked = !input.checked;
+}
+
 // FUNCIONES
 function contarProductos() {
     productos = contador1 + contador2 + contador3 + contador4 + contador5;

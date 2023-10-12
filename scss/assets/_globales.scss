@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+
+body {
+    background-color: $primarioAuxiliar;
+    min-width: 100vh;
+    color: $blanco;
+}
+
+.marco {
+    background-color: $primario;
+    border: 2px solid $primarioOscuro;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 9px 9px 15px 6px $grisOscuro;
+}
+
+@media (max-width: 425px) {
+    .marco {
+        max-width: 90%;
+    }
+}
+
+.boton,
+.btn {
+    background-color: $primario;
+    color: $blanco;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: none;
+    display: inline;
+    max-width: 13rem;
+    border: 2px solid $primarioOscuro;
+    transition: color 0.3s ease-in-out;
+    transition: border 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $secundario;
+        color: $primarioOscuro;
+        border: 2px solid $secundario;
+    }
+}
+
+.precio {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $precio;
+}

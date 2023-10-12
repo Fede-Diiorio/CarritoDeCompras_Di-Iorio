@@ -1,4 +1,21 @@
-body {
-    background-color: rgb(51, 50, 50);
-    color: white;
-}
+// BOOTSTRAP
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// VARIABLES Y GLOBALES
+@import './assets/variables';
+@import './assets/globales';
+@import './assets/tipografias';
+@import './assets/extend';
+
+// ESTILOS PERSONALIZADO
+@import './pages/header-index';
+@import './pages/header-pages';
+@import './pages/footer';
+@import './pages/index';
+@import './pages/nosotros';
+@import './pages/servicios';
+@import './pages/productos';
+@import './pages/producto';
+@import './pages/descargas';
+@import './pages/contacto';
+@import './pages/exito';

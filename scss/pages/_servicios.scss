@@ -1,0 +1,82 @@
+.formulario-servicios {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    border: 2px solid $primarioOscuro;
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: $blanco;
+
+    .formulario-servicios__img {
+        width: 100%;
+        border-radius: 2rem;
+        border: 1px solid $primarioOscuro;
+    }
+
+    .formulario-servicios__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .boton {
+            margin-top: 1rem;
+        }
+
+        .formulario-servicios__condicion {
+            display: flex;
+            justify-content: space-between;
+            padding: .25rem;
+            border-radius: 1.5rem;
+            margin-bottom: 1rem;
+            background-color: $primario;
+            border: 1px solid $primarioOscuro;
+            transition: background-color 0.3s ease-in-out;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $secundario;
+                color: $primarioOscuro;
+            }
+
+            input {
+                margin-right: 1rem;
+            }
+
+            label {
+                padding-left: 1rem;
+            }
+        }
+
+        .formulario-servicios__textarea {
+            display: flex;
+            gap: 1rem;
+            background-color: $primario;
+            border: 1px solid $primarioOscuro;
+            padding: .3rem;
+            border-radius: .5rem;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover {
+                background-color: $secundario;
+                color: $primarioOscuro;
+            }
+
+            textarea {
+                width: 83%;
+                height: 5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+
+    .formulario-servicios {
+        display: block;
+
+        .formulario-servicios__img {
+            display: none;
+        }
+    }
+
+}

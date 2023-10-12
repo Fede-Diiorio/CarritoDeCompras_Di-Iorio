@@ -1,0 +1,125 @@
+.barra-filtro {
+    border-bottom: 2px solid $secundario;
+    border-top: 1px solid $primarioOscuro;
+    margin-bottom: 3rem;
+    padding: 1rem;
+
+    .barra-filtro__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .barra-filtro__items {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            .barra-filtro__item {
+                .btn.btn-secondary {
+                    color: $blanco;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 1.3rem;
+                    transition: color .3s ease-in-out;
+
+                    &:hover {
+                        color: $secundario;
+                    }
+                }
+
+                .dropdown-menu {
+                    border-radius: 2rem;
+                    border: 1px solid $primarioOscuro;
+
+                    .dropdown-item {
+                        transition: color .3s ease-in-out;
+
+                        &:hover {
+                            background-color: transparent;
+                            color: $secundario;
+                        }
+                    }
+                }
+            }
+        }
+
+        .barra-filtro__busqueda {
+            input {
+                font-size: 1.3rem;
+                border-radius: 2rem;
+                border: 1px solid $primarioOscuro;
+            }
+
+            button {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+.card {
+    border-radius: 1.5rem;
+    border: 2px solid $primarioOscuro;
+    transition: border 0.3s ease-in-out;
+    overflow: hidden;
+
+    img {
+        transform: scale(1);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    &:hover {
+        border: 2px solid $secundario;
+
+        .card-text {
+            border-bottom: 1px solid $secundario;
+        }
+
+        img {
+            transform: scale(1.05);
+        }
+    }
+
+    .card-text {
+        min-height: 13rem;
+        border-bottom: 1px solid $gris;
+        transition: border 0.3s ease-in-out;
+    }
+
+    .btn {
+        font-size: 1.6rem;
+    }
+
+    .precio {
+        font-size: 2rem;
+        font-weight: bold;
+        color: $precio;
+    }
+}
+
+@media (max-width: 768px) {
+    .barra-filtro {
+        .barra-filtro__nav {
+            justify-content: center;
+
+
+            .barra-filtro__items {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+
+    .justify-content-sm-center {
+        justify-content: center;
+    }
+}

@@ -1,7 +1,8 @@
 <-- CON RESPECTO AL PROYECTO -->
 
-El objetivo de este proyecto es crear una especie de carta de presentación para darme a conocer.
-Lo que busco con este trabajo es acentuar mis habilidades con flexbox y solo ocupar esta tecnología.
+Para esta primera entrega, decidí utilizar el proyecto que había creado previamente en un curso de desarrollo web y complementarlo con lo aprendido en este curso. 
+El programa creado para la cumplimiento de la entrega se ejecuta al ingresar a la sección de productos.html. 
+Con el fin de alcanzar los objetivos requeridos, desarrollé un programa que simula un carrito de compras.
 
 <-- COMO INSTALAR SASS PARA EL CORRECTO FUNCIONAMIENTO DE ESTE PROYECTO -->
 
