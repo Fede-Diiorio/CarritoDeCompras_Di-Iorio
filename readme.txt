@@ -1,8 +1,8 @@
 <-- CON RESPECTO AL PROYECTO -->
 
-Para esta primera entrega, decidí utilizar el proyecto que había creado previamente en un curso de desarrollo web y complementarlo con lo aprendido en este curso. 
-El programa creado para la cumplimiento de la entrega se ejecuta al ingresar a la sección de productos.html. 
-Con el fin de alcanzar los objetivos requeridos, desarrollé un programa que simula un carrito de compras.
+"Para esta primera entrega, decidí utilizar el proyecto que he desarrollado previamente en un curso de desarrollo web de CoderHouse y complementarlo con lo aprendido en este curso. 
+El programa creado para el cumplimiento de la entrega se ejecuta al ingresar a la sección de productos.html. 
+Con el fin de alcanzar los objetivos requeridos, desarrollé un programa que simula un carrito de compras acorde a los productos presentes en el HTML.
 
 <-- COMO INSTALAR SASS PARA EL CORRECTO FUNCIONAMIENTO DE ESTE PROYECTO -->
 
