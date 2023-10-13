@@ -16,8 +16,7 @@ function sumarTotal() {
 }
 
 function agregarAlCarrito() {
-    let carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = 1000\n2. Producto2 = 500\n3. Producto3 = 2000\n4. Producto4 = 750\n5. Producto5 = 1225\n0. Dejar de agregar productos"));
-
+    let carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = 1000 ==> " + contador1 + "\n2. Producto2 = 500 ==> " + contador2 + "\n3. Producto3 = 2000 ==> " + contador3 + "\n4. Producto4 = 750 ==> " + contador4 + "\n5. Producto5 = 1225 ==> " + contador5 + "\n0. Dejar de agregar productos"));
     while (carrito !== 0) {
         switch (carrito) {
             case 1:
@@ -39,12 +38,12 @@ function agregarAlCarrito() {
                 alert("Número de producto no válido. Por favor, seleccione un número de producto válido.");
                 break;
         }
-        carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = 1000\n2. Producto2 = 500\n3. Producto3 = 2000\n4. Producto4 = 750\n5. Producto5 = 1225\n0. Dejar de agregar productos"));
+        carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = 1000 ==> " + contador1 + "\n2. Producto2 = 500 ==> " + contador2 + "\n3. Producto3 = 2000 ==> " + contador3 + "\n4. Producto4 = 750 ==> " + contador4 + "\n5. Producto5 = 1225 ==> " + contador5 + "\n0. Dejar de agregar productos"));
     }
 }
 
 function quitarDelCarrito() {
-    let carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = " + contador1 + "\n2. Producto2 = " + contador2 + "\n3. Producto3 = " + contador3 + "\n4. Producto4 = " + contador4 + "\n5. Producto5 = " + contador5 + "\n0. Dejar de quitar productos"));
+    let carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = 1000 ==> " + contador1 + "\n2. Producto2 = 500 ==> " + contador2 + "\n3. Producto3 = 2000 ==> " + contador3 + "\n4. Producto4 = 750 ==> " + contador4 + "\n5. Producto5 = 1225 ==> " + contador5 + "\n0. Dejar de agregar productos"));
 
     while (carrito !== 0) {
         switch (carrito) {
@@ -77,12 +76,12 @@ function quitarDelCarrito() {
                 alert("Número de producto no válido o no tiene ese producto agregado. Por favor, seleccione un número de producto válido.");
                 break;
         }
-        carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = " + contador1 + "\n2. Producto2 = " + contador2 + "\n3. Producto3 = " + contador3 + "\n4. Producto4 = " + contador4 + "\n5. Producto5 = " + contador5 + "\n0. Dejar de quitar productos"));
+        carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Producto1 = 1000 ==> " + contador1 + "\n2. Producto2 = 500 ==> " + contador2 + "\n3. Producto3 = 2000 ==> " + contador3 + "\n4. Producto4 = 750 ==> " + contador4 + "\n5. Producto5 = 1225 ==> " + contador5 + "\n0. Dejar de agregar productos"));
     }
 }
 
 function consultarCarrito() {
-    alert("Producto1 = " + contador1 + "\nProducto2 = " + contador2 + "\nProducto3 = " + contador3 + "\nProducto4 = " + contador4 + "\nProducto5 = " + contador5 + "\nUsted tiene agregados " + contarProductos() + " productos al carrito sumando un total de $" + sumarTotal());
+    alert("1. Producto1 = 1000 ==> " + contador1 + "\n2. Producto2 = 500 ==> " + contador2 + "\n3. Producto3 = 2000 ==> " + contador3 + "\n4. Producto4 = 750 ==> " + contador4 + "\n5. Producto5 = 1225 ==> " + contador5 + "\nUsted tiene agregados " + contarProductos() + " productos al carrito sumando un total de $" + sumarTotal());
 }
 
 function terminarCompra() {
@@ -114,7 +113,7 @@ function carrito(numero) {
                 break;
         }
 
-        numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Corroborar Montos\n0. Terminar Compra"));
+        numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Consultar Carrito\n0. Terminar Compra"));
 
     }
 
@@ -134,7 +133,7 @@ let contador4 = 0;
 let contador5 = 0;
 
 // INICIO DEL PROGRAMA
-let numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Corroborar Montos\n0. Terminar compra"));
+let numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Consultar Montos\n0. Terminar compra"));
 carrito(numero);
 
 // FINAL DEL PROGRAMA

@@ -5,192 +5,248 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <meta name="keywords" content="informatica, computadora, tecnología, servicio tecnico, notebook, SyS PC, notebooks">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="keywords"
+        content="informatica, computadora, tecnología, servicio tecnico, notebook, repuestos, productos, SyS PC">
     <meta name="description"
-        content="Enterate de todo lo que está a nuetro alcance. Servicio técnico personalizado a computadoreas de escritorio y notebooks. SyS PC, soluciones informaticas.">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./img/SysPcIcono.png" type="image/x-icon">
-    <title>SyS PC</title>
+        content="En SyS PC te damos acceso a un espectro de productos informaticos para personalizar o armar tu computadora. Obten el repuesto que estás buscando.">
+    <link rel="icon" href="../img/SysPcIcono.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Productos | SyS PC</title>
 </head>
 
 <body>
 
-    <header class="header-index">
+    <header class="header">
+        <div class="container">
 
-        <div class="header-index__difuminado"></div>
-
-        <!-- Barra de Navegacion -->
-        <div class="header-index__barra container">
+            <!-- Barra de Navegacion -->
             <nav class="navbar navbar-expand-lg navbar-dark">
 
-                <!-- Logo -->
-                <a class="navbar-brand" href="./index.html"><img src="./img/logob.png" alt="Logo de SyS PC"></a>
+                <!-- Logo de syspc -->
+                <a class="navbar-brand" href="#"><img src="./img/logob.png" alt="Logo de SyS PC"></a>
 
-                <!-- Menú de Hamburguesa - Boton-->
+                <!-- boton de hamburguesa -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Navegacion -->
+                <!-- Links de navegacion -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/nosotros.html">Nosotros</a>
+                            <a class="nav-link" href="#">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/servicios.html">Servicios</a>
+                            <a class="nav-link " href="#">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/productos.html">Productos</a>
+                            <a class="nav-link header__nav--activo" href="#">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/descargas.html">Descargas</a>
+                            <a class="nav-link" href="#">Descargas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/contacto.html">Contacto</a>
+                            <a class="nav-link" href="#">Contacto</a>
                         </li>
                     </ul>
                 </div>
             </nav>
-            <!-- Navegacion -->
         </div>
-
-        <h1 class="header-index__titulo container">Servicio Tecnico Personalizado</h1>
-
     </header>
 
     <main>
 
-        <!-- Seccion de informacion -->
-        <section>
-            <h2>Información</h2>
+        <h1>Productos</h1>
 
-            <div class="container">
-                <div class="marco">
+        <!-- Barra de Filtrado -->
+        <div class="barra-filtro">
+            <nav class="barra-filtro__nav container">
 
-                    <div class="informacion-index container">
+                <!-- Items de filtrado -->
+                <ul class="barra-filtro__items">
 
-                        <!-- Imagen -->
-                        <img class="informacion-index__img" src="./img/armado.webp"
-                            alt="Imagen de una PC de escritorio">
+                    <!-- Filtro item -->
+                    <li class="barra-filtro__item">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Accesorios
+                        </button>
 
-                        <!-- Informacion index -->
-                        <div class="informacion-index__texto">
-                            <p>
-                                Somos una pequeña empresa que se dedica al servicio técnico y reparaciones de equipos
-                                informáticos.
-                                Nos abocamos a solucionar problemas que van desde la falta de rendimiento y la
-                                instalación de software
-                                hasta armar equipos desde cero, limpiezas o algunas reparaciones.
-                                Buscamos solucionar los inconvenientes de manera rápida y práctica.
-                            </p>
+                        <!-- Submenu -->
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Auriculares</a></li>
+                            <li><a class="dropdown-item" href="#">Cables</a></li>
+                            <li><a class="dropdown-item" href="#">Mouses</a></li>
+                            <li><a class="dropdown-item" href="#">Teclados</a></li>
+                            <li><a class="dropdown-item" href="#">Webcams</a></li>
+                        </ul>
+                    </li>
 
-                            <p>
-                                Contamos con un equipo de trabajo calificado y con las herramientas necesarias para
-                                solucionar
-                                los problemas de manera eficaz. Además, puedes tenernos en cuenta para solucionar la
-                                mayoría
-                                de los problemas de software a distancia. Nuestro personal cuenta con gran experiencia
-                                en este
-                                campo, habiendo solucionado inconvenientes incluso en otros países con el poder de la
-                                tecnología
-                                a distancia.
-                            </p>
+                    <!-- Filtro item -->
+                    <li class="barra-filtro__item">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Insumos
+                        </button>
 
-                            <p>
-                                Tenemos también una amplia gama de programas de diseño y arquitectura listos para
-                                instalar
-                                y que puedas empezar a trabajar rápidamente.
-                                No dudes en hacer tus consultas; nuestras revisiones son rápidas y sin ningún tipo de
-                                cargo.
-                                Te esperamos en SySPC.
-                            </p>
-                        </div>
+                        <!-- Submenu -->
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Cartuchos Originales y Alternativos</a></li>
+                            <li><a class="dropdown-item" href="#">CDs, DVDs y Bluerays</a></li>
+                            <li><a class="dropdown-item" href="#">Toners Originales y Alternativos</a></li>
+                        </ul>
+                    </li>
 
-                        <!-- boton -->
-                    </div>
-                    <div class="container informacion-index__boton">
-                        <a href="./pages/nosotros.html" class="boton">Más sobre nosotros</a>
-                    </div>
-                    <!-- .informacion-index  -->
+                    <!-- Filtro item -->
+                    <li class="barra-filtro__item">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Repuestos
+                        </button>
+
+                        <!-- Submenu -->
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Fuentes</a></li>
+                            <li><a class="dropdown-item" href="#">Memorias RAM</a></li>
+                            <li><a class="dropdown-item" href="#">Placas Madre</a></li>
+                            <li><a class="dropdown-item" href="#">Procesadores</a></li>
+                            <li><a class="dropdown-item" href="#">Unidades de Almacenamiento</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Barra de busqueda -->
+                <form class="d-flex barra-filtro__busqueda" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="boton" type="submit">Buscar</button>
+                </form>
+            </nav>
+            <!-- .barra-filtro__nav -->
+        </div>
+        <!-- .barra-filtro -->
+
+
+        <section class="container row justify-content-lg-between justify-content-sm-center m-auto">
+
+            <!-- 1 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/Fuente.webp" class="card-img-top" alt="Imagen Fuente Sentey">
+                <div class="card-body">
+                    <h4 class="card-title">Fuente Sentey 700W</h4>
+                    <p class="card-text">Fuente sentey 700w hbp700-gs 80 plus bronze active pfc autofan 20+4x1
+                        4+4pinesx1 satax6 molexx2
+                        pci-e6+2x2</p>
+                    <p class="precio">$ 42,000.00</p>
+                    <a href="../pages/producto.html" class="text-end btn btn-primary">Comprar</a>
                 </div>
-                <!-- .marco -->
             </div>
-            <!-- .container -->
 
-
-
-        </section>
-
-        <!-- Seccion de Cartas -->
-        <section>
-            <h2>Enterate de todo lo que podemos hacer</h2>
-
-            <div class="container">
-
-                <div class="cartas">
-
-                    <!-- 1 - Card -->
-                    <a href="./pages/servicios.html">
-                        <div class="cartas__carta">
-                            <h4>Servicios</h4>
-                            <i class="fa-solid fa-gear"></i>
-                            <p class="text-center">Deja tu equipo en nuestras manos y será tratado de la mejor manera.
-                            </p>
-                        </div>
-                    </a>
-
-                    <!-- 2 - Card -->
-                    <a href="./pages/productos.html">
-                        <div class="cartas__carta">
-                            <h4>Productos</h4>
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            <p class="text-center">Revisa nuestro catálogo de componentes y construye el
-                                equipo
-                                que necesitas</p>
-                        </div>
-                    </a>
-
-                    <!-- 3 - Card -->
-                    <a href="./pages/descargas.html">
-                        <div class="cartas__carta">
-                            <h4>Descargas</h4>
-                            <i class="fa-solid fa-download"></i>
-                            <p class="text-center">En SyS PC te facilitamos una lista de programas free para realizar
-                                lo
-                                que deseas.</p>
-                        </div>
-                    </a>
-
-                    <!-- 4 - Card -->
-                    <a href="./pages/contacto.html">
-                        <div class="cartas__carta">
-                            <h4>Contacto</h4>
-                            <i class="fa-solid fa-user"></i>
-                            <p class="text-center">Ponte en contacto con nuestro equipo para relizar tu consulta sin
-                                cargo alguno.</p>
-                        </div>
-                    </a>
+            <!-- 2 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/RAM.webp" class="card-img-top" alt="Imagen memoria RAM">
+                <div class="card-body">
+                    <h4 class="card-title">Memoria Ram 8gb</h4>
+                    <p class="card-text">Memoria Ddr3 8gb 1600mhz 1.5v Desktop Mushkin Essentials Latencia 11-11-11-28
+                    </p>
+                    <p class="precio">$ 13,500.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
                 </div>
-                <!-- cartas -->
             </div>
-            <!-- container -->
+
+            <!-- 3 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/HDD.webp" class="card-img-top" alt="Imagen disco rigido">
+                <div class="card-body">
+                    <h4 class="card-title">Disco Rigido 2tb</h4>
+                    <p class="card-text">Disco rigido 2tb 3.5 sata 3 seagate barracuda desktop escritorio</p>
+                    <p class="precio">$ 43,500.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+            <!-- 4 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/webcam.webp" class="card-img-top" alt="Imagen de Webcam">
+                <div class="card-body">
+                    <h4 class="card-title">Webcam Philips</h4>
+                    <p class="card-text">Webcam philips p406b fhd 1080p usb 1920x1080 30fps angulo de vision 70 grados
+                    </p>
+                    <p class="precio">$ 12,500.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+            <!-- 5 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/mother.webp" class="card-img-top" alt="Imagen de placa madre">
+                <div class="card-body">
+                    <h4 class="card-title">Placa Madre Asrock</h4>
+                    <p class="card-text">Mother asrock z690 extreme hdmi displayport 4xddr4 1xps2 5xusb 1xusbtipoc
+                        3xpciex16 1xpciex1 8xsata
+                        2xm2
+                        1xm2wifi rj45 7.1 1700 compatible generacion 12 y 13 - Ya actualizado</p>
+                    <p class="precio">$ 160,000.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+            <!-- 6 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/procesador.webp" class="card-img-top" alt="Imagen de procesador">
+                <div class="card-body">
+                    <h4 class="card-title">Procesador Intel I7</h4>
+                    <p class="card-text">Procesador intel comet lake i7-10700 8 nucleos 16 hilos 2.9ghz a 4.8ghz socket
+                        1200 solo windows 10
+                        64
+                        Bits.
+                        Decima generacion trae cooler trae video integrado</p>
+                    <p class="precio">$ 165,000.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+            <!-- 7 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/m21tb.webp" class="card-img-top" alt="Imagen de m.2">
+                <div class="card-body">
+                    <h4 class="card-title">Disco Solido Crucial 1TB</h4>
+                    <p class="card-text">Disco solido SSD 1TB M2 Cruscial P3 22x80mm interface PCIE NVME 3D NAND lectura
+                        3500MB escritura
+                        1900mb PCIE G3 1X4.</p>
+                    <p class="precio">$ 32,000.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+            <!-- 8 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/ssd120.webp" class="card-img-top" alt="Imagen de SSD">
+                <div class="card-body">
+                    <h4 class="card-title">Discop Solido ADATA 120GB</h4>
+                    <p class="card-text">Disco solido SSD 120BG 2.5 sata III Adata ultimate SU650 lectura 520MB
+                        escritura 450MB.</p>
+                    <p class="precio">$ 9,700.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+            <!-- 9 - Card -->
+            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
+                <img src="./img/ssd240.webp" class="card-img-top" alt="Imagen de SSD">
+                <div class="card-body">
+                    <h4 class="card-title">Disco Solido Kingston 240GB</h4>
+                    <p class="card-text">Disco solido SSD 240GB 2.5 sata III Kingston A400 lectura hasta 500MB y
+                        escritura hasta 450MB.</p>
+                    <p class="precio">$ 13,000.00</p>
+                    <a href="../pages/producto.html" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
 
         </section>
 
-        <!-- Mapa de Google -->
-        <section class="encuentranos">
-            <h2>Encuentranos</h2>
-
-            <div class="container">
-                <iframe class="mapa-google"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12575.137184126446!2d-57.5709722!3d-38.0054915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584deb737393d25%3A0x9e8390a5b842829c!2sFacultad%20de%20Arquitectura%2C%20Urbanismo%20y%20Dise%C3%B1o!5e0!3m2!1ses-419!2sar!4v1690391588630!5m2!1ses-419!2sar"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </section>
     </main>
 
     <footer class="footer">
@@ -202,7 +258,7 @@
                 <ul>
                     <li>
                         <a href="../index.html">
-                            <img src="./img/logob.png" alt="Logo de SyS PC">
+                            <img src="../img/logob.png" alt="Logo de SyS PC">
                         </a>
                     </li>
                     <li>
@@ -210,6 +266,8 @@
                             informáticos.</p>
                     </li>
                 </ul>
+
+
             </div>
 
             <!-- Footer Navegacion -->
@@ -218,31 +276,31 @@
                 <nav class="footer__nav">
                     <ul>
                         <li>
-                            <a href="./pages/nosotros.html">
+                            <a href="#">
                                 <i class="fa-solid fa-user-group"></i>
                                 <p>Nosotros</p>
                             </a>
                         </li>
                         <li>
-                            <a href="./pages/servicios.html">
+                            <a href="#">
                                 <i class="fa-solid fa-gear"></i>
                                 <p>Servicios</p>
                             </a>
                         </li>
                         <li>
-                            <a href="./pages/productos.html">
+                            <a class="footer__nav--active" href="#">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <p>Productos</p>
                             </a>
                         </li>
                         <li>
-                            <a href="./pages/descargas.html">
+                            <a href="#">
                                 <i class="fa-solid fa-download"></i>
                                 <p>Descargas</p>
                             </a>
                         </li>
                         <li>
-                            <a href="./pages/contacto.html">
+                            <a href="#">
                                 <i class="fa-solid fa-user"></i>
                                 <p>Contacto</p>
                             </a>
@@ -251,7 +309,7 @@
                 </nav>
             </div>
 
-            <!-- Footer Redes -->
+            <!-- Footer Redes Sociales -->
             <div class="footer__menu">
                 <h4>Redes Sociales</h4>
                 <nav class="footer__nav">
@@ -302,9 +360,8 @@
                     </ul>
                 </nav>
             </div>
-
         </div>
-        <!-- .footer__contenedor .container -->
+        <!-- .container .footer__contenedor -->
 
         <p>Copyright © 2015-2023 SyS PC Informatica - Director: Federico Di Iorio</p>
     </footer>
@@ -312,6 +369,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
         </script>
+
+    <script src="../js/main.js"></script>
 
 </body>
 
