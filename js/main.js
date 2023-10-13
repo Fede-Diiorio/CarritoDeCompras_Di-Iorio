@@ -1,4 +1,8 @@
 // FUNCIONES
+function pedirOperacion() {
+    return parseInt(prompt("Ingrese el número del correspondiente al producto:\n1. Fuente Sentey 700W = $42000 ==> " + contador1 + "\n2. Memoria Ram 8gb = $13500 ==> " + contador2 + "\n3. Disco Rigido 2tb = $43500 ==> " + contador3 + "\n4. Webcam Philips = $12500 ==> " + contador4 + "\n5. Placa Madre Asrock = $160000 ==> " + contador5 + "\n6. Procesador Intel I7 = $165000 ==> " + contador6 + "\n7. Disco Solido Crucial 1tb = $32000 ==> " + contador7 + "\n8. Disco Solido ADATA 120gb = $9700 ==> " + contador8 + "\n9. Disco Solido Kingston 240gb = $13000 ==> " + contador9 + "\n0. Dejar de agregar productos"));
+}
+
 function contarProductos() {
     productos = contador1 + contador2 + contador3 + contador4 + contador5 + contador6 + contador7 + contador8 + contador9;
     return productos;
@@ -10,7 +14,7 @@ function sumarTotal() {
 }
 
 function agregarAlCarrito() {
-    let carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Fuente Sentey 700W = $42000 ==> " + contador1 + "\n2. Memoria Ram 8gb = $13500 ==> " + contador2 + "\n3. Disco Rigido 2tb = $43500 ==> " + contador3 + "\n4. Webcam Philips = $12500 ==> " + contador4 + "\n5. Placa Madre Asrock = $160000 ==> " + contador5 + "\n6. Procesador Intel I7 = $165000 ==> " + contador6 + "\n7. Disco Solido Crucial 1tb = $32000 ==> " + contador7 + "\n8. Disco Solido ADATA 120gb = $9700 ==> " + contador8 + "\n9. Disco Solido Kingston 240gb = $13000 ==> " + contador9 + "\n0. Dejar de agregar productos"));
+    let carrito = pedirOperacion();
     while (carrito !== 0) {
         switch (carrito) {
             case 1:
@@ -44,12 +48,12 @@ function agregarAlCarrito() {
                 alert("Número de producto no válido. Por favor, seleccione un número de producto válido.");
                 break;
         }
-        carrito = parseInt(prompt("Ingrese el número del producto que desea añadir al carrito:\n1. Fuente Sentey 700W = $42000 ==> " + contador1 + "\n2. Memoria Ram 8gb = $13500 ==> " + contador2 + "\n3. Disco Rigido 2tb = $43500 ==> " + contador3 + "\n4. Webcam Philips = $12500 ==> " + contador4 + "\n5. Placa Madre Asrock = $160000 ==> " + contador5 + "\n6. Procesador Intel I7 = $165000 ==> " + contador6 + "\n7. Disco Solido Crucial 1tb = $32000 ==> " + contador7 + "\n8. Disco Solido ADATA 120gb = $9700 ==> " + contador8 + "\n9. Disco Solido Kingston 240gb = $13000 ==> " + contador9 + "\n0. Dejar de agregar productos"));
+        carrito = pedirOperacion();
     }
 }
 
 function quitarDelCarrito() {
-    let carrito = parseInt(prompt("Ingrese el número del producto que desea quitar del carrito:\n1. Fuente Sentey 700W = $42000 ==> " + contador1 + "\n2. Memoria Ram 8gb = $13500 ==> " + contador2 + "\n3. Disco Rigido 2tb = $43500 ==> " + contador3 + "\n4. Webcam Philips = $12500 ==> " + contador4 + "\n5. Placa Madre Asrock = $160000 ==> " + contador5 + "\n6. Procesador Intel I7 = $165000 ==> " + contador6 + "\n7. Disco Solido Crucial 1tb = $32000 ==> " + contador7 + "\n8. Disco Solido ADATA 120gb = $9700 ==> " + contador8 + "\n9. Disco Solido Kingston 240gb = $13000 ==> " + contador9 + "\n0. Dejar de agregar productos"));
+    let carrito = pedirOperacion();
     while (carrito !== 0) {
         switch (carrito) {
             case 1:
@@ -101,7 +105,7 @@ function quitarDelCarrito() {
                 alert("Número de producto no válido o no tiene ese producto agregado. Por favor, seleccione un número de producto válido.");
                 break;
         }
-        carrito = parseInt(prompt("Ingrese el número del producto que desea aquitar del carrito:\n1. Fuente Sentey 700W = $42000 ==> " + contador1 + "\n2. Memoria Ram 8gb = $13500 ==> " + contador2 + "\n3. Disco Rigido 2tb = $43500 ==> " + contador3 + "\n4. Webcam Philips = $12500 ==> " + contador4 + "\n5. Placa Madre Asrock = $160000 ==> " + contador5 + "\n6. Procesador Intel I7 = $165000 ==> " + contador6 + "\n7. Disco Solido Crucial 1tb = $32000 ==> " + contador7 + "\n8. Disco Solido ADATA 120gb = $9700 ==> " + contador8 + "\n9. Disco Solido Kingston 240gb = $13000 ==> " + contador9 + "\n0. Dejar de agregar productos"));
+        carrito = pedirOperacion();
     }
 }
 
