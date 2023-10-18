@@ -150,6 +150,16 @@ function carrito(numero) {
 }
 
 // VARIABLES
+class Producto {
+    constructor(nombre, precio, stock) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
+
+const producto0 = new Producto("Fuente Sentey 700W", 42000, 20);
+
 const producto1 = 42000;
 const producto2 = 13500;
 const producto3 = 43500;
