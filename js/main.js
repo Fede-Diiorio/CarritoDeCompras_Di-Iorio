@@ -1,6 +1,29 @@
-// OBJETOS
+// FUNCIONES
+function recorrerProductos() {
+    let concatenarProductos = "";
+    for (const producto of todosLosProductos) {
+        concatenarProductos += (producto.id + ". " + producto.nombre + " = $" + producto.precio + "\n");
+    }
+    return concatenarProductos;
+}
+
+function elegirProducto() {
+    return elegirProducto = parseInt(prompt("Ingrese un número acorde al producto deseado: \n" + recorrerProductos()));
+}
+
+function agregarAlCarrito() {
+    let opcion = elegirProducto()
+
+    while (opcion !== 0) {
+        carrito.push(Producto);
+        break;
+    }
+}
+
+// OBJETOS y VARIABLES
 class Producto {
-    constructor(nombre, precio, stock) {
+    constructor(id, nombre, precio, stock) {
+        this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
@@ -11,174 +34,22 @@ class Producto {
     }
 }
 
-const producto1 = new Producto("Fuente Sentey 700W", 42000, 20);
-const producto2 = new Producto("Memoria Ram 8gb", 13500, 120);
-const producto3 = new Producto("Disco Rigido 2tb", 43500, 50);
-const producto4 = new Producto("Webcam Philips", 12500, 15);
-const producto5 = new Producto("Placa madre Asrock", 160000, 10);
-const producto6 = new Producto("Procesador Intel I7", 165000, 5);
-const producto7 = new Producto("Disco Solido Crucial 1tb", 32000, 30);
-const producto8 = new Producto("Disco Solido ADATA 120gb", 9700, 70);
-const producto9 = new Producto("Disco Solido Kingston 240gb", 13000, 90);
-
-// FUNCIONES
-function pedirOperacion() {
-    return parseInt(prompt("Ingrese el número del correspondiente al producto:\n1. " + producto1.nombre + " = $" + producto1.precio + " ==> " + 0 + "\n2. " + producto2.nombre + " = $" + producto2.precio + " ==> " + 0 + "\n3. " + producto3.nombre + " = $" + producto3.precio + " ==> " + 0 + "\n4. " + producto4.nombre + " = $" + producto4.precio + " ==> " + 0 + "\n5. " + producto5.nombre + " = $" + producto5.precio + " ==> " + 0 + "\n6. " + producto6.nombre + " = $" + producto6.precio + " ==> " + 0 + "\n7. " + producto7.nombre + " = $" + producto7.precio + " ==> " + 0 + "\n8. " + producto8.nombre + " = $" + producto8.precio + " ==> " + 0 + "\n9. " + producto9.nombre + " = $" + producto9.precio + " ==> " + 0 + "\n0. Dejar de agregar productos"));
-}
-
-function contarProductos() {
-    productos = 0 + contador2 + contador3 + contador4 + contador5 + contador6 + contador7 + contador8 + contador9;
-    return productos;
-}
-
-function sumarTotal() {
-    total = (producto1 * contador1) + (producto2 * contador2) + (producto3 * contador3) + (producto4 * contador4) + (producto5 * contador5) + (producto6 * contador6) + (producto7 * contador7) + (producto8 * contador8) + (producto9 * contador9);
-    return total;
-}
-
-function agregarAlCarrito() {
-    let carrito = pedirOperacion();
-    while (carrito !== 0) {
-        switch (carrito) {
-            case 1:
-                contador1++;
-                break;
-            case 2:
-                contador2++;
-                break;
-            case 3:
-                contador3++;
-                break;
-            case 4:
-                contador4++;
-                break;
-            case 5:
-                contador5++;
-                break;
-            case 6:
-                contador6++;
-                break;
-            case 7:
-                contador7++;
-                break;
-            case 8:
-                contador8++;
-                break;
-            case 9:
-                contador9++;
-                break;
-            default:
-                alert("Número de producto no válido. Por favor, seleccione un número de producto válido.");
-                break;
-        }
-        carrito = pedirOperacion();
-    }
-}
-
-function quitarDelCarrito() {
-    let carrito = pedirOperacion();
-    while (carrito !== 0) {
-        switch (carrito) {
-            case 1:
-                if (contador1 > 0) {
-                    contador1--;
-                }
-                break;
-            case 2:
-                if (contador2 > 0) {
-                    contador2--;
-                }
-                break;
-            case 3:
-                if (contador3 > 0) {
-                    contador3--;
-                }
-                break;
-            case 4:
-                if (contador4 > 0) {
-                    contador4--;
-                }
-                break;
-            case 5:
-                if (contador5 > 0) {
-                    contador5--;
-                }
-                break;
-            case 6:
-                if (contador6 > 0) {
-                    contador6--;
-                }
-                break;
-            case 7:
-                if (contador7 > 0) {
-                    contador7--;
-                }
-                break;
-            case 8:
-                if (contador8 > 0) {
-                    contador8--;
-                }
-                break;
-            case 9:
-                if (contador9 > 0) {
-                    contador9--;
-                }
-                break;
-            default:
-                alert("Número de producto no válido o no tiene ese producto agregado. Por favor, seleccione un número de producto válido.");
-                break;
-        }
-        carrito = pedirOperacion();
-    }
-}
-
-function consultarCarrito() {
-    alert("1. Fuente Sentey 700W = $42000 ==> " + contador1 + "\n2. Memoria Ram 8gb = $13500 ==> " + contador2 + "\n3. Disco Rigido 2tb = $43500 ==> " + contador3 + "\n4. Webcam Philips = $12500 ==> " + contador4 + "\n5. Placa Madre Asrock = $160000 ==> " + contador5 + "\n6. Procesador Intel I7 = $165000 ==> " + contador6 + "\n7. Disco Solido Crucial 1tb = $32000 ==> " + contador7 + "\n8. Disco Solido ADATA 120gb = $9700 ==> " + contador8 + "\n9. Disco Solido Kingston 240gb = $13000 ==> " + contador9 + "\nUsted tiene agregados " + contarProductos() + " productos al carrito sumando un total de $" + sumarTotal());
-}
-
-function terminarCompra() {
-    if (sumarTotal() > 0) {
-        alert("El total de su compra es de: $" + sumarTotal() + "\nMuchas gracias por confiar en nosotros.");
-    } else {
-        alert("No hay ningun producto agregado al carrito.");
-    }
-}
-
-function carrito(numero) {
-
-    while (numero !== 0) {
-        switch (numero) {
-            case 1:
-                agregarAlCarrito();
-                break;
-
-            case 2:
-                quitarDelCarrito();
-                break;
-
-            case 3:
-                consultarCarrito();
-                break;
-
-            default:
-                alert("Ingrese un número válido.");
-                break;
-        }
-
-        numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Consultar Carrito\n0. Terminar Compra"));
-
-    }
-
-    terminarCompra();
-}
+const producto1 = new Producto(1, "Fuente Sentey 700W", 42000, 20);
+const producto2 = new Producto(2, "Memoria Ram 8gb", 13500, 120);
+const producto3 = new Producto(3, "Disco Rigido 2tb", 43500, 50);
+const producto4 = new Producto(4, "Webcam Philips", 12500, 15);
+const producto5 = new Producto(5, "Placa madre Asrock", 160000, 10);
+const producto6 = new Producto(6, "Procesador Intel I7", 165000, 5);
+const producto7 = new Producto(7, "Disco Solido Crucial 1tb", 32000, 30);
+const producto8 = new Producto(8, "Disco Solido ADATA 120gb", 9700, 70);
+const producto9 = new Producto(9, "Disco Solido Kingston 240gb", 13000, 90);
 
 // ARREGLOS
-
-// VARIABLES
-
+const todosLosProductos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
+const carrito = [];
 
 // INICIO DEL PROGRAMA
-let numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Consultar Montos\n0. Terminar compra"));
-carrito(numero);
+const opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 
-// FINAL DEL PROGRAMA
+agregarAlCarrito(opcion);
+console.log(carrito);
