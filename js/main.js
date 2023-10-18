@@ -1,10 +1,33 @@
+// OBJETOS
+class Producto {
+    constructor(nombre, precio, stock) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+    verStock() {
+        alert("Producto: " + this.nombre + "\nStock: " + this.stock);
+    }
+}
+
+const producto1 = new Producto("Fuente Sentey 700W", 42000, 20);
+const producto2 = new Producto("Memoria Ram 8gb", 13500, 120);
+const producto3 = new Producto("Disco Rigido 2tb", 43500, 50);
+const producto4 = new Producto("Webcam Philips", 12500, 15);
+const producto5 = new Producto("Placa madre Asrock", 160000, 10);
+const producto6 = new Producto("Procesador Intel I7", 165000, 5);
+const producto7 = new Producto("Disco Solido Crucial 1tb", 32000, 30);
+const producto8 = new Producto("Disco Solido ADATA 120gb", 9700, 70);
+const producto9 = new Producto("Disco Solido Kingston 240gb", 13000, 90);
+
 // FUNCIONES
 function pedirOperacion() {
-    return parseInt(prompt("Ingrese el número del correspondiente al producto:\n1. Fuente Sentey 700W = $42000 ==> " + contador1 + "\n2. Memoria Ram 8gb = $13500 ==> " + contador2 + "\n3. Disco Rigido 2tb = $43500 ==> " + contador3 + "\n4. Webcam Philips = $12500 ==> " + contador4 + "\n5. Placa Madre Asrock = $160000 ==> " + contador5 + "\n6. Procesador Intel I7 = $165000 ==> " + contador6 + "\n7. Disco Solido Crucial 1tb = $32000 ==> " + contador7 + "\n8. Disco Solido ADATA 120gb = $9700 ==> " + contador8 + "\n9. Disco Solido Kingston 240gb = $13000 ==> " + contador9 + "\n0. Dejar de agregar productos"));
+    return parseInt(prompt("Ingrese el número del correspondiente al producto:\n1. " + producto1.nombre + " = $" + producto1.precio + " ==> " + 0 + "\n2. " + producto2.nombre + " = $" + producto2.precio + " ==> " + 0 + "\n3. " + producto3.nombre + " = $" + producto3.precio + " ==> " + 0 + "\n4. " + producto4.nombre + " = $" + producto4.precio + " ==> " + 0 + "\n5. " + producto5.nombre + " = $" + producto5.precio + " ==> " + 0 + "\n6. " + producto6.nombre + " = $" + producto6.precio + " ==> " + 0 + "\n7. " + producto7.nombre + " = $" + producto7.precio + " ==> " + 0 + "\n8. " + producto8.nombre + " = $" + producto8.precio + " ==> " + 0 + "\n9. " + producto9.nombre + " = $" + producto9.precio + " ==> " + 0 + "\n0. Dejar de agregar productos"));
 }
 
 function contarProductos() {
-    productos = contador1 + contador2 + contador3 + contador4 + contador5 + contador6 + contador7 + contador8 + contador9;
+    productos = 0 + contador2 + contador3 + contador4 + contador5 + contador6 + contador7 + contador8 + contador9;
     return productos;
 }
 
@@ -149,38 +172,10 @@ function carrito(numero) {
     terminarCompra();
 }
 
+// ARREGLOS
+
 // VARIABLES
-class Producto {
-    constructor(nombre, precio, stock) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-    }
 
-    verStock() {
-        alert("Producto: " + this.nombre + "\nStock: " + this.stock);
-    }
-}
-
-const producto1 = new Producto("Fuente Sentey 700W", 42000, 20);
-const producto2 = new Producto("Memoria Ram 8gb", 13500, 120);
-const producto3 = new Producto("Disco Rigido 2tb", 43500, 50);
-const producto4 = new Producto("Webcam Philips", 12500, 15);
-const producto5 = new Producto("Placa madre Asrock", 160000, 10);
-const producto6 = new Producto("Procesador Intel I7", 165000, 5);
-const producto7 = new Producto("Disco Solido Crucial 1tb", 32000, 30);
-const producto8 = new Producto("Disco Solido ADATA 120gb", 9700, 70);
-const producto9 = new Producto("Disco Solido Kingston 240gb", 13000, 90);
-
-let contador1 = 0;
-let contador2 = 0;
-let contador3 = 0;
-let contador4 = 0;
-let contador5 = 0;
-let contador6 = 0;
-let contador7 = 0;
-let contador8 = 0;
-let contador9 = 0;
 
 // INICIO DEL PROGRAMA
 let numero = parseInt(prompt("Ingrese la operación deseada: \n1. Agregar al Carrito\n2. Quitar del Carrito\n3. Consultar Montos\n0. Terminar compra"));
