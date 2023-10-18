@@ -156,19 +156,22 @@ class Producto {
         this.precio = precio;
         this.stock = stock;
     }
+
+    verStock() {
+        alert("Producto: " + this.nombre + "\nStock: " + this.stock);
+    }
 }
 
-const producto0 = new Producto("Fuente Sentey 700W", 42000, 20);
+const producto1 = new Producto("Fuente Sentey 700W", 42000, 20);
+const producto2 = new Producto("Memoria Ram 8gb", 13500, 120);
+const producto3 = new Producto("Disco Rigido 2tb", 43500, 50);
+const producto4 = new Producto("Webcam Philips", 12500, 15);
+const producto5 = new Producto("Placa madre Asrock", 160000, 10);
+const producto6 = new Producto("Procesador Intel I7", 165000, 5);
+const producto7 = new Producto("Disco Solido Crucial 1tb", 32000, 30);
+const producto8 = new Producto("Disco Solido ADATA 120gb", 9700, 70);
+const producto9 = new Producto("Disco Solido Kingston 240gb", 13000, 90);
 
-const producto1 = 42000;
-const producto2 = 13500;
-const producto3 = 43500;
-const producto4 = 12500;
-const producto5 = 160000;
-const producto6 = 165000;
-const producto7 = 32000;
-const producto8 = 9700;
-const producto9 = 1300;
 let contador1 = 0;
 let contador2 = 0;
 let contador3 = 0;
