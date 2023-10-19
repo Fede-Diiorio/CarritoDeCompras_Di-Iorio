@@ -7,16 +7,25 @@ function recorrerProductos() {
     return concatenarProductos;
 }
 
-function elegirProducto() {
-    return elegirProducto = parseInt(prompt("Ingrese un número acorde al producto deseado: \n" + recorrerProductos()));
+function empujarProductoAlCarrito(numero) {
+    for (const producto of todosLosProductos) {
+        if (numero === producto.id) {
+            carrito.push(producto.nombre + " - $" + producto.precio);
+        }
+    }
+}
+
+function seleccionarProducto() {
+    const seleccionarProducto = parseInt(prompt("Ingrese un número acorde al producto deseado: \n" + recorrerProductos()));
+    return seleccionarProducto;
 }
 
 function agregarAlCarrito() {
-    let opcion = elegirProducto()
+    let opcion = seleccionarProducto();
 
     while (opcion !== 0) {
-        carrito.push(Producto);
-        break;
+        empujarProductoAlCarrito(opcion);
+        opcion = seleccionarProducto();
     }
 }
 
