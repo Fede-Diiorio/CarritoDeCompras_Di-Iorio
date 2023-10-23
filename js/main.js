@@ -16,7 +16,7 @@ function empujarProductoAlCarrito(numero) {
 }
 
 function seleccionarProducto() {
-    const seleccionarProducto = parseInt(prompt("Ingrese un número acorde al producto deseado: \n" + recorrerProductos()));
+    let seleccionarProducto = parseInt(prompt("Ingrese un número acorde al producto deseado: \n" + recorrerProductos()));
     return seleccionarProducto;
 }
 
@@ -27,6 +27,8 @@ function agregarAlCarrito() {
         empujarProductoAlCarrito(opcion);
         opcion = seleccionarProducto();
     }
+
+    return opcion;
 }
 
 // OBJETOS y VARIABLES
@@ -60,5 +62,18 @@ const carrito = [];
 // INICIO DEL PROGRAMA
 const opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 
-agregarAlCarrito(opcion);
-console.log(carrito);
+while (opcion !== 0) {
+    switch (opcion) {
+        case 1:
+            opcion = agregarAlCarrito();
+            break;
+
+        case 3:
+            Alert(carrito);
+            break;
+
+        default:
+            alert("OPCIÓN INCORRECTA")
+    }
+}
+
