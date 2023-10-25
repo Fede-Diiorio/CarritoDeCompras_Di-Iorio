@@ -1,6 +1,6 @@
 // FUNCIONES
 function recorrerArregloParaImprimirPrompt() {
-    let concatenarTexto = "Ingrese el número del producto que desea agregar:\n";
+    let concatenarTexto = "Ingrese el número del producto que desea agregar o 'S' para salir:\n";
     let contador = 0;
     for (elemento of productos) {
         concatenarTexto += (contador + ". Nombre: " + elemento.nombre + " Precio: $" + elemento.precio + "\n");
@@ -19,8 +19,6 @@ function empujarPoductoAlCarritoDeCompras(opcion) {
         }
         opcion = prompt(recorrerArregloParaImprimirPrompt());
     }
-
-    console.log(carritoDeCompras);
 }
 
 // OBJETOS y VARIABLES
@@ -52,33 +50,31 @@ const productos = [
 const carritoDeCompras = [];
 
 // INICIO DEL PROGRAMA
-// let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
+let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 
-// while (opcion !== 0) {
-//     switch (opcion) {
-//         case 1:
-//             console.log("Caso 1");
-//             break;
+while (opcion !== 0) {
+    switch (opcion) {
+        case 1:
+            let opcion = prompt(recorrerArregloParaImprimirPrompt());
+            empujarPoductoAlCarritoDeCompras(opcion);
+            break;
 
-//         case 2:
-//             console.log("Caso 2");
-//             break;
+        case 2:
+            console.log("Caso 2");
+            break;
 
-//         case 3:
-//             console.log("Caso 3");
-//             break;
+        case 3:
+            alert("El carrito se muestra mediante consola")
+            console.log(carritoDeCompras);
+            break;
 
-//         default:
-//             alert("OPCIÓN INCORRECTA")
-//     }
+        default:
+            alert("OPCIÓN INCORRECTA")
+    }
 
-//     opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
-// }
+    opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
+}
 
-const inicioDelPrograma = alert("Ingrese el número del producto que desea agregar o 'S' para salir:");
 
-let opcion = prompt(recorrerArregloParaImprimirPrompt());
-
-empujarPoductoAlCarritoDeCompras(opcion);
 
 
