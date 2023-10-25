@@ -21,9 +21,15 @@ function empujarPoductoAlCarritoDeCompras(opcion) {
     }
 }
 
-function mostrarPoductosDelCarritoPorAlert(arreglo) {
+function mostrarPoductosDelCarrito(arreglo) {
     let mostrarCarrito = arreglo.map((el) => el.nombre + " - $" + el.precio);
-    alert(mostrarCarrito.join(" - "));
+    return mostrarCarrito.join("\n");
+}
+
+function terminarCompra(arreglo) {
+    const terminarCompra = arreglo.reduce((acc, el) => acc + el.precio, 0);
+
+    return "\nEl total a pagar el: $" + terminarCompra;
 }
 
 // OBJETOS y VARIABLES
@@ -69,8 +75,7 @@ while (opcion !== 0) {
             break;
 
         case 3:
-            let mostrarCarrito = carritoDeCompras.map((el) => el.nombre + " - $" + el.precio);
-            alert(mostrarCarrito.join("\n"));
+            alert(mostrarPoductosDelCarrito(carritoDeCompras));
             break;
 
         default:
@@ -80,7 +85,4 @@ while (opcion !== 0) {
     opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 }
 
-
-
-
-
+alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
