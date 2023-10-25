@@ -1,4 +1,15 @@
 // FUNCIONES
+function recorrerArregloParaImprimirPrompt() {
+    let concatenarTexto = "Ingrese el número del producto que desea agregar:\n";
+    let contador = 0;
+    for (elemento of productos) {
+        concatenarTexto += (contador + ". Nombre: " + elemento.nombre + " Precio: $" + elemento.precio + "\n");
+        contador++;
+    }
+
+    return concatenarTexto;
+}
+
 function empujarPoductoAlCarritoDeCompras(opcion) {
     while (opcion.toLowerCase() !== "s") {
         if (opcion >= 0 && opcion <= 8) {
@@ -6,7 +17,7 @@ function empujarPoductoAlCarritoDeCompras(opcion) {
         } else {
             alert("OPCIÓN INCORRECTA")
         }
-        opcion = prompt("Ingrese el número del producto que desea agregar o 'S' para salir:");
+        opcion = prompt(recorrerArregloParaImprimirPrompt());
     }
 
     console.log(carritoDeCompras);
@@ -64,7 +75,9 @@ const carritoDeCompras = [];
 //     opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 // }
 
-let opcion = prompt("Ingrese el número del producto que desea agregar o 'S' para salir:");
+const inicioDelPrograma = alert("Ingrese el número del producto que desea agregar o 'S' para salir:");
+
+let opcion = prompt(recorrerArregloParaImprimirPrompt());
 
 empujarPoductoAlCarritoDeCompras(opcion);
 
