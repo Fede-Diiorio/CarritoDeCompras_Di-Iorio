@@ -12,10 +12,16 @@ function seleccionarProducto() {
 
 }
 
-function empujarProductoAlCarrito(numero, arreglo) {
+function empujarProductoAlCarrito(opcion, arreglo) {
     for (const producto of todosLosProductos) {
-        if (numero === producto.id) {
-            arreglo.push(producto.nombre + " - $" + producto.precio);
+        if (opcion === producto.id) {
+            const productoParaCarrito = {
+                id: producto.id,
+                nombre: producto.nombre,
+                precio: producto.precio
+            }
+            arreglo.push(productoParaCarrito);
+            console.log(productoParaCarrito);
         }
     }
 }
@@ -30,6 +36,25 @@ function agregarAlCarrito(opcion) {
 
 }
 
+function filtrarYQuitarDelCarrito(arreglo, opcion) {
+    let filtrado = arreglo.some((el) => el.id === opcion);
+    console.log("Opcion " + opcion);
+    console.log("el.id " + visibilizarCarrito(arreglo));
+    console.log("Filtrado " + filtrado);
+}
+
+function quitarDelCarrito(opcion) {
+    opcion = parseInt(prompt("Ingrese un número acorde al producto deseado: \n" + RecorrerProductosParaMostrarTextos()));
+
+    while (opcion !== 0) {
+        filtrarYQuitarDelCarrito(carrito, opcion);
+        opcion = parseInt(prompt("Ingrese un número acorde al producto deseado: \n" + RecorrerProductosParaMostrarTextos()));
+    }
+}
+
+function visibilizarCarrito(arreglo) {
+    console.log(arreglo.map(producto => producto.id + ". " + producto.nombre + " - $" + producto.precio));
+}
 // OBJETOS y VARIABLES
 class Producto {
     constructor(id, nombre, precio, stock) {
@@ -65,10 +90,15 @@ while (opcion !== 0) {
     switch (opcion) {
         case 1:
             agregarAlCarrito(opcion);
+            console.log(carrito);
+            break;
+
+        case 2:
+            quitarDelCarrito(opcion);
             break;
 
         case 3:
-            alert(carrito);
+            visibilizarCarrito(carrito);
             break;
 
         default:
@@ -78,5 +108,4 @@ while (opcion !== 0) {
     opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 }
 
-
-
+console.log(carrito.map(producto => `Nombre: ${producto.nombre}, Precio: ${producto.precio}`));
