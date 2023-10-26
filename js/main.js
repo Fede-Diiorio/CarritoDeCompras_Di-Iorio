@@ -1,6 +1,6 @@
 // FUNCIONES
-function recorrerArregloParaImprimirPrompt() {
-    let concatenarTexto = "Ingrese el número del producto que desea agregar o 'S' para salir:\n";
+function recorrerArregloParaImprimirPrompt(accion) {
+    let concatenarTexto = "Ingrese el número del producto que desea " + accion + " o 'S' para salir:\n";
     let contador = 0;
     for (elemento of productos) {
         concatenarTexto += (contador + ". Nombre: " + elemento.nombre + " Precio: $" + elemento.precio + "\n");
@@ -17,7 +17,18 @@ function empujarPoductoAlCarritoDeCompras(opcion) {
         } else {
             alert("OPCIÓN INCORRECTA")
         }
-        opcion = prompt(recorrerArregloParaImprimirPrompt());
+        opcion = prompt(recorrerArregloParaImprimirPrompt("agregar"));
+    }
+}
+
+function quitarProductoDelCarrito(opcion) {
+    while (opcion.toLowerCase() !== "s") {
+        if (opcion >= 0 && opcion <= 8) {
+            carritoDeCompras = carritoDeCompras.filter((index) => index !== opcion);
+        } else {
+            alert("OPCIÓN INCORRECTA")
+        }
+        opcion = prompt(recorrerArregloParaImprimirPrompt("quitar"));
     }
 }
 
@@ -61,17 +72,18 @@ const productos = [
 const carritoDeCompras = [];
 
 // INICIO DEL PROGRAMA
-let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
+let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
 
 while (opcion !== 0) {
     switch (opcion) {
         case 1:
-            let opcion = prompt(recorrerArregloParaImprimirPrompt());
-            empujarPoductoAlCarritoDeCompras(opcion);
+            let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
+            empujarPoductoAlCarritoDeCompras(opcionAgregar);
             break;
 
         case 2:
-            console.log("Caso 2");
+            let opcionQuitar = prompt(recorrerArregloParaImprimirPrompt("quitar"));
+            quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
             break;
 
         case 3:
