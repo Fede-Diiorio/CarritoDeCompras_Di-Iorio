@@ -1,10 +1,8 @@
 // FUNCIONES
 function recorrerArregloParaImprimirPrompt(accion) {
-    let concatenarTexto = "Ingrese el número del producto que desea " + accion + " o 'S' para salir:\n";
-    let contador = 0;
+    let concatenarTexto = "Ingrese el ID del producto que desea " + accion + " o 'S' para salir:\n";
     for (elemento of productos) {
-        concatenarTexto += (contador + ". Nombre: " + elemento.nombre + " Precio: $" + elemento.precio + "\n");
-        contador++;
+        concatenarTexto += ("ID: " + elemento.id + " -- Nombre: " + elemento.nombre + " -- Precio: $" + elemento.precio + "\n");
     }
 
     return concatenarTexto;
@@ -13,7 +11,16 @@ function recorrerArregloParaImprimirPrompt(accion) {
 function empujarPoductoAlCarritoDeCompras(opcion) {
     while (opcion.toLowerCase() !== "s") {
         if (opcion >= 0 && opcion <= 8) {
-            carritoDeCompras.push(productos[parseInt(opcion)]);
+            let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea agreagar"))
+            let contador = 0;
+            if (cantidad > 0) {
+                while (contador !== cantidad) {
+                    carritoDeCompras.push(productos[parseInt(opcion)]);
+                    contador++;
+                }
+            } else {
+                alert("Debe ingresar un número válido mayor a 0.")
+            }
         } else {
             alert("OPCIÓN INCORRECTA")
         }
@@ -23,17 +30,15 @@ function empujarPoductoAlCarritoDeCompras(opcion) {
 
 function quitarProductoDelCarrito(opcion) {
     while (opcion.toLowerCase() !== "s") {
-        if (opcion >= 0 && opcion <= 8) {
-            carritoDeCompras = carritoDeCompras.filter((index) => index !== opcion);
-        } else {
-            alert("OPCIÓN INCORRECTA")
-        }
-        opcion = prompt(recorrerArregloParaImprimirPrompt("quitar"));
+        mostrarPoductosDelCarrito(carritoDeCompras);
+        carritoDeCompras = carritoDeCompras.filter((el) => el.id.includes(opcion));
+
+        opcion = prompt("Elija el ID del producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
     }
 }
 
 function mostrarPoductosDelCarrito(arreglo) {
-    let mostrarCarrito = arreglo.map((el) => el.nombre + " - $" + el.precio);
+    let mostrarCarrito = arreglo.map((el) => el.id + ". " + el.nombre + " - $" + el.precio);
     return mostrarCarrito.join("\n");
 }
 
@@ -45,7 +50,8 @@ function terminarCompra(arreglo) {
 
 // OBJETOS y VARIABLES
 class Producto {
-    constructor(nombre, precio, stock) {
+    constructor(id, nombre, precio, stock) {
+        this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
@@ -58,15 +64,15 @@ class Producto {
 
 // ARREGLOS
 const productos = [
-    new Producto("Fuente Sentey 700W", 42000, 20),
-    new Producto("Memoria Ram 8gb", 13500, 120),
-    new Producto("Disco Rigido 2tb", 43500, 50),
-    new Producto("Webcam Philips", 12500, 15),
-    new Producto("Placa madre Asrock", 160000, 10),
-    new Producto("Procesador Intel I7", 165000, 5),
-    new Producto("Disco Solido Crucial 1tb", 32000, 30),
-    new Producto("Disco Solido ADATA 120gb", 9700, 70),
-    new Producto("Disco Solido Kingston 240gb", 13000, 90)
+    new Producto(0, "Fuente Sentey 700W", 42000, 20),
+    new Producto(1, "Memoria Ram 8gb", 13500, 120),
+    new Producto(2, "Disco Rigido 2tb", 43500, 50),
+    new Producto(3, "Webcam Philips", 12500, 15),
+    new Producto(4, "Placa madre Asrock", 160000, 10),
+    new Producto(5, "Procesador Intel I7", 165000, 5),
+    new Producto(6, "Disco Solido Crucial 1tb", 32000, 30),
+    new Producto(7, "Disco Solido ADATA 120gb", 9700, 70),
+    new Producto(8, "Disco Solido Kingston 240gb", 13000, 90)
 ];
 
 const carritoDeCompras = [];
@@ -82,7 +88,7 @@ while (opcion !== 0) {
             break;
 
         case 2:
-            let opcionQuitar = prompt(recorrerArregloParaImprimirPrompt("quitar"));
+            let opcionQuitar = prompt("Elija el ID del producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
             quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
             break;
 
