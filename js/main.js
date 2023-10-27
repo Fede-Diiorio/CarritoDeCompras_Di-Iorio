@@ -31,14 +31,18 @@ function empujarPoductoAlCarritoDeCompras(opcion) {
 function quitarProductoDelCarrito(opcion) {
     while (opcion.toLowerCase() !== "s") {
         mostrarPoductosDelCarrito(carritoDeCompras);
-        carritoDeCompras = carritoDeCompras.filter((el) => el.id.includes(opcion));
+        if (opcion >= 0 && opcion < carritoDeCompras.length) {
+            carritoDeCompras.splice(opcion, 1); // Elimina el producto en la posición 'opcion'
+        } else {
+            alert("Opción incorrecta. Ingrese un número válido.");
+        }
 
         opcion = prompt("Elija el ID del producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
     }
 }
 
 function mostrarPoductosDelCarrito(arreglo) {
-    let mostrarCarrito = arreglo.map((el) => el.id + ". " + el.nombre + " - $" + el.precio);
+    let mostrarCarrito = arreglo.map((el, index) => index + ". " + el.nombre + " -- $" + el.precio);
     return mostrarCarrito.join("\n");
 }
 
@@ -75,7 +79,7 @@ const productos = [
     new Producto(8, "Disco Solido Kingston 240gb", 13000, 90)
 ];
 
-const carritoDeCompras = [];
+let carritoDeCompras = [];
 
 // INICIO DEL PROGRAMA
 let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
