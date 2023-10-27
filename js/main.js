@@ -46,10 +46,37 @@ function mostrarPoductosDelCarrito(arreglo) {
    return mostrarCarrito.join("\n");
 }
 
-function terminarCompra(arreglo) {
-   const terminarCompra = arreglo.reduce((acc, el) => acc + el.precio, 0);
+function redondearAlMultiploDe500(numero) {
+   return Math.round(numero / 500) * 500;
+}
 
-   return "\nEl total a pagar el: $" + terminarCompra;
+function terminarCompra(arreglo) {
+   let terminarCompra = arreglo.reduce((acc, el) => acc + el.precio, 0);
+   if (terminarCompra !== 0) {
+      let tipoDeEnvio = parseInt(prompt("Ingrese 1 para envio a domicilio o 2 para retirar por el local."))
+      while (tipoDeEnvio !== 1 || tipoDeEnvio !== 2) {
+
+         switch (tipoDeEnvio) {
+            case 1:
+               if (terminarCompra < 200000) {
+                  terminarCompra += 5600;
+                  return "\nTotal a pagar con envio incluido: $" + redondearAlMultiploDe500(terminarCompra);
+               } else if (terminarCompra > 200000) {
+                  terminarCompra += 2600;
+                  return "\nTotal a pagar con envio incluido: $" + redondearAlMultiploDe500(terminarCompra);
+               } else if (terminarCompra > 500000) {
+                  return "El envio es sin cargo.\nTotal a pagar: $" + terminarCompra;
+               }
+               break;
+            case 2:
+               return "\nEl total a pagar el: $" + terminarCompra;
+            default:
+               alert("Ingrese una opción válida.")
+         }
+         tipoDeEnvio = parseInt(prompt("Ingrese 1 para envio a domicilio o 2 para retirar por el local."))
+      }
+   }
+   return ("Gracias por consultar nuestros precios.");
 }
 
 // OBJETOS y VARIABLES
@@ -106,5 +133,7 @@ while (opcion !== 0) {
 
    opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 }
+
+
 
 alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
