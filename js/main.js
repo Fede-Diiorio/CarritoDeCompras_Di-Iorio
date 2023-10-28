@@ -8,12 +8,6 @@ function recorrerArregloParaImprimirPrompt(accion) {
    return concatenarTexto;
 }
 
-function controlDeStock(opcion, cantidad) {
-   let controlDeStock;
-   controlDeStock = productos[opcion].stock - cantidad;
-   return controlDeStock;
-}
-
 function empujarPoductoAlCarritoDeCompras(opcion) {
    let contador = 0;
    while (opcion.toLowerCase() !== "s") {
@@ -42,12 +36,13 @@ function quitarProductoDelCarrito(opcion) {
    while (opcion.toLowerCase() !== "s") {
       mostrarPoductosDelCarrito(carritoDeCompras);
       if (opcion >= 0 && opcion < carritoDeCompras.length) {
-         carritoDeCompras.splice(opcion, 1);
+         const productoARetornar = carritoDeCompras.splice(opcion, 1)[0];
+         productos[productoARetornar.id].stock++;
       } else {
          alert("Opción incorrecta. Ingrese un número válido.");
       }
 
-      opcion = prompt("Elija el ID del producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
+      opcion = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
    }
 }
 
@@ -97,13 +92,9 @@ class Producto {
       this.precio = precio;
       this.stock = stock;
    }
-
-   verStock() {
-      alert("Producto: " + this.nombre + "\nStock: " + this.stock);
-   }
 }
 
-let productos = [
+const productos = [
    new Producto(0, "Fuente Sentey 700W", 42000, 10),
    new Producto(1, "Memoria Ram 8gb", 13500, 60),
    new Producto(2, "Disco Rigido 2tb", 43500, 10),
@@ -141,7 +132,7 @@ while (opcion !== 0) {
          alert("OPCIÓN INCORRECTA")
    }
 
-   opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
+   opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
 }
 
 alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
