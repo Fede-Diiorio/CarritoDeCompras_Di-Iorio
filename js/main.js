@@ -46,8 +46,8 @@ function mostrarPoductosDelCarrito(arreglo) {
    return mostrarCarrito.join("\n");
 }
 
-function redondearAlMultiploDe500(numero) {
-   return Math.round(numero / 500) * 500;
+function redondearEnvioParaCarritoDeCompras(numero) {
+   return Math.round(numero / 1000) * 1000;
 }
 
 function terminarCompra(arreglo) {
@@ -59,11 +59,11 @@ function terminarCompra(arreglo) {
          switch (tipoDeEnvio) {
             case 1:
                if (terminarCompra < 200000) {
-                  terminarCompra += 5600;
-                  return "\nTotal a pagar con envio incluido: $" + redondearAlMultiploDe500(terminarCompra);
+                  terminarCompra += 5000;
+                  return "\nTotal a pagar con envio incluido: $" + redondearEnvioParaCarritoDeCompras(terminarCompra);
                } else if (terminarCompra > 200000) {
-                  terminarCompra += 2600;
-                  return "\nTotal a pagar con envio incluido: $" + redondearAlMultiploDe500(terminarCompra);
+                  terminarCompra += 2500;
+                  return "\nTotal a pagar con envio incluido: $" + redondearEnvioParaCarritoDeCompras(terminarCompra);
                } else if (terminarCompra > 500000) {
                   return "El envio es sin cargo.\nTotal a pagar: $" + terminarCompra;
                }
@@ -79,7 +79,7 @@ function terminarCompra(arreglo) {
    return ("Gracias por consultar nuestros precios.");
 }
 
-// OBJETOS y VARIABLES
+//VARIABLES
 class Producto {
    constructor(id, nombre, precio, stock) {
       this.id = id;
@@ -93,7 +93,6 @@ class Producto {
    }
 }
 
-// ARREGLOS
 const productos = [
    new Producto(0, "Fuente Sentey 700W", 42000, 20),
    new Producto(1, "Memoria Ram 8gb", 13500, 120),
@@ -111,6 +110,7 @@ let carritoDeCompras = [];
 // INICIO DEL PROGRAMA
 let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
 
+// inicio del bulce principal
 while (opcion !== 0) {
    switch (opcion) {
       case 1:
@@ -133,7 +133,5 @@ while (opcion !== 0) {
 
    opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carriton\n3. Revisar carrito\n0. Terminar compra"));
 }
-
-
 
 alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
