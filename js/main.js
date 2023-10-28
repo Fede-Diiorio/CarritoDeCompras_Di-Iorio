@@ -8,17 +8,25 @@ function recorrerArregloParaImprimirPrompt(accion) {
    return concatenarTexto;
 }
 
+function controlDeStock(opcion, cantidad) {
+   return productos[opcion].stock - cantidad;
+}
+
 function empujarPoductoAlCarritoDeCompras(opcion) {
    while (opcion.toLowerCase() !== "s") {
       if (opcion >= 0 && opcion <= 8) {
          let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea agreagar"))
          let contador = 0;
-         if (cantidad > 0) {
+         if (cantidad > 0 && cantidad <= productos[opcion].stock) {
             while (contador !== cantidad) {
                carritoDeCompras.push(productos[parseInt(opcion)]);
+               controlDeStock(opcion, cantidad);
                contador++;
             }
-         } else {
+         } else if (cantidad >= productos[opcion].stock) {
+            alert("Solamente contamos con un stock de " + productos[opcion].stock + " unidades de ese producto.")
+         }
+         else {
             alert("Debe ingresar un número válido mayor a 0.")
          }
       } else {
@@ -32,7 +40,7 @@ function quitarProductoDelCarrito(opcion) {
    while (opcion.toLowerCase() !== "s") {
       mostrarPoductosDelCarrito(carritoDeCompras);
       if (opcion >= 0 && opcion < carritoDeCompras.length) {
-         carritoDeCompras.splice(opcion, 1); // Elimina el producto en la posición 'opcion'
+         carritoDeCompras.splice(opcion, 1);
       } else {
          alert("Opción incorrecta. Ingrese un número válido.");
       }
@@ -93,16 +101,16 @@ class Producto {
    }
 }
 
-const productos = [
-   new Producto(0, "Fuente Sentey 700W", 42000, 20),
-   new Producto(1, "Memoria Ram 8gb", 13500, 120),
-   new Producto(2, "Disco Rigido 2tb", 43500, 50),
-   new Producto(3, "Webcam Philips", 12500, 15),
+let productos = [
+   new Producto(0, "Fuente Sentey 700W", 42000, 10),
+   new Producto(1, "Memoria Ram 8gb", 13500, 60),
+   new Producto(2, "Disco Rigido 2tb", 43500, 10),
+   new Producto(3, "Webcam Philips", 12500, 5),
    new Producto(4, "Placa madre Asrock", 160000, 10),
    new Producto(5, "Procesador Intel I7", 165000, 5),
-   new Producto(6, "Disco Solido Crucial 1tb", 32000, 30),
-   new Producto(7, "Disco Solido ADATA 120gb", 9700, 70),
-   new Producto(8, "Disco Solido Kingston 240gb", 13000, 90)
+   new Producto(6, "Disco Solido Crucial 1tb", 32000, 10),
+   new Producto(7, "Disco Solido ADATA 120gb", 9700, 30),
+   new Producto(8, "Disco Solido Kingston 240gb", 13000, 20)
 ];
 
 let carritoDeCompras = [];
