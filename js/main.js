@@ -9,19 +9,21 @@ function recorrerArregloParaImprimirPrompt(accion) {
 }
 
 function controlDeStock(opcion, cantidad) {
-   return productos[opcion].stock - cantidad;
+   let controlDeStock;
+   controlDeStock = productos[opcion].stock - cantidad;
+   return controlDeStock;
 }
 
 function empujarPoductoAlCarritoDeCompras(opcion) {
+   let contador = 0;
    while (opcion.toLowerCase() !== "s") {
       if (opcion >= 0 && opcion <= 8) {
          let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea agreagar"))
-         let contador = 0;
          if (cantidad > 0 && cantidad <= productos[opcion].stock) {
             while (contador !== cantidad) {
                carritoDeCompras.push(productos[parseInt(opcion)]);
-               controlDeStock(opcion, cantidad);
                contador++;
+               productos[opcion].stock--;
             }
          } else if (cantidad >= productos[opcion].stock) {
             alert("Solamente contamos con un stock de " + productos[opcion].stock + " unidades de ese producto.")
