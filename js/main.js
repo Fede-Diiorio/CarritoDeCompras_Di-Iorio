@@ -116,6 +116,10 @@ function renderizarProductos(productos) {
       botonComprar.className = "btn btn-primary";
       botonComprar.innerText = "Comprar"
 
+      botonComprar.addEventListener("click", function () {
+         window.location.href = "../pages/producto.html";
+      });
+
       // Insertar elementos uno dentro de otro
       divCard.append(titulo, descripcion, precio, botonComprar);
       divPadre.append(imagenProducto, divCard);
