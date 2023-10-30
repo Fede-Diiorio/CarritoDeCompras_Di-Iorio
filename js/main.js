@@ -84,55 +84,100 @@ function terminarCompra(arreglo) {
    return ("Gracias por consultar nuestros precios.");
 }
 
+function renderizarProductos(productos) {
+   const contenedor = document.getElementById("contenedor-js");
+
+   for (const producto of productos) {
+
+      const divPadre = document.createElement("div");
+      divPadre.className = "card col-12 col-md-6 col-lg-4 mb-5 width-card"
+
+      const imagenProducto = document.createElement("img");
+      imagenProducto.className = "card-img-top";
+      imagenProducto.setAttribute("src", producto.imagen);
+      imagenProducto.setAttribute("alt", producto.descripcionImagen);
+
+      const divCard = document.createElement("div");
+      divCard.className = "card-body"
+
+      const titulo = document.createElement("h4");
+      titulo.className = "card-title";
+      titulo.innerText = producto.nombre;
+
+      const descripcion = document.createElement("p");
+      descripcion.className = "card-text";
+      descripcion.innerText = producto.descripcion;
+
+      const precio = document.createElement("p");
+      precio.className = "precio";
+      precio.innerText = `$${producto.precio}`;
+
+      const botonComprar = document.createElement("a");
+      botonComprar.className = "btn btn-primary";
+      botonComprar.innerText = "Comprar"
+
+      // Insertar elementos uno dentro de otro
+      divCard.append(titulo, descripcion, precio, botonComprar);
+      divPadre.append(imagenProducto, divCard);
+
+      contenedor.append(divPadre);
+   }
+}
+
 //VARIABLES
 class Producto {
-   constructor(id, nombre, precio, stock) {
+   constructor(id, nombre, precio, stock, imagen, descripcion, descripcionImagen) {
       this.id = id;
       this.nombre = nombre;
       this.precio = precio;
       this.stock = stock;
+      this.imagen = imagen;
+      this.descripcion = descripcion
+      this.descripcionImagen = descripcionImagen;
    }
 }
 
 const productos = [
-   new Producto(0, "Fuente Sentey 700W", 42000, 10),
-   new Producto(1, "Memoria Ram 8gb", 13500, 60),
-   new Producto(2, "Disco Rigido 2tb", 43500, 10),
-   new Producto(3, "Webcam Philips", 12500, 5),
-   new Producto(4, "Placa madre Asrock", 160000, 10),
-   new Producto(5, "Procesador Intel I7", 165000, 5),
-   new Producto(6, "Disco Solido Crucial 1tb", 32000, 10),
-   new Producto(7, "Disco Solido ADATA 120gb", 9700, 30),
-   new Producto(8, "Disco Solido Kingston 240gb", 13000, 20)
+   new Producto(0, "Fuente Sentey 700W", 42000, 10, "../img/Fuente.webp", "Fuente sentey 700w hbp700-gs 80 plus bronze active pfc autofan 20+4x1 4+4pinesx1 satax6 molexx 2pci-e6+2x2", "Imagen Fuente Sentey"),
+   new Producto(1, "Memoria Ram 8gb", 13500, 60, "../img/RAM.webp", "Memoria Ddr3 8gb 1600mhz 1.5v Desktop Mushkin Essentials Latencia 11-11-11-28", "Imagen Memoria RAM"),
+   new Producto(2, "Disco Rigido 2tb", 43500, 10, "../img/HDD.webp", "Disco rigido 2tb 3.5 sata 3 seagate barracuda desktop escritorio", "Imagen Disco Rigido HDD"),
+   new Producto(3, "Webcam Philips", 12500, 5, "../img/webcam.webp", "Webcam philips p406b fhd 1080p usb 1920x1080 30fps angulo de vision 70 grados", "Imagen Webcam Philips"),
+   new Producto(4, "Placa madre Asrock", 160000, 10, "../img/mother.webp", "Mother asrock z690 extreme hdmi displayport 4xddr4 1xps2 5xusb 1xusbtipoc 3xpciex16 1xpciex1 8xsata2xm21xm2 wifi rj45 7.1 1700 compatible generacion 12 y 13 - Ya actualizado", "Imagen Placa Madre Asrock"),
+   new Producto(5, "Procesador Intel I7", 165000, 5, "../img/procesador.webp", "Procesador intel comet lake i7-10700 8 nucleos 16 hilos 2.9ghz a 4.8ghz socket1200 solo windows 10 64Bits. Decima generacion trae cooler trae video integrado", "Imagen Procesador Intel I7"),
+   new Producto(6, "Disco Solido Crucial 1tb", 32000, 10, "../img/m21tb.webp", "Disco solido SSD 1TB M2 Cruscial P3 22x80mm interface PCIE NVME 3D NAND lectura 3500MB escritura 1900mb PCIE G3 1X4.", "Imagen Disco M.2 Crucial"),
+   new Producto(7, "Disco Solido ADATA 120gb", 9700, 30, "../img/ssd120.webp", "Disco solido SSD 120BG 2.5 sata III Adata ultimate SU650 lectura 520MB escritura 450MB.", "Imagen Disco SSD ADATA"),
+   new Producto(8, "Disco Solido Kingston 240gb", 13000, 20, "../img/ssd240.webp", "Disco solido SSD 240GB 2.5 sata III Kingston A400 lectura hasta 500MB y escritura hasta 450MB.", "Disco SSD Kingston")
 ];
 
 let carritoDeCompras = [];
 
 // INICIO DEL PROGRAMA
-let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
+// let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
 
 // inicio del bulce principal
-while (opcion !== 0) {
-   switch (opcion) {
-      case 1:
-         let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
-         empujarPoductoAlCarritoDeCompras(opcionAgregar);
-         break;
+// while (opcion !== 0) {
+//    switch (opcion) {
+//       case 1:
+//          let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
+//          empujarPoductoAlCarritoDeCompras(opcionAgregar);
+//          break;
 
-      case 2:
-         let opcionQuitar = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
-         quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
-         break;
+//       case 2:
+//          let opcionQuitar = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
+//          quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
+//          break;
 
-      case 3:
-         alert(mostrarPoductosDelCarrito(carritoDeCompras));
-         break;
+//       case 3:
+//          alert(mostrarPoductosDelCarrito(carritoDeCompras));
+//          break;
 
-      default:
-         alert("OPCIÓN INCORRECTA")
-   }
+//       default:
+//          alert("OPCIÓN INCORRECTA")
+//    }
 
-   opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
-}
+//    opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
+// }
 
 alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
+
+renderizarProductos(productos);

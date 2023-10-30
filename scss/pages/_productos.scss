@@ -69,6 +69,7 @@
     border: 2px solid $primarioOscuro;
     transition: border 0.3s ease-in-out;
     overflow: hidden;
+    max-width: 38rem;
 
     img {
         transform: scale(1);
