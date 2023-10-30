@@ -6,8 +6,8 @@
 
 body {
   background-color: #5a98ad;
-  min-width: 100vh;
-  color: #ffffff; }
+  color: #ffffff;
+  overflow-x: hidden; }
 
 .marco {
   background-color: #40798C;
@@ -76,20 +76,12 @@ textarea {
   font-family: "Source Sans 3", sans-serif;
   line-height: 2; }
 
-.nav-link, .header .navbar {
+.nav-link {
   font-size: 1.8rem;
   color: #ffffff;
   font-weight: bold;
   transition: color 0.3s ease-in-out; }
-  .nav-link:hover, .header .navbar:hover {
-    color: #FFA500; }
-
-.nav-link, .header .navbar {
-  font-size: 1.8rem;
-  color: #ffffff;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out; }
-  .nav-link:hover, .header .navbar:hover {
+  .nav-link:hover {
     color: #FFA500; }
 
 .header {
@@ -103,6 +95,13 @@ textarea {
     padding-bottom: 0; }
     .header .navbar img {
       width: 12.5rem; }
+    .header .navbar .nav-link {
+      font-size: 1.8rem;
+      color: #ffffff;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out; }
+      .header .navbar .nav-link:hover {
+        color: #FFA500; }
     .header .navbar .navbar-toggler {
       border-radius: 100%;
       padding: 1rem;
@@ -116,7 +115,7 @@ textarea {
     position: relative; }
     .header .navbar-collapse {
       text-align: center; }
-      .header .navbar-collapse .nav-link, .header .navbar-collapse .navbar {
+      .header .navbar-collapse .nav-link {
         display: inline-block; } }
 
 @media (max-width: 768px) {
@@ -191,8 +190,7 @@ textarea {
   .barra-filtro .barra-filtro__nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; }
+    align-items: center; }
     .barra-filtro .barra-filtro__nav .barra-filtro__items {
       display: flex;
       align-items: center;
