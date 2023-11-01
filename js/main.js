@@ -1,7 +1,7 @@
 // FUNCIONES
 function recorrerArregloParaImprimirPrompt(accion) {
    let concatenarTexto = "Ingrese el ID del producto que desea " + accion + " o 'S' para salir:\n";
-   for (elemento of productos) {
+   for (const elemento of productos) {
       concatenarTexto += (elemento.id + ". Nombre: " + elemento.nombre + " -- Precio: $" + elemento.precio + "\n");
    }
 
@@ -86,6 +86,7 @@ function terminarCompra(arreglo) {
 
 function renderizarProductos(productos) {
    const contenedor = document.getElementById("contenedor-js");
+   contenedor.innerHTML = "";
 
    for (const producto of productos) {
 
@@ -116,9 +117,8 @@ function renderizarProductos(productos) {
       botonComprar.className = "btn btn-primary";
       botonComprar.innerText = "Comprar"
 
-      botonComprar.addEventListener("click", function () {
-         window.location.href = "../pages/producto.html";
-      });
+      botonComprar.addEventListener("click", () => window.location.href = "../pages/producto.html");
+
 
       // Insertar elementos uno dentro de otro
       divCard.append(titulo, descripcion, precio, botonComprar);
@@ -126,6 +126,19 @@ function renderizarProductos(productos) {
 
       contenedor.append(divPadre);
    }
+}
+
+function BarraDeBusqueda() {
+   const BarraDeBusqueda = document.getElementById("inputBuscarProductos");
+
+   BarraDeBusqueda.addEventListener("keyup", () => {
+      const value = BarraDeBusqueda.value
+      const productosFiltrados = productos.filter((producto) => {
+         return producto.nombre.toLowerCase().includes(value.toLowerCase());
+      });
+
+      renderizarProductos(productosFiltrados);
+   });
 }
 
 //VARIABLES
@@ -147,7 +160,7 @@ const productos = [
    new Producto(1, "Memoria Ram 8gb", 13500, 60, "../img/RAM.webp", "Memoria Ddr3 8gb 1600mhz 1.5v Desktop Mushkin Essentials Latencia 11-11-11-28", "Imagen Memoria RAM", "Memoria"),
    new Producto(2, "Disco Rigido 2tb", 43500, 10, "../img/HDD.webp", "Disco rigido 2tb 3.5 sata 3 seagate barracuda desktop escritorio", "Imagen Disco Rigido HDD", "Unidad de Almacenamiento"),
    new Producto(3, "Webcam Philips", 12500, 5, "../img/webcam.webp", "Webcam philips p406b fhd 1080p usb 1920x1080 30fps angulo de vision 70 grados", "Imagen Webcam Philips", "Webcam"),
-   new Producto(4, "Placa madre Asrock", 160000, 10, "../img/mother.webp", "Mother asrock z690 extreme hdmi displayport 4xddr4 1xps2 5xusb 1xusbtipoc 3xpciex16 1xpciex1 8xsata2xm21xm2 wifi rj45 7.1 1700 compatible generacion 12 y 13 - Ya actualizado", "Imagen Placa Madre Asrock", "Placa Madre"),
+   new Producto(4, "Placa Madre Asrock", 160000, 10, "../img/mother.webp", "Mother asrock z690 extreme hdmi displayport 4xddr4 1xps2 5xusb 1xusbtipoc 3xpciex16 1xpciex1 8xsata2xm21xm2 wifi rj45 7.1 1700 compatible generacion 12 y 13 - Ya actualizado", "Imagen Placa Madre Asrock", "Placa Madre"),
    new Producto(5, "Procesador Intel I7", 165000, 5, "../img/procesador.webp", "Procesador intel comet lake i7-10700 8 nucleos 16 hilos 2.9ghz a 4.8ghz socket1200 solo windows 10 64Bits. Decima generacion trae cooler trae video integrado", "Imagen Procesador Intel I7", "Procesador"),
    new Producto(6, "Disco Solido Crucial 1tb", 32000, 10, "../img/m21tb.webp", "Disco solido SSD 1TB M2 Cruscial P3 22x80mm interface PCIE NVME 3D NAND lectura 3500MB escritura 1900mb PCIE G3 1X4.", "Imagen Disco M.2 Crucial", "Unidad de Almacenamiento"),
    new Producto(7, "Disco Solido ADATA 120gb", 9700, 30, "../img/ssd120.webp", "Disco solido SSD 120BG 2.5 sata III Adata ultimate SU650 lectura 520MB escritura 450MB.", "Imagen Disco SSD ADATA", "Unidad de Almacenamiento"),
@@ -157,32 +170,33 @@ const productos = [
 let carritoDeCompras = [];
 
 // INICIO DEL PROGRAMA
-let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
+// let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
 
-// inicio del bulce principal
-while (opcion !== 0) {
-   switch (opcion) {
-      case 1:
-         let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
-         empujarPoductoAlCarritoDeCompras(opcionAgregar);
-         break;
+// // inicio del bulce principal
+// while (opcion !== 0) {
+//    switch (opcion) {
+//       case 1:
+//          let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
+//          empujarPoductoAlCarritoDeCompras(opcionAgregar);
+//          break;
 
-      case 2:
-         let opcionQuitar = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
-         quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
-         break;
+//       case 2:
+//          let opcionQuitar = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
+//          quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
+//          break;
 
-      case 3:
-         alert(mostrarPoductosDelCarrito(carritoDeCompras));
-         break;
+//       case 3:
+//          alert(mostrarPoductosDelCarrito(carritoDeCompras));
+//          break;
 
-      default:
-         alert("OPCIÓN INCORRECTA")
-   }
+//       default:
+//          alert("OPCIÓN INCORRECTA")
+//    }
 
-   opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
-}
+//    opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
+// }
 
-alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
+// alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
 
 renderizarProductos(productos);
+BarraDeBusqueda();
