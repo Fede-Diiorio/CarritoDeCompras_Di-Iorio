@@ -133,10 +133,13 @@ function renderizarProductos(productos) {
 }
 
 function BarraDeBusqueda() {
+   const formBusqueda = document.getElementById("formBusqueda");
    const BarraDeBusqueda = document.getElementById("inputBuscarProductos");
 
-   BarraDeBusqueda.addEventListener("keyup", () => {
-      const value = BarraDeBusqueda.value
+   formBusqueda.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const value = BarraDeBusqueda.value;
       const productosFiltrados = productos.filter((producto) => {
          return producto.nombre.toLowerCase().includes(value.toLowerCase());
       });
