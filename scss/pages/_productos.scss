@@ -39,6 +39,9 @@
 
                     .dropdown-item {
                         transition: color .3s ease-in-out;
+                        display: flex;
+                        text-align: center;
+                        gap: 1rem;
 
                         &:hover {
                             background-color: transparent;

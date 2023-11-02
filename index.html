@@ -117,6 +117,34 @@
                             <li><a class="dropdown-item" href="#">Unidades de Almacenamiento</a></li>
                         </ul>
                     </li>
+
+                    <!-- Filtro item -->
+                    <li class="barra-filtro__item">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Filtros
+                        </button>
+
+                        <!-- Submenu -->
+                        <form class="dropdown-menu">
+                            <div class="dropdown-item">
+                                <label>A - Z</label>
+                                <input type="radio" name="filtros" id="filtroAZ">
+                            </div>
+                            <div class="dropdown-item">
+                                <label>Z - A</label>
+                                <input type="radio" name="filtros" id="FiltroZA">
+                            </div>
+                            <div class="dropdown-item">
+                                <label>Mayor Precio</label>
+                                <input type="radio" name="filtros" id="filtroMayorPrecio">
+                            </div>
+                            <div class="dropdown-item">
+                                <label>Menor Precio</label>
+                                <input type="radio" name="filtros" id="filtroMenorPrecio">
+                            </div>
+                        </form>
+                    </li>
                 </ul>
 
                 <!-- Barra de busqueda -->
@@ -135,7 +163,6 @@
             <div class="container row justify-content-lg-between justify-content-sm-center m-auto" id="contenedor-js">
             </div>
         </section>
-
 
     </main>
 

@@ -205,7 +205,10 @@ textarea {
         border-radius: 2rem;
         border: 1px solid #1F363D; }
         .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .dropdown-menu .dropdown-item {
-          transition: color .3s ease-in-out; }
+          transition: color .3s ease-in-out;
+          display: flex;
+          text-align: center;
+          gap: 1rem; }
           .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .dropdown-menu .dropdown-item:hover {
             background-color: transparent;
             color: #FFA500; }
