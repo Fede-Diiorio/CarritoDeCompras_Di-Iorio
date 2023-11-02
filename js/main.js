@@ -117,11 +117,15 @@ function renderizarProductos(productos) {
       botonComprar.className = "btn btn-primary";
       botonComprar.innerText = "Comprar"
 
+      const stock = document.createElement("p");
+      stock.className =
+         stock.innerHTML = `<strong>Stock:</strong> ${producto.stock}`;
+
       botonComprar.addEventListener("click", () => window.location.href = "../pages/producto.html");
 
 
       // Insertar elementos uno dentro de otro
-      divCard.append(titulo, descripcion, precio, botonComprar);
+      divCard.append(titulo, descripcion, stock, precio, botonComprar);
       divPadre.append(imagenProducto, divCard);
 
       contenedor.append(divPadre);
@@ -139,6 +143,11 @@ function BarraDeBusqueda() {
 
       renderizarProductos(productosFiltrados);
    });
+}
+
+function filtradoMayorPrecio() {
+   const productosMayorPrecio = productos.sort((a, b) => b.precio - a.precio);
+   renderizarProductos(productosMayorPrecio);
 }
 
 //VARIABLES
