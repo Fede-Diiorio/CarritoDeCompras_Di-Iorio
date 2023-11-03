@@ -1,0 +1,30 @@
+.carrito {
+    background-color: $blanco;
+    margin: 1rem auto;
+    border-radius: 2rem;
+    border: 1px solid $primarioOscuro;
+    max-width: 80rem;
+
+    .carrito__producto {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        .carrito__imagen {
+            width: 10rem;
+        }
+
+        .carrito__informacion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .carrito__texto {
+                color: $negro;
+                text-align: center;
+                padding: 2rem;
+                margin: 0 auto;
+            }
+        }
+    }
+}

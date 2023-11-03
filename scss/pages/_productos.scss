@@ -57,6 +57,11 @@
             .fa-cart-shopping {
                 color: $blanco;
                 font-size: 2rem;
+                transition: color .3s ease-in-out;
+
+                &:hover {
+                    color: $secundario;
+                }
             }
         }
 
