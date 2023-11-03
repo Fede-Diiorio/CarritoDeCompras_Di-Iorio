@@ -118,7 +118,6 @@
                         </ul>
                     </li>
 
-                    <!-- Filtro item -->
                     <li class="barra-filtro__item">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -126,22 +125,14 @@
                         </button>
 
                         <!-- Submenu -->
-                        <form class="dropdown-menu">
-                            <div class="dropdown-item">
-                                <label>A - Z</label>
-                                <input type="radio" name="filtros" id="filtroAZ">
-                            </div>
-                            <div class="dropdown-item">
-                                <label>Z - A</label>
-                                <input type="radio" name="filtros" id="FiltroZA">
-                            </div>
+                        <form class="dropdown-menu" id="ordenFiltros">
                             <div class="dropdown-item">
                                 <label>Mayor Precio</label>
-                                <input type="radio" name="filtros" id="filtroMayorPrecio">
+                                <input type="radio" name="filtros" id="MayorPrecio">
                             </div>
                             <div class="dropdown-item">
                                 <label>Menor Precio</label>
-                                <input type="radio" name="filtros" id="filtroMenorPrecio">
+                                <input type="radio" name="filtros" id="MenorPrecio">
                             </div>
                         </form>
                     </li>
