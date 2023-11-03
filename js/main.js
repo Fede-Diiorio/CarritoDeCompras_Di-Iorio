@@ -132,6 +132,40 @@ function renderizarProductos(productos) {
    }
 }
 
+function renderizarProductosParaCarrito(arreglo) {
+   const contenedor = document.getElementById("contenedorParaCarrito");
+   contenedor.innerHTML = "";
+
+   for (const producto of arreglo) {
+      const divPadre = document.createElement("div");
+      divPadre.className = "carrito";
+
+      const divContenedor = document.createElement("div");
+      divContenedor.className = "carrito__producto";
+
+      const imgCarrito = document.createElement("img");
+      imgCarrito.className = "carrito__imagen";
+      imgCarrito.setAttribute("src", producto.imagen);
+      imgCarrito.setAttribute("alt", producto.descripcionImagen);
+
+      const divInformacion = document.createElement("div");
+      divInformacion.className = "carrito__informacion";
+
+      const nombreProducto = document.createElement("p");
+      nombreProducto.innerHTML = `<strog>Nombre:</strong> ${producto.nombre}`;
+
+      const precioProducto = document.createElement("p");
+      precioProducto.innerHTML = `<strog>Precio:</strong> ${producto.precio}`;
+
+      const cantidadProducto = document.createElement("p");
+      cantidadProducto.innerHTML = `<strog>Cantidad:</strong> ${producto.stock}`;
+
+      const totalProducto = document.createElement("p");
+      totalProducto.innerHTML = `<strog>Total:</strong> ${producto.precio}`;
+   }
+
+}
+
 function BarraDeBusqueda() {
    const formBusqueda = document.getElementById("formBusqueda");
    const BarraDeBusqueda = document.getElementById("inputBuscarProductos");
