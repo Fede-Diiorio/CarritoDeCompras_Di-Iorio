@@ -199,7 +199,8 @@ strong {
         background-color: transparent;
         border: none;
         font-size: 1.3rem;
-        transition: color .3s ease-in-out; }
+        transition: color .3s ease-in-out;
+        padding: 0; }
         .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .btn.btn-secondary:hover {
           color: #FFA500; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .dropdown-menu {
@@ -214,6 +215,9 @@ strong {
           .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .dropdown-menu .dropdown-item:hover {
             background-color: transparent;
             color: #FFA500; }
+      .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping {
+        color: #ffffff;
+        font-size: 2rem; }
     .barra-filtro .barra-filtro__nav .barra-filtro__busqueda input {
       font-size: 1.3rem;
       border-radius: 2rem;

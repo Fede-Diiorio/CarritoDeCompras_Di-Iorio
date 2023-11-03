@@ -28,6 +28,7 @@
                     border: none;
                     font-size: 1.3rem;
                     transition: color .3s ease-in-out;
+                    padding: 0;
 
                     &:hover {
                         color: $secundario;
@@ -51,6 +52,11 @@
                         }
                     }
                 }
+            }
+
+            .fa-cart-shopping {
+                color: $blanco;
+                font-size: 2rem;
             }
         }
 
