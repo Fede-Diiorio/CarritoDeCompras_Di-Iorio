@@ -15,7 +15,6 @@
         gap: 2rem;
 
         .footer__resumen {
-
             ul {
                 list-style: none;
 
@@ -30,7 +29,6 @@
         }
 
         .footer__menu {
-
             border-left: 1px solid $secundario;
             padding-left: 2rem;
 
@@ -82,9 +80,7 @@
 }
 
 @media (max-width: 1200px) {
-
     .footer {
-
         .footer__contenedor {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -92,9 +88,7 @@
 }
 
 @media (max-width: 520px) {
-
     .footer {
-
         .footer__contenedor {
             display: block;
 
@@ -103,6 +97,5 @@
                 margin-top: 2rem;
             }
         }
-
     }
 }

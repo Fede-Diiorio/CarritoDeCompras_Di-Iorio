@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <meta name="keywords"
         content="informatica, computadora, tecnología, servicio tecnico, notebook, repuestos, productos, SyS PC">
     <meta name="description"
@@ -25,7 +26,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark">
 
                 <!-- Logo de syspc -->
-                <a class="navbar-brand" href="#"><img src="./img/logob.png" alt="Logo de SyS PC"></a>
+                <a class="navbar-brand" href="./index.html"><img src="./img/logob.png" alt="Logo de SyS PC"></a>
 
                 <!-- boton de hamburguesa -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -43,7 +44,7 @@
                             <a class="nav-link " href="#">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link header__nav--activo" href="#">Productos</a>
+                            <a class="nav-link header__nav--activo" href="./index.html">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Descargas</a>
@@ -108,143 +109,60 @@
                         </button>
 
                         <!-- Submenu -->
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" id="filtroClaseRepuesto">
                             <li><a class="dropdown-item" href="#">Fuentes</a></li>
-                            <li><a class="dropdown-item" href="#">Memorias RAM</a></li>
+                            <li><a id="filtroClaseRepuestoMemoria" class="dropdown-item" href="#">Memorias RAM</a></li>
                             <li><a class="dropdown-item" href="#">Placas Madre</a></li>
                             <li><a class="dropdown-item" href="#">Procesadores</a></li>
-                            <li><a class="dropdown-item" href="#">Unidades de Almacenamiento</a></li>
+                            <li><a id="filtroClaseRepuestoDisco" class="dropdown-item" href="#">Unidades de
+                                    Almacenamiento</a></li>
                         </ul>
+                    </li>
+
+                    <li class="barra-filtro__item">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Filtros
+                        </button>
+
+                        <!-- Submenu -->
+                        <form class="dropdown-menu" id="ordenFiltros">
+                            <div class="dropdown-item">
+                                <label>Mayor Precio</label>
+                                <input type="radio" name="filtros" id="mayorPrecio">
+                            </div>
+                            <div class="dropdown-item">
+                                <label>Menor Precio</label>
+                                <input type="radio" name="filtros" id="menorPrecio">
+                            </div>
+                            <div class="dropdown-item">
+                                <label>A - Z</label>
+                                <input type="radio" name="filtros" id="alfabetoAZ">
+                            </div>
+                            <div class="dropdown-item">
+                                <label>Z - A</label>
+                                <input type="radio" name="filtros" id="alfabetoZA">
+                            </div>
+                        </form>
                     </li>
                 </ul>
 
                 <!-- Barra de busqueda -->
-                <form class="d-flex barra-filtro__busqueda" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <form id="formBusqueda" class="d-flex barra-filtro__busqueda" role="search">
+                    <input id="inputBuscarProductos" class="form-control me-2" autocomplete="off" type="search"
+                        placeholder="Buscar" aria-label="Search">
                     <button class="boton" type="submit">Buscar</button>
                 </form>
+
             </nav>
             <!-- .barra-filtro__nav -->
         </div>
         <!-- .barra-filtro -->
 
-
-        <section class="container row justify-content-lg-between justify-content-sm-center m-auto">
-
-            <!-- 1 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/Fuente.webp" class="card-img-top" alt="Imagen Fuente Sentey">
-                <div class="card-body">
-                    <h4 class="card-title">Fuente Sentey 700W</h4>
-                    <p class="card-text">Fuente sentey 700w hbp700-gs 80 plus bronze active pfc autofan 20+4x1
-                        4+4pinesx1 satax6 molexx2
-                        pci-e6+2x2</p>
-                    <p class="precio">$ 42,000.00</p>
-                    <a href="./pages/producto.html" class="text-end btn btn-primary">Comprar</a>
-                </div>
+        <!-- Poductos inyectados mediante JavaScript -->
+        <section>
+            <div class="container row justify-content-lg-between justify-content-sm-center m-auto" id="contenedor-js">
             </div>
-
-            <!-- 2 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/RAM.webp" class="card-img-top" alt="Imagen memoria RAM">
-                <div class="card-body">
-                    <h4 class="card-title">Memoria Ram 8gb</h4>
-                    <p class="card-text">Memoria Ddr3 8gb 1600mhz 1.5v Desktop Mushkin Essentials Latencia 11-11-11-28
-                    </p>
-                    <p class="precio">$ 13,500.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
-            <!-- 3 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/HDD.webp" class="card-img-top" alt="Imagen disco rigido">
-                <div class="card-body">
-                    <h4 class="card-title">Disco Rigido 2tb</h4>
-                    <p class="card-text">Disco rigido 2tb 3.5 sata 3 seagate barracuda desktop escritorio</p>
-                    <p class="precio">$ 43,500.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
-            <!-- 4 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/webcam.webp" class="card-img-top" alt="Imagen de Webcam">
-                <div class="card-body">
-                    <h4 class="card-title">Webcam Philips</h4>
-                    <p class="card-text">Webcam philips p406b fhd 1080p usb 1920x1080 30fps angulo de vision 70 grados
-                    </p>
-                    <p class="precio">$ 12,500.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
-            <!-- 5 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/mother.webp" class="card-img-top" alt="Imagen de placa madre">
-                <div class="card-body">
-                    <h4 class="card-title">Placa Madre Asrock</h4>
-                    <p class="card-text">Mother asrock z690 extreme hdmi displayport 4xddr4 1xps2 5xusb 1xusbtipoc
-                        3xpciex16 1xpciex1 8xsata
-                        2xm2
-                        1xm2wifi rj45 7.1 1700 compatible generacion 12 y 13 - Ya actualizado</p>
-                    <p class="precio">$ 160,000.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
-            <!-- 6 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/procesador.webp" class="card-img-top" alt="Imagen de procesador">
-                <div class="card-body">
-                    <h4 class="card-title">Procesador Intel I7</h4>
-                    <p class="card-text">Procesador intel comet lake i7-10700 8 nucleos 16 hilos 2.9ghz a 4.8ghz socket
-                        1200 solo windows 10
-                        64
-                        Bits.
-                        Decima generacion trae cooler trae video integrado</p>
-                    <p class="precio">$ 165,000.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
-            <!-- 7 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/m21tb.webp" class="card-img-top" alt="Imagen de m.2">
-                <div class="card-body">
-                    <h4 class="card-title">Disco Solido Crucial 1TB</h4>
-                    <p class="card-text">Disco solido SSD 1TB M2 Cruscial P3 22x80mm interface PCIE NVME 3D NAND lectura
-                        3500MB escritura
-                        1900mb PCIE G3 1X4.</p>
-                    <p class="precio">$ 32,000.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
-            <!-- 8 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/ssd120.webp" class="card-img-top" alt="Imagen de SSD">
-                <div class="card-body">
-                    <h4 class="card-title">Disco Solido ADATA 120GB</h4>
-                    <p class="card-text">Disco solido SSD 120BG 2.5 sata III Adata ultimate SU650 lectura 520MB
-                        escritura 450MB.</p>
-                    <p class="precio">$ 9,700.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
-            <!-- 9 - Card -->
-            <div class="card col-12 col-md-6 col-lg-4 mb-5" style="width: 40rem;">
-                <img src="./img/ssd240.webp" class="card-img-top" alt="Imagen de SSD">
-                <div class="card-body">
-                    <h4 class="card-title">Disco Solido Kingston 240GB</h4>
-                    <p class="card-text">Disco solido SSD 240GB 2.5 sata III Kingston A400 lectura hasta 500MB y
-                        escritura hasta 450MB.</p>
-                    <p class="precio">$ 13,000.00</p>
-                    <a href="./pages/producto.html" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-
         </section>
 
     </main>

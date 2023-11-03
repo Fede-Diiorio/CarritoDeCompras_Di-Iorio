@@ -6,8 +6,8 @@
 
 body {
   background-color: #5a98ad;
-  min-width: 100vh;
-  color: #ffffff; }
+  color: #ffffff;
+  overflow-x: hidden; }
 
 .marco {
   background-color: #40798C;
@@ -71,26 +71,11 @@ p,
 a,
 input,
 label,
-textarea {
+textarea,
+strong {
   font-size: 1.6rem;
   font-family: "Source Sans 3", sans-serif;
   line-height: 2; }
-
-.nav-link, .header .navbar {
-  font-size: 1.8rem;
-  color: #ffffff;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out; }
-  .nav-link:hover, .header .navbar:hover {
-    color: #FFA500; }
-
-.nav-link, .header .navbar {
-  font-size: 1.8rem;
-  color: #ffffff;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out; }
-  .nav-link:hover, .header .navbar:hover {
-    color: #FFA500; }
 
 .header {
   background-color: #1F363D;
@@ -103,6 +88,13 @@ textarea {
     padding-bottom: 0; }
     .header .navbar img {
       width: 12.5rem; }
+    .header .navbar .nav-link {
+      font-size: 1.8rem;
+      color: #ffffff;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out; }
+      .header .navbar .nav-link:hover {
+        color: #FFA500; }
     .header .navbar .navbar-toggler {
       border-radius: 100%;
       padding: 1rem;
@@ -116,7 +108,7 @@ textarea {
     position: relative; }
     .header .navbar-collapse {
       text-align: center; }
-      .header .navbar-collapse .nav-link, .header .navbar-collapse .navbar {
+      .header .navbar-collapse .nav-link {
         display: inline-block; } }
 
 @media (max-width: 768px) {
@@ -191,8 +183,7 @@ textarea {
   .barra-filtro .barra-filtro__nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; }
+    align-items: center; }
     .barra-filtro .barra-filtro__nav .barra-filtro__items {
       display: flex;
       align-items: center;
@@ -215,7 +206,11 @@ textarea {
         border-radius: 2rem;
         border: 1px solid #1F363D; }
         .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .dropdown-menu .dropdown-item {
-          transition: color .3s ease-in-out; }
+          transition: color .3s ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem; }
           .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .dropdown-menu .dropdown-item:hover {
             background-color: transparent;
             color: #FFA500; }
@@ -226,40 +221,45 @@ textarea {
     .barra-filtro .barra-filtro__nav .barra-filtro__busqueda button {
       font-size: 1.3rem; }
 
-.card {
-  border-radius: 1.5rem;
-  border: 2px solid #1F363D;
-  transition: border 0.3s ease-in-out;
-  overflow: hidden; }
-  .card img {
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out; }
-  .card:hover {
-    border: 2px solid #FFA500; }
-    .card:hover .card-text {
-      border-bottom: 1px solid #FFA500; }
-    .card:hover img {
-      transform: scale(1.05); }
-  .card .card-text {
-    min-height: 13rem;
-    border-bottom: 1px solid #b1adad;
-    transition: border 0.3s ease-in-out; }
-  .card .btn {
-    font-size: 1.6rem; }
-  .card .precio {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #16a816; }
+.justify-content-sm-center {
+  justify-content: space-between !important; }
+  .justify-content-sm-center .card {
+    border-radius: 1.5rem;
+    border: 2px solid #1F363D;
+    transition: border 0.3s ease-in-out;
+    overflow: hidden;
+    max-width: 40rem; }
+    .justify-content-sm-center .card img {
+      transform: scale(1);
+      transition: transform 0.5s ease-in-out; }
+    .justify-content-sm-center .card:hover {
+      border: 2px solid #FFA500; }
+      .justify-content-sm-center .card:hover .card-text {
+        border-bottom: 1px solid #FFA500; }
+      .justify-content-sm-center .card:hover img {
+        transform: scale(1.05); }
+    .justify-content-sm-center .card .card-text {
+      min-height: 19.3rem;
+      border-bottom: 1px solid #b1adad;
+      transition: border 0.3s ease-in-out; }
+    .justify-content-sm-center .card .btn {
+      font-size: 1.6rem; }
+    .justify-content-sm-center .card .precio {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #16a816; }
+
+@media (max-width: 1400px) {
+  .justify-content-sm-center .card {
+    max-width: 30rem; } }
 
 @media (max-width: 768px) {
+  .justify-content-sm-center {
+    justify-content: center !important; }
   .barra-filtro .barra-filtro__nav {
     justify-content: center; }
     .barra-filtro .barra-filtro__nav .barra-filtro__items {
       display: none; } }
-
-@media (max-width: 320px) {
-  .justify-content-sm-center {
-    justify-content: center; } }
 
 .producto-individual {
   display: flex;
