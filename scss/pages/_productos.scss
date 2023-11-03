@@ -107,7 +107,7 @@
         }
 
         .card-text {
-            min-height: 19.3rem;
+            min-height: 13rem;
             border-bottom: 1px solid $gris;
             transition: border 0.3s ease-in-out;
         }
@@ -120,6 +120,21 @@
             font-size: 2rem;
             font-weight: bold;
             color: $precio;
+        }
+
+        .contenedor-boton {
+            display: flex;
+            gap: 1rem;
+
+            .cantidad-comprar {
+                border: 2px solid $primarioOscuro;
+                border-radius: 1rem;
+                width: 20%;
+
+                &[type="number"] {
+                    padding-left: 1rem;
+                }
+            }
         }
     }
 }

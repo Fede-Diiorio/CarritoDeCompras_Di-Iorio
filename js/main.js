@@ -1,81 +1,4 @@
 // FUNCIONES
-function recorrerArregloParaImprimirPrompt(accion) {
-   let concatenarTexto = "Ingrese el ID del producto que desea " + accion + " o 'S' para salir:\n";
-   for (const elemento of productos) {
-      concatenarTexto += (elemento.id + ". Nombre: " + elemento.nombre + " -- Precio: $" + elemento.precio + "\n");
-   }
-
-   return concatenarTexto;
-}
-
-function empujarProductoAlCarritoDeCompras(opcion, cantidad) {
-   if (opcion >= 0 && opcion < productos.length) {
-      const producto = productos[opcion];
-      if (cantidad > 0 && cantidad <= producto.stock) {
-         for (let i = 0; i < cantidad; i++) {
-            carritoDeCompras.push(producto);
-            producto.stock--;
-         }
-      } else {
-         alert("Cantidad inválida o producto sin stock suficiente.");
-      }
-   } else {
-      alert("Opción incorrecta.");
-   }
-}
-
-function quitarProductoDelCarrito(opcion) {
-   while (opcion.toLowerCase() !== "s") {
-      mostrarPoductosDelCarrito(carritoDeCompras);
-      if (opcion >= 0 && opcion < carritoDeCompras.length) {
-         const productoARetornar = carritoDeCompras.splice(opcion, 1)[0];
-         productos[productoARetornar.id].stock++;
-      } else {
-         alert("Opción incorrecta. Ingrese un número válido.");
-      }
-
-      opcion = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
-   }
-}
-
-function mostrarPoductosDelCarrito(arreglo) {
-   let mostrarCarrito = arreglo.map((el, index) => index + ". " + el.nombre + " -- $" + el.precio);
-   return mostrarCarrito.join("\n");
-}
-
-function redondearEnvioParaCarritoDeCompras(numero) {
-   return Math.round(numero / 1000) * 1000;
-}
-
-function terminarCompra(arreglo) {
-   let terminarCompra = arreglo.reduce((acc, el) => acc + el.precio, 0);
-   if (terminarCompra !== 0) {
-      let tipoDeEnvio = parseInt(prompt("Ingrese 1 para envio a domicilio o 2 para retirar por el local."))
-      while (tipoDeEnvio !== 1 || tipoDeEnvio !== 2) {
-
-         switch (tipoDeEnvio) {
-            case 1:
-               if (terminarCompra < 200000) {
-                  terminarCompra += 5000;
-                  return "\nTotal a pagar con envio incluido: $" + redondearEnvioParaCarritoDeCompras(terminarCompra);
-               } else if (terminarCompra > 200000) {
-                  terminarCompra += 2500;
-                  return "\nTotal a pagar con envio incluido: $" + redondearEnvioParaCarritoDeCompras(terminarCompra);
-               } else if (terminarCompra > 500000) {
-                  return "El envio es sin cargo.\nTotal a pagar: $" + terminarCompra;
-               }
-               break;
-            case 2:
-               return "\nEl total a pagar el: $" + terminarCompra;
-            default:
-               alert("Ingrese una opción válida.")
-         }
-         tipoDeEnvio = parseInt(prompt("Ingrese 1 para envio a domicilio o 2 para retirar por el local."))
-      }
-   }
-   return ("Gracias por consultar nuestros precios.");
-}
-
 function renderizarProductos(productos) {
    const contenedor = document.getElementById("contenedor-js");
    contenedor.innerHTML = "";
@@ -105,9 +28,17 @@ function renderizarProductos(productos) {
       precio.className = "precio";
       precio.innerText = `$${producto.precio}`;
 
-      const botonComprar = document.createElement("a");
+      const contenedorParaBoton = document.createElement("div");
+      contenedorParaBoton.className = "contenedor-boton";
+
+      const botonComprar = document.createElement("label");
       botonComprar.className = "btn btn-primary";
       botonComprar.innerText = "Comprar"
+
+      const cantidadComprar = document.createElement("input");
+      cantidadComprar.className = "cantidad-comprar";
+      cantidadComprar.type = "number";
+      cantidadComprar.value = 1;
 
       const stock = document.createElement("p");
       stock.className =
@@ -117,7 +48,8 @@ function renderizarProductos(productos) {
 
 
       // Insertar elementos uno dentro de otro
-      divCard.append(titulo, descripcion, stock, precio, botonComprar);
+      contenedorParaBoton.append(botonComprar, cantidadComprar)
+      divCard.append(titulo, descripcion, stock, precio, contenedorParaBoton);
       divPadre.append(imagenProducto, divCard);
 
       contenedor.append(divPadre);
@@ -223,23 +155,6 @@ function filtradoPorOrden() {
    });
 };
 
-function filtradoPorClase() {
-   const filtroDeClase = document.getElementById("filtroClaseRepuestoDisco")
-   filtroDeClase.addEventListener("click", (e) => {
-      const target = e.target;
-
-      if (target.id === "filtroClaseRepuestoDisco") {
-         const filtro = productos.filter((el) => el.categoria.includes("Unidad"))
-         renderizarProductos(filtro);
-      }
-
-      if (target.id === "filtroClaseRepuestoMemoria") {
-         const filtro = productos.filter((el) => el.categoria.includes("Memoria"))
-         renderizarProductos(filtro);
-      }
-   });
-}
-
 //VARIABLES
 class Producto {
    constructor(id, nombre, precio, stock, imagen, descripcion, descripcionImagen, categoria) {
@@ -269,37 +184,6 @@ const productos = [
 let carritoDeCompras = [];
 
 // INICIO DEL PROGRAMA
-let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
-
-// inicio del bulce principal
-while (opcion !== 0) {
-   switch (opcion) {
-      case 1:
-         let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
-         let cantidadAgregar = parseInt(prompt("Ingrese la cantidad de productos que desea agregar"));
-         empujarProductoAlCarritoDeCompras(opcionAgregar, cantidadAgregar);
-         break;
-
-      case 2:
-         let opcionQuitar = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
-         quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
-         break;
-
-      case 3:
-         alert(mostrarPoductosDelCarrito(carritoDeCompras));
-         break;
-
-      default:
-         alert("OPCIÓN INCORRECTA")
-   }
-
-   opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
-}
-
-alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
-
 renderizarProductos(productos);
 BarraDeBusqueda();
 filtradoPorOrden();
-filtradoPorClase();
-renderizarProductosParaCarrito(carritoDeCompras)
