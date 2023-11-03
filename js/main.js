@@ -269,35 +269,36 @@ const productos = [
 let carritoDeCompras = [];
 
 // INICIO DEL PROGRAMA
-// let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
+let opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
 
-// // inicio del bulce principal
-// while (opcion !== 0) {
-//    switch (opcion) {
-//       case 1:
-//          let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
-//          empujarPoductoAlCarritoDeCompras(opcionAgregar);
-//          break;
+// inicio del bulce principal
+while (opcion !== 0) {
+   switch (opcion) {
+      case 1:
+         let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
+         empujarPoductoAlCarritoDeCompras(opcionAgregar);
+         break;
 
-//       case 2:
-//          let opcionQuitar = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
-//          quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
-//          break;
+      case 2:
+         let opcionQuitar = prompt("Elija el numero producto que desea eliminar o ingrese 'S' para salir:\n" + mostrarPoductosDelCarrito(carritoDeCompras));
+         quitarProductoDelCarrito(opcionQuitar, carritoDeCompras);
+         break;
 
-//       case 3:
-//          alert(mostrarPoductosDelCarrito(carritoDeCompras));
-//          break;
+      case 3:
+         alert(mostrarPoductosDelCarrito(carritoDeCompras));
+         break;
 
-//       default:
-//          alert("OPCIÓN INCORRECTA")
-//    }
+      default:
+         alert("OPCIÓN INCORRECTA")
+   }
 
-//    opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
-// }
+   opcion = parseInt(prompt("Bienvenido a SySPC. Elija la opción deseada: \n1. Agregar al carrito\n2. Quitar del carrito\n3. Revisar carrito\n0. Terminar compra"));
+}
 
-// alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
+alert(mostrarPoductosDelCarrito(carritoDeCompras) + terminarCompra(carritoDeCompras));
 
 renderizarProductos(productos);
 BarraDeBusqueda();
 filtradoPorOrden();
 filtradoPorClase();
+renderizarProductosParaCarrito(carritoDeCompras)
