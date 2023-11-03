@@ -150,23 +150,44 @@ function BarraDeBusqueda() {
 
 function filtradoPrecio() {
    const ordenFiltros = document.getElementById("ordenFiltros");
-   const mayorPrecio = document.getElementById("mayorPrecio");
-   const menorPrecio = document.getElementById("menorPrecio");
 
    ordenFiltros.addEventListener("click", (e) => {
-      e.preventDefault();
+      const target = e.target;
 
-      mayorPrecio.addEventListener("click", productos.sort((a, b) => b.precio - a.precio));
-      renderizarProductos(productos);
+      if (target.type === "radio") {
+         if (target.id === "mayorPrecio") {
+            // Ordenar productos por mayor precio
+            productos.sort((a, b) => b.precio - a.precio);
+         } else if (target.id === "menorPrecio") {
+            // Ordenar productos por menor precio
+            productos.sort((a, b) => a.precio - b.precio);
+         } else if (target.id === "alfabetoAZ") {
+            productos.sort((a, b) => {
+               if (a.nombre > b.nombre) {
+                  return 1;
+               };
+               if (a.nombre < b.nombre) {
+                  return -1;
+               };
+               return 0;
+            });
+         } else if (target.id === "alfabetoZA") {
+            productos.sort((a, b) => {
+               if (a.nombre > b.nombre) {
+                  return -1;
+               };
+               if (a.nombre < b.nombre) {
+                  return 1;
+               };
+               return 0;
+            });
+         };
+
+         renderizarProductos(productos);
+      };
    });
+};
 
-   ordenFiltros.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      menorPrecio.addEventListener("click", productos.sort((a, b) => a.precio - b.precio))
-      renderizarProductos(productos);
-   });
-}
 
 //VARIABLES
 class Producto {
@@ -180,7 +201,7 @@ class Producto {
       this.descripcionImagen = descripcionImagen;
       this.categoria = categoria;
    }
-}
+};
 
 const productos = [
    new Producto(0, "Fuente Sentey 700W", 42000, 10, "../img/Fuente.webp", "Fuente sentey 700w hbp700-gs 80 plus bronze active pfc autofan 20+4x1 4+4pinesx1 satax6 molexx 2pci-e6+2x2", "Imagen Fuente Sentey", "Fuente"),
