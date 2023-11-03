@@ -8,27 +8,19 @@ function recorrerArregloParaImprimirPrompt(accion) {
    return concatenarTexto;
 }
 
-function empujarPoductoAlCarritoDeCompras(opcion) {
-   let contador = 0;
-   while (opcion.toLowerCase() !== "s") {
-      if (opcion >= 0 && opcion <= 8) {
-         let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea agreagar"))
-         if (cantidad > 0 && cantidad <= productos[opcion].stock) {
-            while (contador !== cantidad) {
-               carritoDeCompras.push(productos[parseInt(opcion)]);
-               contador++;
-               productos[opcion].stock--;
-            }
-         } else if (cantidad >= productos[opcion].stock) {
-            alert("Solamente contamos con un stock de " + productos[opcion].stock + " unidades de ese producto.")
-         }
-         else {
-            alert("Debe ingresar un número válido mayor a 0.")
+function empujarProductoAlCarritoDeCompras(opcion, cantidad) {
+   if (opcion >= 0 && opcion < productos.length) {
+      const producto = productos[opcion];
+      if (cantidad > 0 && cantidad <= producto.stock) {
+         for (let i = 0; i < cantidad; i++) {
+            carritoDeCompras.push(producto);
+            producto.stock--;
          }
       } else {
-         alert("OPCIÓN INCORRECTA")
+         alert("Cantidad inválida o producto sin stock suficiente.");
       }
-      opcion = prompt(recorrerArregloParaImprimirPrompt("agregar"));
+   } else {
+      alert("Opción incorrecta.");
    }
 }
 
@@ -134,7 +126,6 @@ function renderizarProductos(productos) {
 
 function renderizarProductosParaCarrito(arreglo) {
    const contenedor = document.getElementById("contenedorParaCarrito");
-   contenedor.innerHTML = "";
 
    for (const producto of arreglo) {
       const divPadre = document.createElement("div");
@@ -152,16 +143,26 @@ function renderizarProductosParaCarrito(arreglo) {
       divInformacion.className = "carrito__informacion";
 
       const nombreProducto = document.createElement("p");
-      nombreProducto.innerHTML = `<strog>Nombre:</strong> ${producto.nombre}`;
+      nombreProducto.className = "carrito__texto";
+      nombreProducto.innerHTML = `<strong>Nombre:</strong> ${producto.nombre}`;
 
       const precioProducto = document.createElement("p");
-      precioProducto.innerHTML = `<strog>Precio:</strong> ${producto.precio}`;
+      precioProducto.className = "carrito__texto";
+      precioProducto.innerHTML = `<strong>Precio:</strong> ${producto.precio}`;
 
       const cantidadProducto = document.createElement("p");
-      cantidadProducto.innerHTML = `<strog>Cantidad:</strong> ${producto.stock}`;
+      cantidadProducto.className = "carrito__texto";
+      cantidadProducto.innerHTML = `<strong>Cantidad:</strong> ${producto.stock}`;
 
       const totalProducto = document.createElement("p");
-      totalProducto.innerHTML = `<strog>Total:</strong> ${producto.precio}`;
+      totalProducto.className = "carrito__texto";
+      totalProducto.innerHTML = `<strong>Total:</strong> ${producto.precio}`;
+
+      divInformacion.append(nombreProducto, precioProducto, cantidadProducto, totalProducto);
+      divContenedor.append(imgCarrito, divInformacion);
+      divPadre.append(divContenedor);
+
+      contenedor.append(divPadre);
    }
 
 }
@@ -239,7 +240,6 @@ function filtradoPorClase() {
    });
 }
 
-
 //VARIABLES
 class Producto {
    constructor(id, nombre, precio, stock, imagen, descripcion, descripcionImagen, categoria) {
@@ -276,7 +276,8 @@ while (opcion !== 0) {
    switch (opcion) {
       case 1:
          let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
-         empujarPoductoAlCarritoDeCompras(opcionAgregar);
+         let cantidadAgregar = parseInt(prompt("Ingrese la cantidad de productos que desea agregar"));
+         empujarProductoAlCarritoDeCompras(opcionAgregar, cantidadAgregar);
          break;
 
       case 2:
