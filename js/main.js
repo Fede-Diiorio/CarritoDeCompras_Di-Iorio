@@ -148,9 +148,24 @@ function BarraDeBusqueda() {
    });
 }
 
-function filtradoMayorPrecio() {
-   const productosMayorPrecio = productos.sort((a, b) => b.precio - a.precio);
-   renderizarProductos(productosMayorPrecio);
+function filtradoPrecio() {
+   const ordenFiltros = document.getElementById("ordenFiltros");
+   const mayorPrecio = document.getElementById("mayorPrecio");
+   const menorPrecio = document.getElementById("menorPrecio");
+
+   ordenFiltros.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      mayorPrecio.addEventListener("click", productos.sort((a, b) => b.precio - a.precio));
+      renderizarProductos(productos);
+   });
+
+   ordenFiltros.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      menorPrecio.addEventListener("click", productos.sort((a, b) => a.precio - b.precio))
+      renderizarProductos(productos);
+   });
 }
 
 //VARIABLES
@@ -212,3 +227,4 @@ let carritoDeCompras = [];
 
 renderizarProductos(productos);
 BarraDeBusqueda();
+filtradoPrecio();

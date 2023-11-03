@@ -239,7 +239,7 @@ strong {
       .justify-content-sm-center .card:hover img {
         transform: scale(1.05); }
     .justify-content-sm-center .card .card-text {
-      min-height: 13rem;
+      min-height: 19.3rem;
       border-bottom: 1px solid #b1adad;
       transition: border 0.3s ease-in-out; }
     .justify-content-sm-center .card .btn {
