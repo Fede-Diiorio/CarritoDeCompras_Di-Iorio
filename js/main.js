@@ -148,7 +148,7 @@ function BarraDeBusqueda() {
    });
 }
 
-function filtradoPrecio() {
+function filtradoPorOrden() {
    const ordenFiltros = document.getElementById("ordenFiltros");
 
    ordenFiltros.addEventListener("click", (e) => {
@@ -187,6 +187,23 @@ function filtradoPrecio() {
       };
    });
 };
+
+function filtradoPorClase() {
+   const filtroDeClase = document.getElementById("filtroClaseRepuestoDisco")
+   filtroDeClase.addEventListener("click", (e) => {
+      const target = e.target;
+
+      if (target.id === "filtroClaseRepuestoDisco") {
+         const filtro = productos.filter((el) => el.categoria.includes("Unidad"))
+         renderizarProductos(filtro);
+      }
+
+      if (target.id === "filtroClaseRepuestoMemoria") {
+         const filtro = productos.filter((el) => el.categoria.includes("Memoria"))
+         renderizarProductos(filtro);
+      }
+   });
+}
 
 
 //VARIABLES
@@ -248,4 +265,5 @@ let carritoDeCompras = [];
 
 renderizarProductos(productos);
 BarraDeBusqueda();
-filtradoPrecio();
+filtradoPorOrden();
+filtradoPorClase();
