@@ -8,27 +8,19 @@ function recorrerArregloParaImprimirPrompt(accion) {
    return concatenarTexto;
 }
 
-function empujarPoductoAlCarritoDeCompras(opcion) {
-   let contador = 0;
-   while (opcion.toLowerCase() !== "s") {
-      if (opcion >= 0 && opcion <= 8) {
-         let cantidad = parseInt(prompt("Ingrese la cantidad de productos que desea agreagar"))
-         if (cantidad > 0 && cantidad <= productos[opcion].stock) {
-            while (contador !== cantidad) {
-               carritoDeCompras.push(productos[parseInt(opcion)]);
-               contador++;
-               productos[opcion].stock--;
-            }
-         } else if (cantidad >= productos[opcion].stock) {
-            alert("Solamente contamos con un stock de " + productos[opcion].stock + " unidades de ese producto.")
-         }
-         else {
-            alert("Debe ingresar un número válido mayor a 0.")
+function empujarProductoAlCarritoDeCompras(opcion, cantidad) {
+   if (opcion >= 0 && opcion < productos.length) {
+      const producto = productos[opcion];
+      if (cantidad > 0 && cantidad <= producto.stock) {
+         for (let i = 0; i < cantidad; i++) {
+            carritoDeCompras.push(producto);
+            producto.stock--;
          }
       } else {
-         alert("OPCIÓN INCORRECTA")
+         alert("Cantidad inválida o producto sin stock suficiente.");
       }
-      opcion = prompt(recorrerArregloParaImprimirPrompt("agregar"));
+   } else {
+      alert("Opción incorrecta.");
    }
 }
 
@@ -116,7 +108,8 @@ while (opcion !== 0) {
    switch (opcion) {
       case 1:
          let opcionAgregar = prompt(recorrerArregloParaImprimirPrompt("agregar"));
-         empujarPoductoAlCarritoDeCompras(opcionAgregar);
+         let cantidadAgregar = parseInt(prompt("Ingrese la cantidad de productos que desea agregar"));
+         empujarProductoAlCarritoDeCompras(opcionAgregar, cantidadAgregar);
          break;
 
       case 2:
