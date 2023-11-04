@@ -1,4 +1,22 @@
+//CLASES
+class Producto {
+   constructor(id, nombre, precio, stock, imagen, descripcion, descripcionImagen, categoria) {
+      this.id = id;
+      this.nombre = nombre;
+      this.precio = precio;
+      this.stock = stock;
+      this.imagen = imagen;
+      this.descripcion = descripcion
+      this.descripcionImagen = descripcionImagen;
+      this.categoria = categoria;
+   }
+};
+
 // FUNCIONES
+function restarStockDeProducto(producto, cantidad) {
+   return producto.stock -= cantidad;
+}
+
 function renderizarProductos(productos) {
    const contenedor = document.getElementById("contenedor-js");
    contenedor.innerHTML = "";
@@ -41,10 +59,19 @@ function renderizarProductos(productos) {
       cantidadComprar.value = 1;
 
       const stock = document.createElement("p");
-      stock.className =
-         stock.innerHTML = `<strong>Stock:</strong> ${producto.stock}`;
+      stock.innerHTML = `<strong>Stock:</strong> ${producto.stock}`;
 
-      botonComprar.addEventListener("click", () => window.location.href = "../pages/producto.html");
+      botonComprar.addEventListener("click", () => {
+         const cantidad = cantidadComprar.value;
+
+         if (cantidad > producto.stock) {
+            alert("STOCK INSUFICIENTE.");
+         } else {
+            guardarProductoenLS(producto, cantidad);
+            restarStockDeProducto(producto, cantidad);
+            console.log(producto.nombre, producto.stock);
+         }
+      });
 
 
       // Insertar elementos uno dentro de otro
@@ -155,20 +182,37 @@ function filtradoPorOrden() {
    });
 };
 
-//VARIABLES
-class Producto {
-   constructor(id, nombre, precio, stock, imagen, descripcion, descripcionImagen, categoria) {
-      this.id = id;
-      this.nombre = nombre;
-      this.precio = precio;
-      this.stock = stock;
-      this.imagen = imagen;
-      this.descripcion = descripcion
-      this.descripcionImagen = descripcionImagen;
-      this.categoria = categoria;
-   }
-};
+function guardarProductoenLS(producto, cantidad) {
 
+   const agregarProducto = {
+      nombre: producto.nombre,
+      precio: producto.precio,
+      cantidad: parseInt(cantidad),
+
+   }
+
+   if (carritoDeCompras === null) {
+      carrito = [agregarProducto];
+   } else {
+      const indiceProductoExistente = carritoDeCompras.findIndex((el) => {
+         return el.nombre === agregarProducto.nombre;
+      });
+
+      if (indiceProductoExistente === -1) {
+         carritoDeCompras.push(agregarProducto);
+      } else {
+         carritoDeCompras[indiceProductoExistente].cantidad += parseInt(cantidad);
+      }
+   }
+
+   // Enviar a Local Storage
+
+   localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
+
+   // renderizarProductosParaCarrito(carritoDeCompras);
+}
+
+// INICIO DEL PROGRAMA
 const productos = [
    new Producto(0, "Fuente Sentey 700W", 42000, 10, "../img/Fuente.webp", "Fuente sentey 700w hbp700-gs 80 plus bronze active pfc autofan 20+4x1 4+4pinesx1 satax6 molexx 2pci-e6+2x2", "Imagen Fuente Sentey", "Fuente"),
    new Producto(1, "Memoria Ram 8gb", 13500, 60, "../img/RAM.webp", "Memoria Ddr3 8gb 1600mhz 1.5v Desktop Mushkin Essentials Latencia 11-11-11-28", "Imagen Memoria RAM", "Memoria"),
@@ -183,7 +227,6 @@ const productos = [
 
 let carritoDeCompras = [];
 
-// INICIO DEL PROGRAMA
 renderizarProductos(productos);
 BarraDeBusqueda();
 filtradoPorOrden();
