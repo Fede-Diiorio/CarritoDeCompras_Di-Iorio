@@ -114,7 +114,7 @@ function filtradoPorOrden() {
 
 function obtenerProductosDeLocalStorage() {
 
-   const carrito = JSON.parse(localStorage.getItem("carrito"));
+   carrito = JSON.parse(localStorage.getItem("carrito"));
 
    if (carrito) {
       renderizarTablaDeProductos(carrito);
@@ -129,17 +129,11 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
       cantidad: parseInt(cantidad),
    };
 
-   const ls = localStorage.getItem("carrito");
-
-
    // Si no hay productos cargados a Local Storage
-   if (ls === null) {
-      const carrito = [agregarProducto];
+   if (carrito === null) {
+      carrito = [agregarProducto];
 
-      localStorage.setItem("carrito", JSON.stringify(carrito));
    } else {
-
-      const carrito = JSON.parse(ls);
 
       // Buscar indice de producto en local storage
       const buscarIndiceDeProducto = carrito.findIndex((el) => {
@@ -152,10 +146,10 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
          carrito[buscarIndiceDeProducto].cantidad += parseInt(cantidad);
       }
 
-      // Actualizar Local Storage
-      localStorage.setItem("carrito", JSON.stringify(carrito));
-      renderizarTablaDeProductos(carrito);
    }
+   // Actualizar Local Storage
+   localStorage.setItem("carrito", JSON.stringify(carrito));
+   renderizarTablaDeProductos(carrito);
 }
 
 function renderizarTablaDeProductos(productosCarrito) {
