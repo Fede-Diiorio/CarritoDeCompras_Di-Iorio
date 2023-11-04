@@ -112,6 +112,16 @@ function filtradoPorOrden() {
    });
 };
 
+function obtenerProductosDeLocalStorage() {
+
+   const carrito = JSON.parse(localStorage.getItem("carrito"));
+
+   if (carrito) {
+      renderizarTablaDeProductos(carrito);
+   }
+
+}
+
 function guardarProductoEnLocalStorage(producto, cantidad) {
    const agregarProducto = {
       nombre: producto.nombre,
@@ -120,6 +130,7 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
    };
 
    const ls = localStorage.getItem("carrito");
+
 
    // Si no hay productos cargados a Local Storage
    if (ls === null) {
@@ -143,7 +154,27 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
 
       // Actualizar Local Storage
       localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderizarTablaDeProductos(carrito);
    }
+}
+
+function renderizarTablaDeProductos(productosCarrito) {
+   const tbody = document.querySelector("#carrito table tbody");
+   tbody.innerHTML = "";
+
+   let trs = "";
+
+   for (const productoCarrito of productosCarrito) {
+      trs += `
+         <tr>
+            <td>${productoCarrito.nombre}</td>
+            <td>$${productoCarrito.precio}</td>
+            <td>${productoCarrito.cantidad}</td>
+         </tr>
+      `;
+   }
+
+   tbody.innerHTML = trs;
 }
 
 function renderizarProductos(productos) {
@@ -205,7 +236,6 @@ function renderizarProductos(productos) {
    }
 }
 
-
 // INICIO DEL PROGRAMA
 const productos = [
    new Producto(0, "Fuente Sentey 700W", 42000, 10, "../img/Fuente.webp", "Fuente sentey 700w hbp700-gs 80 plus bronze active pfc autofan 20+4x1 4+4pinesx1 satax6 molexx 2pci-e6+2x2", "Imagen Fuente Sentey", "Fuente"),
@@ -224,3 +254,4 @@ let carrito = [];
 renderizarProductos(productos);
 BarraDeBusqueda();
 filtradoPorOrden();
+obtenerProductosDeLocalStorage();
