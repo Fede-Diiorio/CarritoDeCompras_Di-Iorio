@@ -248,7 +248,13 @@ function renderizarProductos(productos) {
       botonComprar.addEventListener("click", () => {
          const cantidad = cantidadComprar.value;
 
-         guardarProductoEnLocalStorage(producto, cantidad);
+         if (cantidad > producto.stock) {
+            alert("STOCK INSUFICIENTE");
+         } else {
+
+            guardarProductoEnLocalStorage(producto, cantidad);
+         }
+
       });
 
       // Insertar elementos uno dentro de otro
