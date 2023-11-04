@@ -13,6 +13,49 @@ class Producto {
 };
 
 // FUNCIONES
+function renderizarProductosParaCarrito(arreglo) {
+   const contenedor = document.getElementById("contenedorParaCarrito");
+
+   for (const producto of arreglo) {
+      const divPadre = document.createElement("div");
+      divPadre.className = "carrito";
+
+      const divContenedor = document.createElement("div");
+      divContenedor.className = "carrito__producto";
+
+      const imgCarrito = document.createElement("img");
+      imgCarrito.className = "carrito__imagen";
+      imgCarrito.setAttribute("src", producto.imagen);
+      imgCarrito.setAttribute("alt", producto.descripcionImagen);
+
+      const divInformacion = document.createElement("div");
+      divInformacion.className = "carrito__informacion";
+
+      const nombreProducto = document.createElement("p");
+      nombreProducto.className = "carrito__texto";
+      nombreProducto.innerHTML = `<strong>Nombre:</strong> ${producto.nombre}`;
+
+      const precioProducto = document.createElement("p");
+      precioProducto.className = "carrito__texto";
+      precioProducto.innerHTML = `<strong>Precio:</strong> ${producto.precio}`;
+
+      const cantidadProducto = document.createElement("p");
+      cantidadProducto.className = "carrito__texto";
+      cantidadProducto.innerHTML = `<strong>Cantidad:</strong> ${producto.stock}`;
+
+      const totalProducto = document.createElement("p");
+      totalProducto.className = "carrito__texto";
+      totalProducto.innerHTML = `<strong>Total:</strong> ${producto.precio}`;
+
+      divInformacion.append(nombreProducto, precioProducto, cantidadProducto, totalProducto);
+      divContenedor.append(imgCarrito, divInformacion);
+      divPadre.append(divContenedor);
+
+      contenedor.append(divPadre);
+   }
+
+}
+
 function restarStockDeProducto(producto, cantidad) {
    return producto.stock -= cantidad;
 }
@@ -73,7 +116,6 @@ function renderizarProductos(productos) {
          }
       });
 
-
       // Insertar elementos uno dentro de otro
       contenedorParaBoton.append(botonComprar, cantidadComprar)
       divCard.append(titulo, descripcion, stock, precio, contenedorParaBoton);
@@ -81,49 +123,6 @@ function renderizarProductos(productos) {
 
       contenedor.append(divPadre);
    }
-}
-
-function renderizarProductosParaCarrito(arreglo) {
-   const contenedor = document.getElementById("contenedorParaCarrito");
-
-   for (const producto of arreglo) {
-      const divPadre = document.createElement("div");
-      divPadre.className = "carrito";
-
-      const divContenedor = document.createElement("div");
-      divContenedor.className = "carrito__producto";
-
-      const imgCarrito = document.createElement("img");
-      imgCarrito.className = "carrito__imagen";
-      imgCarrito.setAttribute("src", producto.imagen);
-      imgCarrito.setAttribute("alt", producto.descripcionImagen);
-
-      const divInformacion = document.createElement("div");
-      divInformacion.className = "carrito__informacion";
-
-      const nombreProducto = document.createElement("p");
-      nombreProducto.className = "carrito__texto";
-      nombreProducto.innerHTML = `<strong>Nombre:</strong> ${producto.nombre}`;
-
-      const precioProducto = document.createElement("p");
-      precioProducto.className = "carrito__texto";
-      precioProducto.innerHTML = `<strong>Precio:</strong> ${producto.precio}`;
-
-      const cantidadProducto = document.createElement("p");
-      cantidadProducto.className = "carrito__texto";
-      cantidadProducto.innerHTML = `<strong>Cantidad:</strong> ${producto.stock}`;
-
-      const totalProducto = document.createElement("p");
-      totalProducto.className = "carrito__texto";
-      totalProducto.innerHTML = `<strong>Total:</strong> ${producto.precio}`;
-
-      divInformacion.append(nombreProducto, precioProducto, cantidadProducto, totalProducto);
-      divContenedor.append(imgCarrito, divInformacion);
-      divPadre.append(divContenedor);
-
-      contenedor.append(divPadre);
-   }
-
 }
 
 function BarraDeBusqueda() {
@@ -209,11 +208,74 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
 
    localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
 
+   renderizarTablaCarrito(carritoDeCompras);
+
    // renderizarProductosParaCarrito(carritoDeCompras);
 }
 
 function obtenerProductosEnLocalStorage() {
    carritoDeCompras = JSON.parse(localStorage.getItem("carrito"));
+
+   if (carrito) {
+      renderizarTablaCarrito(carritoDeCompras);
+   }
+}
+
+function eliminarProducto(producto) {
+
+   // Busco el producto a eliminar del carrito por el nombre
+   const indiceProductoAEliminar = carritoDeCompras.findIndex((el) => {
+      return producto.nombre === el.nombre;
+   });
+
+   // Si el índice del producto a eliminar existe
+   if (indiceProductoAEliminar !== -1) {
+
+      // Elimino el producto del carrito
+      carritoDeCompras.splice(indiceProductoAEliminar, 1);
+
+      // Actualizo localStorage
+      localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
+
+      renderizarTablaCarrito(carritoDeCompras);
+   }
+}
+
+function renderizarTablaCarrito(productosCarrito) {
+
+   const tbody = document.querySelector("#carrito table tbody");
+   tbody.innerHTML = "";
+
+   for (const productoCarrito of productosCarrito) {
+
+      const tr = document.createElement("tr");
+
+      const tdNombre = document.createElement("td");
+      tdNombre.innerText = productoCarrito.nombre;
+
+      const tdPrecio = document.createElement("td");
+      tdPrecio.innerText = `$${productoCarrito.precio}`;
+
+      const tdCantidad = document.createElement("td");
+      tdCantidad.innerText = productoCarrito.cantidad;
+
+      const tdEliminar = document.createElement("td");
+
+      const botonEliminar = document.createElement("button");
+      botonEliminar.className = "btn btn-danger";
+      botonEliminar.innerText = "Eliminar";
+
+      // Agregar evento al boton
+      botonEliminar.addEventListener("click", () => {
+         eliminarProducto(productoCarrito);
+      });
+
+      // Agregar elementos uno adentro de otro
+      tdEliminar.append(botonEliminar);
+      tr.append(tdNombre, tdPrecio, tdCantidad, tdEliminar);
+
+      tbody.append(tr);
+   }
 }
 
 // INICIO DEL PROGRAMA
