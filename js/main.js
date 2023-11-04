@@ -56,75 +56,6 @@ function renderizarProductosParaCarrito(arreglo) {
 
 }
 
-function restarStockDeProducto(producto, cantidad) {
-   return producto.stock -= cantidad;
-}
-
-function renderizarProductos(productos) {
-   const contenedor = document.getElementById("contenedor-js");
-   contenedor.innerHTML = "";
-
-   for (const producto of productos) {
-
-      const divPadre = document.createElement("div");
-      divPadre.className = "card col-12 col-md-6 col-lg-4 mb-5 width-card"
-
-      const imagenProducto = document.createElement("img");
-      imagenProducto.className = "card-img-top";
-      imagenProducto.setAttribute("src", producto.imagen);
-      imagenProducto.setAttribute("alt", producto.descripcionImagen);
-
-      const divCard = document.createElement("div");
-      divCard.className = "card-body"
-
-      const titulo = document.createElement("h4");
-      titulo.className = "card-title";
-      titulo.innerText = producto.nombre;
-
-      const descripcion = document.createElement("p");
-      descripcion.className = "card-text";
-      descripcion.innerText = producto.descripcion;
-
-      const precio = document.createElement("p");
-      precio.className = "precio";
-      precio.innerText = `$${producto.precio}`;
-
-      const contenedorParaBoton = document.createElement("div");
-      contenedorParaBoton.className = "contenedor-boton";
-
-      const botonComprar = document.createElement("label");
-      botonComprar.className = "btn btn-primary";
-      botonComprar.innerText = "Comprar"
-
-      const cantidadComprar = document.createElement("input");
-      cantidadComprar.className = "cantidad-comprar";
-      cantidadComprar.type = "number";
-      cantidadComprar.value = 1;
-
-      const stock = document.createElement("p");
-      stock.innerHTML = `<strong>Stock:</strong> ${producto.stock}`;
-
-      botonComprar.addEventListener("click", () => {
-         const cantidad = cantidadComprar.value;
-
-         if (cantidad > producto.stock) {
-            alert("STOCK INSUFICIENTE.");
-         } else {
-            guardarProductoEnLocalStorage(producto, cantidad);
-            restarStockDeProducto(producto, cantidad);
-            renderizarProductos(productos)
-         }
-      });
-
-      // Insertar elementos uno dentro de otro
-      contenedorParaBoton.append(botonComprar, cantidadComprar)
-      divCard.append(titulo, descripcion, stock, precio, contenedorParaBoton);
-      divPadre.append(imagenProducto, divCard);
-
-      contenedor.append(divPadre);
-   }
-}
-
 function BarraDeBusqueda() {
    const formBusqueda = document.getElementById("formBusqueda");
    const BarraDeBusqueda = document.getElementById("inputBuscarProductos");
@@ -182,101 +113,98 @@ function filtradoPorOrden() {
 };
 
 function guardarProductoEnLocalStorage(producto, cantidad) {
-
    const agregarProducto = {
       nombre: producto.nombre,
       precio: producto.precio,
       cantidad: parseInt(cantidad),
+   };
 
-   }
+   const ls = localStorage.getItem("carrito");
 
-   if (carritoDeCompras === null) {
-      carritoDeCompras = [agregarProducto];
+   // Si no hay productos cargados a Local Storage
+   if (ls === null) {
+      const carrito = [agregarProducto];
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
    } else {
-      const indiceProductoExistente = carritoDeCompras.findIndex((el) => {
+
+      const carrito = JSON.parse(ls);
+
+      // Buscar indice de producto en local storage
+      const buscarIndiceDeProducto = carrito.findIndex((el) => {
          return el.nombre === agregarProducto.nombre;
       });
 
-      if (indiceProductoExistente === -1) {
-         carritoDeCompras.push(agregarProducto);
+      if (buscarIndiceDeProducto === -1) {
+         carrito.push(agregarProducto);
       } else {
-         carritoDeCompras[indiceProductoExistente].cantidad += parseInt(cantidad);
+         carrito[buscarIndiceDeProducto].cantidad += parseInt(cantidad);
       }
-   }
 
-   // Enviar a Local Storage
-
-   localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
-
-   renderizarTablaCarrito(carritoDeCompras);
-
-   // renderizarProductosParaCarrito(carritoDeCompras);
-}
-
-function obtenerProductosEnLocalStorage() {
-   carritoDeCompras = JSON.parse(localStorage.getItem("carrito"));
-
-   if (carrito) {
-      renderizarTablaCarrito(carritoDeCompras);
+      // Actualizar Local Storage
+      localStorage.setItem("carrito", JSON.stringify(carrito));
    }
 }
 
-function eliminarProducto(producto) {
+function renderizarProductos(productos) {
+   const contenedor = document.getElementById("contenedor-js");
+   contenedor.innerHTML = "";
 
-   // Busco el producto a eliminar del carrito por el nombre
-   const indiceProductoAEliminar = carritoDeCompras.findIndex((el) => {
-      return producto.nombre === el.nombre;
-   });
+   for (const producto of productos) {
 
-   // Si el índice del producto a eliminar existe
-   if (indiceProductoAEliminar !== -1) {
+      const divPadre = document.createElement("div");
+      divPadre.className = "card col-12 col-md-6 col-lg-4 mb-5 width-card"
 
-      // Elimino el producto del carrito
-      carritoDeCompras.splice(indiceProductoAEliminar, 1);
+      const imagenProducto = document.createElement("img");
+      imagenProducto.className = "card-img-top";
+      imagenProducto.setAttribute("src", producto.imagen);
+      imagenProducto.setAttribute("alt", producto.descripcionImagen);
 
-      // Actualizo localStorage
-      localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
+      const divCard = document.createElement("div");
+      divCard.className = "card-body"
 
-      renderizarTablaCarrito(carritoDeCompras);
-   }
-}
+      const titulo = document.createElement("h4");
+      titulo.className = "card-title";
+      titulo.innerText = producto.nombre;
 
-function renderizarTablaCarrito(productosCarrito) {
+      const descripcion = document.createElement("p");
+      descripcion.className = "card-text";
+      descripcion.innerText = producto.descripcion;
 
-   const tbody = document.querySelector("#carrito table tbody");
-   tbody.innerHTML = "";
+      const precio = document.createElement("p");
+      precio.className = "precio";
+      precio.innerText = `$${producto.precio}`;
 
-   for (const productoCarrito of productosCarrito) {
+      const contenedorParaBoton = document.createElement("div");
+      contenedorParaBoton.className = "contenedor-boton";
 
-      const tr = document.createElement("tr");
+      const botonComprar = document.createElement("label");
+      botonComprar.className = "btn btn-primary";
+      botonComprar.innerText = "Comprar"
 
-      const tdNombre = document.createElement("td");
-      tdNombre.innerText = productoCarrito.nombre;
+      const cantidadComprar = document.createElement("input");
+      cantidadComprar.className = "cantidad-comprar";
+      cantidadComprar.type = "number";
+      cantidadComprar.value = 1;
 
-      const tdPrecio = document.createElement("td");
-      tdPrecio.innerText = `$${productoCarrito.precio}`;
+      const stock = document.createElement("p");
+      stock.innerHTML = `<strong>Stock:</strong> ${producto.stock}`;
 
-      const tdCantidad = document.createElement("td");
-      tdCantidad.innerText = productoCarrito.cantidad;
+      botonComprar.addEventListener("click", () => {
+         const cantidad = cantidadComprar.value;
 
-      const tdEliminar = document.createElement("td");
-
-      const botonEliminar = document.createElement("button");
-      botonEliminar.className = "btn btn-danger";
-      botonEliminar.innerText = "Eliminar";
-
-      // Agregar evento al boton
-      botonEliminar.addEventListener("click", () => {
-         eliminarProducto(productoCarrito);
+         guardarProductoEnLocalStorage(producto, cantidad);
       });
 
-      // Agregar elementos uno adentro de otro
-      tdEliminar.append(botonEliminar);
-      tr.append(tdNombre, tdPrecio, tdCantidad, tdEliminar);
+      // Insertar elementos uno dentro de otro
+      contenedorParaBoton.append(botonComprar, cantidadComprar)
+      divCard.append(titulo, descripcion, stock, precio, contenedorParaBoton);
+      divPadre.append(imagenProducto, divCard);
 
-      tbody.append(tr);
+      contenedor.append(divPadre);
    }
 }
+
 
 // INICIO DEL PROGRAMA
 const productos = [
@@ -291,9 +219,8 @@ const productos = [
    new Producto(8, "Disco Solido Kingston 240gb", 13000, 20, "../img/ssd240.webp", "Disco solido SSD 240GB 2.5 sata III Kingston A400 lectura hasta 500MB y escritura hasta 450MB.", "Disco SSD Kingston", "Unidad de Almacenamiento")
 ];
 
-let carritoDeCompras = [];
+let carrito = [];
 
 renderizarProductos(productos);
 BarraDeBusqueda();
 filtradoPorOrden();
-obtenerProductosEnLocalStorage();
