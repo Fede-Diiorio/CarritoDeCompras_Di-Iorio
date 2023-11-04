@@ -241,6 +241,7 @@ function renderizarProductos(productos) {
       cantidadComprar.className = "cantidad-comprar";
       cantidadComprar.type = "number";
       cantidadComprar.value = 1;
+      cantidadComprar.min = 1;
 
       const stock = document.createElement("p");
       stock.innerHTML = `<strong>Stock:</strong> ${producto.stock}`;
@@ -248,13 +249,16 @@ function renderizarProductos(productos) {
       botonComprar.addEventListener("click", () => {
          const cantidad = cantidadComprar.value;
 
-         if (cantidad > producto.stock) {
-            alert("STOCK INSUFICIENTE");
+         if (cantidad < 1) {
+            alert("INGRESE UN NÚMERO VÁLIDO")
          } else {
+            if (cantidad > producto.stock) {
+               alert("STOCK INSUFICIENTE");
+            } else {
 
-            guardarProductoEnLocalStorage(producto, cantidad);
-         }
-
+               guardarProductoEnLocalStorage(producto, cantidad);
+            };
+         };
       });
 
       // Insertar elementos uno dentro de otro
