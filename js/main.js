@@ -110,14 +110,26 @@ function filtradoPorOrden() {
          renderizarProductos(productos);
       };
    });
-};
+}
+
+function eliminarProducto(producto) {
+   const indeceParaEliminarProducto = carrito.findIndex((el) => {
+      return producto.nombre === el.nombre;
+   });
+
+   if (indeceParaEliminarProducto !== -1) {
+      carrito.splice(indeceParaEliminarProducto, 1);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderizarTablaCarrito(carrito);
+   }
+}
 
 function obtenerProductosDeLocalStorage() {
 
    carrito = JSON.parse(localStorage.getItem("carrito"));
 
    if (carrito) {
-      renderizarTablaDeProductos(carrito);
+      renderizarTablaCarrito(carrito);
    }
 
 }
@@ -149,26 +161,44 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
    }
    // Actualizar Local Storage
    localStorage.setItem("carrito", JSON.stringify(carrito));
-   renderizarTablaDeProductos(carrito);
+   renderizarTablaCarrito(carrito);
 }
 
-function renderizarTablaDeProductos(productosCarrito) {
+function renderizarTablaCarrito(productosCarrito) {
+
    const tbody = document.querySelector("#carrito table tbody");
    tbody.innerHTML = "";
 
-   let trs = "";
-
    for (const productoCarrito of productosCarrito) {
-      trs += `
-         <tr>
-            <td>${productoCarrito.nombre}</td>
-            <td>$${productoCarrito.precio}</td>
-            <td>${productoCarrito.cantidad}</td>
-         </tr>
-      `;
-   }
 
-   tbody.innerHTML = trs;
+      const tr = document.createElement("tr");
+
+      const tdNombre = document.createElement("td");
+      tdNombre.innerText = productoCarrito.nombre;
+
+      const tdPrecio = document.createElement("td");
+      tdPrecio.innerText = `$${productoCarrito.precio}`;
+
+      const tdCantidad = document.createElement("td");
+      tdCantidad.innerText = productoCarrito.cantidad;
+
+      const tdEliminar = document.createElement("td");
+
+      const botonEliminar = document.createElement("button");
+      botonEliminar.className = "btn btn-danger";
+      botonEliminar.innerText = "Eliminar";
+
+      // Agregar evento al boton
+      botonEliminar.addEventListener("click", () => {
+         eliminarProducto(productoCarrito);
+      });
+
+      // Agregar elementos uno adentro de otro
+      tdEliminar.append(botonEliminar);
+      tr.append(tdNombre, tdPrecio, tdCantidad, tdEliminar);
+
+      tbody.append(tr);
+   }
 }
 
 function renderizarProductos(productos) {
