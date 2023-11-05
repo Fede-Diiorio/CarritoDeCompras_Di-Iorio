@@ -164,6 +164,10 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
    renderizarTablaCarrito(carrito);
 }
 
+function obtenerTotalesParciales(producto) {
+   return producto.precio * producto.cantidad;
+}
+
 function renderizarTablaCarrito(productosCarrito) {
 
    const tbody = document.querySelector("#carrito table tbody");
@@ -182,6 +186,9 @@ function renderizarTablaCarrito(productosCarrito) {
       const tdCantidad = document.createElement("td");
       tdCantidad.innerText = productoCarrito.cantidad;
 
+      const tdTotal = document.createElement("td");
+      tdTotal.innerText = `$${obtenerTotalesParciales(productoCarrito)}`
+
       const tdEliminar = document.createElement("td");
 
       const botonEliminar = document.createElement("button");
@@ -195,7 +202,7 @@ function renderizarTablaCarrito(productosCarrito) {
 
       // Agregar elementos uno adentro de otro
       tdEliminar.append(botonEliminar);
-      tr.append(tdNombre, tdPrecio, tdCantidad, tdEliminar);
+      tr.append(tdNombre, tdPrecio, tdCantidad, tdTotal, tdEliminar);
 
       tbody.append(tr);
    }
