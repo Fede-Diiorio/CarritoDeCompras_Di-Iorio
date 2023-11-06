@@ -139,6 +139,7 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
       nombre: producto.nombre,
       precio: producto.precio,
       cantidad: parseInt(cantidad),
+      total: producto.precio * cantidad,
    };
 
    // Si no hay productos cargados a Local Storage
@@ -156,6 +157,8 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
          carrito.push(agregarProducto);
       } else {
          carrito[buscarIndiceDeProducto].cantidad += parseInt(cantidad);
+         agregarProducto.total += parseInt(agregarProducto.total);
+
       }
 
    }
@@ -167,6 +170,7 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
 function obtenerTotalesParciales(producto) {
    return producto.precio * producto.cantidad;
 }
+
 
 function renderizarTablaCarrito(productosCarrito) {
 
@@ -186,8 +190,8 @@ function renderizarTablaCarrito(productosCarrito) {
       const tdCantidad = document.createElement("td");
       tdCantidad.innerText = productoCarrito.cantidad;
 
-      const tdTotal = document.createElement("td");
-      tdTotal.innerText = `$${obtenerTotalesParciales(productoCarrito)}`
+      const tdTotalPorProducto = document.createElement("td");
+      tdTotalPorProducto.innerText = `$${obtenerTotalesParciales(productoCarrito)}`
 
       const tdEliminar = document.createElement("td");
 
@@ -202,7 +206,7 @@ function renderizarTablaCarrito(productosCarrito) {
 
       // Agregar elementos uno adentro de otro
       tdEliminar.append(botonEliminar);
-      tr.append(tdNombre, tdPrecio, tdCantidad, tdTotal, tdEliminar);
+      tr.append(tdNombre, tdPrecio, tdCantidad, tdTotalPorProducto, tdEliminar);
 
       tbody.append(tr);
    }
