@@ -8,7 +8,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
 
         .barra-filtro__items {
             display: flex;
@@ -19,6 +18,7 @@
             list-style-type: none;
 
             .barra-filtro__item {
+
                 .btn.btn-secondary {
                     color: $blanco;
                     text-decoration: none;
@@ -28,6 +28,7 @@
                     border: none;
                     font-size: 1.3rem;
                     transition: color .3s ease-in-out;
+                    padding: 0;
 
                     &:hover {
                         color: $secundario;
@@ -40,12 +41,26 @@
 
                     .dropdown-item {
                         transition: color .3s ease-in-out;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 1rem;
 
                         &:hover {
                             background-color: transparent;
                             color: $secundario;
                         }
                     }
+                }
+            }
+
+            .fa-cart-shopping {
+                color: $blanco;
+                font-size: 2rem;
+                transition: color .3s ease-in-out;
+
+                &:hover {
+                    color: $secundario;
                 }
             }
         }
@@ -64,62 +79,87 @@
     }
 }
 
-.card {
-    border-radius: 1.5rem;
-    border: 2px solid $primarioOscuro;
-    transition: border 0.3s ease-in-out;
-    overflow: hidden;
+.justify-content-sm-center {
+    justify-content: space-between !important;
 
-    img {
-        transform: scale(1);
-        transition: transform 0.5s ease-in-out;
-    }
-
-    &:hover {
-        border: 2px solid $secundario;
-
-        .card-text {
-            border-bottom: 1px solid $secundario;
-        }
+    .card {
+        border-radius: 1.5rem;
+        border: 2px solid $primarioOscuro;
+        transition: border 0.3s ease-in-out;
+        overflow: hidden;
+        max-width: 40rem;
 
         img {
-            transform: scale(1.05);
+            transform: scale(1);
+            transition: transform 0.5s ease-in-out;
         }
-    }
 
-    .card-text {
-        min-height: 13rem;
-        border-bottom: 1px solid $gris;
-        transition: border 0.3s ease-in-out;
-    }
+        &:hover {
+            border: 2px solid $secundario;
 
-    .btn {
-        font-size: 1.6rem;
-    }
+            .card-text {
+                border-bottom: 1px solid $secundario;
+            }
 
-    .precio {
-        font-size: 2rem;
-        font-weight: bold;
-        color: $precio;
-    }
-}
+            img {
+                transform: scale(1.05);
+            }
+        }
 
-@media (max-width: 768px) {
-    .barra-filtro {
-        .barra-filtro__nav {
-            justify-content: center;
+        .card-text {
+            min-height: 13rem;
+            border-bottom: 1px solid $gris;
+            transition: border 0.3s ease-in-out;
+        }
 
+        .btn {
+            font-size: 1.6rem;
+        }
 
-            .barra-filtro__items {
-                display: none;
+        .precio {
+            font-size: 2rem;
+            font-weight: bold;
+            color: $precio;
+        }
+
+        .contenedor-boton {
+            display: flex;
+            gap: 1rem;
+
+            .cantidad-comprar {
+                border: 2px solid $primarioOscuro;
+                border-radius: 1rem;
+                width: 20%;
+
+                &[type="number"] {
+                    padding-left: 1rem;
+                }
             }
         }
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 1400px) {
+    .justify-content-sm-center {
+        .card {
+            max-width: 30rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
 
     .justify-content-sm-center {
-        justify-content: center;
+        justify-content: center !important;
+    }
+
+    .barra-filtro {
+        .barra-filtro__nav {
+            justify-content: center;
+
+            .barra-filtro__items {
+                display: none;
+            }
+        }
     }
 }

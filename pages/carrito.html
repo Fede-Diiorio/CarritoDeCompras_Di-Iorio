@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
     <meta name="keywords"
-        content="informatica, computadora, tecnología, servicio tecnico, notebook, repuestos, productos, SyS PC">
+        content="informatica, computadora, tecnología, servicio tecnico, notebook, repuesto, producto, SyS PC">
     <meta name="description"
         content="En SyS PC te damos acceso a un espectro de productos informaticos para personalizar o armar tu computadora. Obten el repuesto que estás buscando.">
-    <link rel="icon" href="./img/SysPcIcono.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Productos | SyS PC</title>
+    <link rel="icon" href="../img/SysPcIcono.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Producto Individual | SyS PC</title>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark">
 
                 <!-- Logo de syspc -->
-                <a class="navbar-brand" href="./index.html"><img src="./img/logob.png" alt="Logo de SyS PC"></a>
+                <a class="navbar-brand" href="../index.html"><img src="../img/logob.png" alt="Logo de SyS PC"></a>
 
                 <!-- boton de hamburguesa -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -44,7 +43,7 @@
                             <a class="nav-link " href="#">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link header__nav--activo" href="./index.html">Productos</a>
+                            <a class="nav-link header__nav--activo" href="../index.html">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Descargas</a>
@@ -59,84 +58,7 @@
     </header>
 
     <main>
-
-        <h1>Productos</h1>
-
-        <!-- Barra de Filtrado -->
-        <div class="barra-filtro">
-            <nav class="barra-filtro__nav container">
-
-                <!-- Items de filtrado -->
-                <ul class="barra-filtro__items">
-
-                    <li class="barra-filtro__item">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Filtros
-                        </button>
-
-                        <!-- Submenu -->
-                        <form class="dropdown-menu" id="ordenFiltros">
-                            <div class="dropdown-item">
-                                <label>Mayor Precio</label>
-                                <input type="radio" name="filtros" id="mayorPrecio">
-                            </div>
-                            <div class="dropdown-item">
-                                <label>Menor Precio</label>
-                                <input type="radio" name="filtros" id="menorPrecio">
-                            </div>
-                            <div class="dropdown-item">
-                                <label>A - Z</label>
-                                <input type="radio" name="filtros" id="alfabetoAZ">
-                            </div>
-                            <div class="dropdown-item">
-                                <label>Z - A</label>
-                                <input type="radio" name="filtros" id="alfabetoZA">
-                            </div>
-                        </form>
-                    </li>
-                    <li><a id="contenedorParaCarrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                </ul>
-
-                <!-- Barra de busqueda -->
-                <form id="formBusqueda" class="d-flex barra-filtro__busqueda" role="search">
-                    <input id="inputBuscarProductos" class="form-control me-2" autocomplete="off" type="search"
-                        placeholder="Buscar" aria-label="Search">
-                    <button class="boton" type="submit">Buscar</button>
-                </form>
-
-            </nav>
-            <!-- .barra-filtro__nav -->
-        </div>
-        <!-- .barra-filtro -->
-
-        <!-- Poductos inyectados mediante JavaScript -->
-        <section>
-            <div class="container row justify-content-lg-between justify-content-sm-center m-auto" id="contenedor-js">
-            </div>
-        </section>
-
-        <h3 class="mt-3 container m-auto">PRODUCTOS AGREGADOS</h3>
-        <div id="carrito">
-
-            <table class="table container m-auto">
-                <thead>
-                    <tr>
-                        <th>NOMBRE</th>
-                        <th>PRECIO</th>
-                        <th>CANTIDAD</th>
-                        <th>TOTAL</th>
-                        <th>ELIMINAR</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                </tbody>
-            </table>
-
-        </div>
-
+        <div class="container"></div>
     </main>
 
     <footer class="footer">
@@ -178,7 +100,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="footer__nav--active" href="#">
+                            <a class="footer__nav--active" href="../index.html">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <p>Productos</p>
                             </a>
@@ -259,8 +181,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
         </script>
-
-    <script src="./js/main.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 
