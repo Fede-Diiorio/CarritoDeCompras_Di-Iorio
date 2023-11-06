@@ -129,7 +129,7 @@ function obtenerProductosDeLocalStorage() {
    carrito = JSON.parse(localStorage.getItem("carrito"));
 
    if (carrito) {
-      renderizarTablaCarrito(carrito);
+      // renderizarTablaCarrito(carrito);
    }
 
 }
@@ -263,6 +263,7 @@ function renderizarProductos(productos) {
             } else {
 
                guardarProductoEnLocalStorage(producto, cantidad);
+               alert(`Se agregaron ${cantidad} ${titulo}`)
             };
          };
       });

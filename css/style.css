@@ -72,7 +72,8 @@ a,
 input,
 label,
 textarea,
-strong {
+strong,
+th {
   font-size: 1.6rem;
   font-family: "Source Sans 3", sans-serif;
   line-height: 2; }
@@ -277,54 +278,6 @@ strong {
     .barra-filtro .barra-filtro__nav .barra-filtro__items {
       display: none; } }
 
-.producto-individual {
-  display: flex;
-  margin-top: 3rem;
-  gap: 2rem; }
-  .producto-individual .producto-individual__imagen {
-    height: 45.6rem;
-    border-radius: 2rem;
-    border: 2px solid #1F363D; }
-  .producto-individual .producto-individual__informacion .producto-individual__descripcion {
-    min-height: 12rem;
-    border-bottom: 1px solid #FFA500;
-    margin-bottom: 2rem; }
-  .producto-individual .producto-individual__informacion .precio {
-    background-color: #ffffff;
-    display: inline;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    border: 2px solid #FFA500;
-    margin-top: 2rem; }
-  .producto-individual .producto-individual__informacion .producto-individual__form {
-    margin-top: 5rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem; }
-    .producto-individual .producto-individual__informacion .producto-individual__form .producto-individual__cantidad {
-      background-color: #ffffff;
-      color: #000000;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      border: 2px solid #1F363D;
-      display: flex;
-      align-items: center; }
-      .producto-individual .producto-individual__informacion .producto-individual__form .producto-individual__cantidad label {
-        padding-right: 1rem;
-        text-transform: uppercase;
-        border-right: 2px solid #1F363D;
-        font-weight: bold; }
-      .producto-individual .producto-individual__informacion .producto-individual__form .producto-individual__cantidad input {
-        border: none;
-        padding-left: 1rem;
-        outline: none; }
-
-@media (max-width: 1024px) {
-  .producto-individual {
-    flex-direction: column; }
-    .producto-individual .producto-individual__imagen {
-      height: 100%; } }
-
 .carrito {
   background-color: #ffffff;
   margin: 1rem auto;
@@ -346,3 +299,8 @@ strong {
         text-align: center;
         padding: 2rem;
         margin: 0 auto; }
+
+.thead .tr {
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid #1F363D; }

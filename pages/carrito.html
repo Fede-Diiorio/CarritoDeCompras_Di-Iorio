@@ -58,7 +58,79 @@
     </header>
 
     <main>
-        <div class="container"></div>
+        <main>
+
+            <h1>Productos Agregados</h1>
+
+            <!-- Barra de Filtrado -->
+            <div class="barra-filtro">
+                <nav class="barra-filtro__nav container">
+
+                    <!-- Items de filtrado -->
+                    <ul class="barra-filtro__items">
+
+                        <li class="barra-filtro__item">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Filtros
+                            </button>
+
+                            <!-- Submenu -->
+                            <form class="dropdown-menu" id="ordenFiltros">
+                                <div class="dropdown-item">
+                                    <label>Mayor Precio</label>
+                                    <input type="radio" name="filtros" id="mayorPrecio">
+                                </div>
+                                <div class="dropdown-item">
+                                    <label>Menor Precio</label>
+                                    <input type="radio" name="filtros" id="menorPrecio">
+                                </div>
+                                <div class="dropdown-item">
+                                    <label>A - Z</label>
+                                    <input type="radio" name="filtros" id="alfabetoAZ">
+                                </div>
+                                <div class="dropdown-item">
+                                    <label>Z - A</label>
+                                    <input type="radio" name="filtros" id="alfabetoZA">
+                                </div>
+                            </form>
+                        </li>
+                        <li><a id="contenedorParaCarrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li class="barra-filtro__item"><a class="btn btn-secondary" href="../index.html">Volver</a></li>
+                    </ul>
+
+                    <!-- Barra de busqueda -->
+                    <form id="formBusqueda" class="d-flex barra-filtro__busqueda" role="search">
+                        <input id="inputBuscarProductos" class="form-control me-2" autocomplete="off" type="search"
+                            placeholder="Buscar" aria-label="Search">
+                        <button class="boton" type="submit">Buscar</button>
+                    </form>
+
+                </nav>
+                <!-- .barra-filtro__nav -->
+            </div>
+            <!-- .barra-filtro -->
+
+            <div id="carrito">
+
+                <table class="table container m-auto">
+                    <thead class="thead">
+                        <tr class="tr">
+                            <th class="th">NOMBRE</th>
+                            <th class="th">PRECIO</th>
+                            <th class="th">CANTIDAD</th>
+                            <th class="th">TOTAL</th>
+                            <th class="th">ELIMINAR</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
     </main>
 
     <footer class="footer">
