@@ -155,11 +155,9 @@
 
     .barra-filtro {
         .barra-filtro__nav {
+            flex-direction: column-reverse;
+            gap: 1rem;
             justify-content: center;
-
-            .barra-filtro__items {
-                display: none;
-            }
         }
     }
 }

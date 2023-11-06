@@ -274,9 +274,9 @@ th {
   .justify-content-sm-center {
     justify-content: center !important; }
   .barra-filtro .barra-filtro__nav {
-    justify-content: center; }
-    .barra-filtro .barra-filtro__nav .barra-filtro__items {
-      display: none; } }
+    flex-direction: column-reverse;
+    gap: 1rem;
+    justify-content: center; } }
 
 .carrito {
   background-color: #ffffff;
