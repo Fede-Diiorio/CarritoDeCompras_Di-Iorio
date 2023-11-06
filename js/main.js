@@ -190,7 +190,7 @@ function renderizarTablaCarrito(productosCarrito) {
       tdCantidad.innerText = productoCarrito.cantidad;
 
       const tdTotalPorProducto = document.createElement("td");
-      tdTotalPorProducto.innerText = `$${obtenerTotalesParciales(productoCarrito)}`
+      tdTotalPorProducto.innerText = `$${productoCarrito.total}`;
 
       const tdEliminar = document.createElement("td");
 
