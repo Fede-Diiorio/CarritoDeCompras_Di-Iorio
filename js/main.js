@@ -157,7 +157,7 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
          carrito.push(agregarProducto);
       } else {
          carrito[buscarIndiceDeProducto].cantidad += parseInt(cantidad);
-         agregarProducto.total += parseInt(agregarProducto.total);
+         carrito[buscarIndiceDeProducto].total += parseInt(agregarProducto.total);
 
       }
 
@@ -170,7 +170,6 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
 function obtenerTotalesParciales(producto) {
    return producto.precio * producto.cantidad;
 }
-
 
 function renderizarTablaCarrito(productosCarrito) {
 
