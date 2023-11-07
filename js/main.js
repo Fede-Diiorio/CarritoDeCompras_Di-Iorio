@@ -145,7 +145,6 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
 }
 
 function obtenerProductosDeLocalStorage() {
-
    carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
