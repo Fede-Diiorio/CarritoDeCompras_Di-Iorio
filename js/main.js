@@ -118,6 +118,7 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
       precio: producto.precio,
       cantidad: parseInt(cantidad),
       total: producto.precio * cantidad,
+      stock: producto.stock
    };
 
    // Si no hay productos cargados a Local Storage
@@ -125,6 +126,13 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
       carrito = [agregarProducto];
 
    } else {
+
+      if (agregarProducto.stock >= agregarProducto.cantidad) {
+         agregarProducto.stock -= agregarProducto.cantidad;
+      } else {
+         alert("Stock insuficiente.");
+         return; // No agregamos el producto si no hay suficiente stock
+      }
 
       // Buscar indice de producto en local storage
       const buscarIndiceDeProducto = carrito.findIndex((el) => {
@@ -136,9 +144,8 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
       } else {
          carrito[buscarIndiceDeProducto].cantidad += parseInt(cantidad);
          carrito[buscarIndiceDeProducto].total += parseInt(agregarProducto.total);
-
+         carrito[buscarIndiceDeProducto].stock -= parseInt(cantidad);
       }
-
    }
    // Actualizar Local Storage
    localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -204,7 +211,7 @@ function renderizarProductos(productos) {
             } else {
 
                guardarProductoEnLocalStorage(producto, cantidad);
-               alert(`Se agregaron ${cantidad} ${producto.nombre}`)
+               // alert(`Se agregaron ${cantidad} ${producto.nombre}`)
             };
          };
       });
