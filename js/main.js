@@ -77,7 +77,8 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
       precio: producto.precio,
       cantidad: parseInt(cantidad),
       total: producto.precio * cantidad,
-      stock: producto.stock
+      stock: producto.stock,
+      imagen: `.${producto.imagen}`
    };
 
    // Si no hay productos cargados a Local Storage
