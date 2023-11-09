@@ -17,6 +17,12 @@
         color: $negro;
         margin: 0;
         text-align: center;
-        min-width: 19rem;
+        min-width: 6.3rem;
+
+        &:first-of-type {
+            min-width: 19rem;
+        }
     }
 }
+
+@media (max-width: 1200px) {}

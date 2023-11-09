@@ -297,4 +297,6 @@ td {
     color: #000000;
     margin: 0;
     text-align: center;
-    min-width: 19rem; }
+    min-width: 6.3rem; }
+    .tabla-productos .tabla-productos__texto:first-of-type {
+      min-width: 19rem; }
