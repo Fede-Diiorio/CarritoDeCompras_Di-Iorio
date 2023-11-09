@@ -44,7 +44,6 @@ function renderizarTablaCarrito(productosCarrito) {
 
         // Agregar elementos uno adentro de otro
         quitarProducto.append(botonEliminar);
-
         divPadre.append(imagenProducto, nombreProducto, precioProducto, cantidadProducto, totalPorProducto, quitarProducto);
         contenedorCarrito.append(divPadre);
 

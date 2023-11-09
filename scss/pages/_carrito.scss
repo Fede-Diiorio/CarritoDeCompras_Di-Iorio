@@ -19,55 +19,69 @@
         text-align: center;
         min-width: 6.3rem;
     }
+
     .tabla-productos__texto.tabla-productos__texto--1 {
         min-width: 19rem;
     }
 }
 
 @media (max-width: 768px) {
-    .tabla-productos {
+
+    .grid-tabla-productos {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        gap: 2rem;
-        grid-template-areas:
-            "imagen imagen"
-            "imagen imagen"
-            "nombre nombre"
-            "unidad precio"
-            "eliminar eliminar"
-        ;
 
-        .tabla-productos__img {
-            grid-area: imagen;
-            height: 100%;
-            margin: 0 auto;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid $gris;
-        }
+        .tabla-productos {
+            margin: 1rem auto;
+            max-width: 30rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-areas:
+                "imagen imagen"
+                "imagen imagen"
+                "nombre nombre"
+                "unidad precio"
+                ". eliminar"
+            ;
 
-        .tabla-productos__texto {
-            height: 3.2rem;
-        }
+            .tabla-productos__img {
+                grid-area: imagen;
+                margin: 0 auto;
+                padding-bottom: 2rem;
+                border-bottom: 1px solid $gris;
+                height: 10rem;
+            }
 
-        .tabla-productos__texto--1 {
-            grid-area: nombre;
-        }
+            .tabla-productos__texto {
+                height: 3.2rem;
+            }
 
-        .tabla-productos__texto--2 { 
-            grid-area: precio;
-        }
+            .tabla-productos__texto--1 {
+                grid-area: nombre;
+            }
 
-        .tabla-productos__texto--3 {
-            grid-area: unidad;
-        }
-        
-        .tabla-productos__texto.tabla-productos__texto--4 {
-            display: none;
-        }
+            .tabla-productos__texto--2 {
+                grid-area: precio;
+            }
 
-        .tabla-productos__texto--5 {
-            grid-area: eliminar;
+            .tabla-productos__texto--3 {
+                grid-area: unidad;
+            }
+
+            .tabla-productos__texto.tabla-productos__texto--4 {
+                display: none;
+            }
+
+            .tabla-productos__texto--5 {
+                grid-area: eliminar;
+            }
         }
+    }
+}
+
+@media (max-width: 475px) {
+    .grid-tabla-productos {
+        display: block;
     }
 }
