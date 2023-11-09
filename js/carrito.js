@@ -15,23 +15,23 @@ function renderizarTablaCarrito(productosCarrito) {
         imagenProducto.setAttribute("src", productoCarrito.imagen);
 
         const nombreProducto = document.createElement("p");
-        nombreProducto.className = "tabla-productos__texto";
+        nombreProducto.className = "tabla-productos__texto tabla-productos__texto--1";
         nombreProducto.innerText = productoCarrito.nombre;
 
         const precioProducto = document.createElement("p");
-        precioProducto.className = "tabla-productos__texto";
+        precioProducto.className = "tabla-productos__texto tabla-productos__texto--2";
         precioProducto.innerText = `$${productoCarrito.precio}`;
 
         const cantidadProducto = document.createElement("p");
-        cantidadProducto.className = "tabla-productos__texto";
+        cantidadProducto.className = "tabla-productos__texto tabla-productos__texto--3";
         cantidadProducto.innerText = productoCarrito.cantidad;
 
         const totalPorProducto = document.createElement("p");
-        totalPorProducto.className = "tabla-productos__texto";
+        totalPorProducto.className = "tabla-productos__texto tabla-productos__texto--4";
         totalPorProducto.innerText = `$${productoCarrito.total}`;
 
         const quitarProducto = document.createElement("p");
-        quitarProducto.className = "tabla-productos__texto";
+        quitarProducto.className = "tabla-productos__texto tabla-productos__texto--5";
 
         const botonEliminar = document.createElement("button");
         botonEliminar.className = "btn btn-danger";
@@ -77,10 +77,8 @@ function MensajeCarritoVacio() {
     vacio.className = "mensajeCarrito";
     if (carrito.length > 0) {
         vacio.classList.add("d-none");
-
     } else {
         vacio.classList.remove("d-none");
-
     }
 }
 
