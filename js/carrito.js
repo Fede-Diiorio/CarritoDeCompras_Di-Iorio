@@ -1,5 +1,20 @@
 // Funciones
+function MensajeCarritoVacio() {
+    const vacio = document.getElementById("MensajeCarrito");
+    vacio.className = "mensajeCarrito";
+    if (carrito.length > 0) {
+        vacio.classList.add("d-none");
+
+    } else {
+        vacio.classList.remove("d-none");
+
+    }
+    renderizarTablaCarrito(carrito);
+}
+
+
 function renderizarTablaCarrito(productosCarrito) {
+
 
     const contenedorCarrito = document.querySelector("#carrito");
     contenedorCarrito.innerHTML = "";
@@ -48,6 +63,7 @@ function renderizarTablaCarrito(productosCarrito) {
         contenedorCarrito.append(divPadre);
 
     }
+    MensajeCarritoVacio();
 }
 
 function eliminarProducto(producto) {
@@ -74,3 +90,4 @@ let carrito = [];
 
 obtenerProductosDeLocalStorage()
 renderizarTablaCarrito(carrito)
+MensajeCarritoVacio();
