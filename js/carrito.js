@@ -1,4 +1,10 @@
 // Funciones
+function mostrarNumeroConComas(numero) {
+    const numeroConDecimales = Number(numero).toFixed(2);
+    const numeroFormateado = numeroConDecimales.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return numeroFormateado;
+}
+
 function renderizarTablaCarrito(productosCarrito) {
 
 
@@ -20,7 +26,7 @@ function renderizarTablaCarrito(productosCarrito) {
 
         const precioProducto = document.createElement("p");
         precioProducto.className = "tabla-productos__texto tabla-productos__texto--2";
-        precioProducto.innerText = `$${productoCarrito.precio}`;
+        precioProducto.innerText = `$${mostrarNumeroConComas(productoCarrito.precio)}`;
 
         const cantidadProducto = document.createElement("p");
         cantidadProducto.className = "tabla-productos__texto tabla-productos__texto--3";
@@ -28,7 +34,7 @@ function renderizarTablaCarrito(productosCarrito) {
 
         const totalPorProducto = document.createElement("p");
         totalPorProducto.className = "tabla-productos__texto tabla-productos__texto--4";
-        totalPorProducto.innerText = `$${productoCarrito.total}`;
+        totalPorProducto.innerText = `$${mostrarNumeroConComas(productoCarrito.total)}`;
 
         const quitarProducto = document.createElement("p");
         quitarProducto.className = "tabla-productos__texto tabla-productos__texto--5";

@@ -71,6 +71,12 @@ function filtradoPorOrden() {
    });
 }
 
+function mostrarNumeroConComas(numero) {
+   const numeroConDecimales = Number(numero).toFixed(2);
+   const numeroFormateado = numeroConDecimales.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+   return numeroFormateado;
+}
+
 function guardarProductoEnLocalStorage(producto, cantidad) {
 
    const agregarProducto = {
@@ -148,7 +154,7 @@ function renderizarProductos(productos) {
 
       const precio = document.createElement("p");
       precio.className = "precio";
-      precio.innerText = `$${producto.precio}`;
+      precio.innerText = `$${mostrarNumeroConComas(producto.precio)}`;
 
       const contenedorParaBoton = document.createElement("div");
       contenedorParaBoton.className = "contenedor-boton";
@@ -176,6 +182,7 @@ function renderizarProductos(productos) {
                alert("STOCK INSUFICIENTE");
             } else {
                guardarProductoEnLocalStorage(producto, cantidad);
+               renderizarProductoIndividual(producto)
                renderizarProductos(productos)
             };
          };
@@ -205,7 +212,7 @@ function renderizarProductoIndividual(producto) {
    imagen.className = "porducto-individual__imagen";
 
    const informacion = document.createElement("div");
-   informacion.className = "porducto-individual__informacion";
+   informacion.className = "producto-individual__informacion";
 
    const titulo = document.createElement("h2");
    titulo.innerText = `${producto.nombre}`;
@@ -216,10 +223,10 @@ function renderizarProductoIndividual(producto) {
 
    const precio = document.createElement("p");
    precio.className = "precio";
-   precio.innerText = `$${producto.precio}`;
+   precio.innerText = `$${mostrarNumeroConComas(producto.precio)}`;
 
-   const contenedroCompra = document.createElement("form");
-   contenedroCompra.className = "producto-individual__form";
+   const formDeCompra = document.createElement("form");
+   formDeCompra.className = "producto-individual__form";
 
    const consultaCantidad = document.createElement("div");
    consultaCantidad.className = "producto-individual__cantidad";
@@ -234,8 +241,14 @@ function renderizarProductoIndividual(producto) {
 
    const comprar = document.createElement("input");
    comprar.type = "submit";
-   comprar.value = "Enviar";
+   comprar.value = "Comprar";
    comprar.className = "boton";
+
+   consultaCantidad.append(consultaCantidadLabel, consultaCantidadInput);
+   formDeCompra.append(consultaCantidad, comprar);
+   informacion.append(titulo, descripcion, precio, formDeCompra);
+   divPadre.append(imagen, informacion);
+   contenedor.append(divPadre);
 }
 
 // INICIO DEL PROGRAMA
