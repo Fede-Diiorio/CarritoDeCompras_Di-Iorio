@@ -198,6 +198,8 @@ td {
       margin: 0;
       padding: 0;
       list-style-type: none; }
+      .barra-filtro .barra-filtro__nav .barra-filtro__items .numero-carrito {
+        margin: 0; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .btn.btn-secondary {
         color: #ffffff;
         text-decoration: none;

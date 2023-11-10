@@ -7,7 +7,6 @@ function mostrarNumeroConComas(numero) {
 
 function renderizarTablaCarrito(productosCarrito) {
 
-
     const contenedorCarrito = document.querySelector("#carrito");
     contenedorCarrito.innerHTML = "";
 
@@ -52,9 +51,9 @@ function renderizarTablaCarrito(productosCarrito) {
         quitarProducto.append(botonEliminar);
         divPadre.append(imagenProducto, nombreProducto, precioProducto, cantidadProducto, totalPorProducto, quitarProducto);
         contenedorCarrito.append(divPadre);
-
     }
     MensajeCarritoVacio();
+    numeroDeProductosEnElCarrito();
 }
 
 function eliminarProducto(producto) {
@@ -85,6 +84,28 @@ function MensajeCarritoVacio() {
     } else {
         vacio.classList.remove("d-none");
     }
+}
+
+function numeroDeProductosEnElCarrito() {
+    const ls = JSON.parse(localStorage.getItem("carrito"));
+    const numeroDeProductos = document.getElementById("contenedorParaCarrito");
+    numeroDeProductos.innerHTML = "";
+
+    let totalCantidad = 0;
+
+    if (ls) {
+        ls.forEach((item) => {
+            // Accedes a la propiedad "cantidad" de cada objeto en ls
+            totalCantidad += item.cantidad;
+        });
+    }
+
+    const numerito = document.createElement("p");
+    numerito.className = "numero-carrito";
+    numerito.innerText = totalCantidad; // Muestra el total de la cantidad de productos
+
+    numeroDeProductos.append(numerito);
+
 }
 
 let carrito = [];

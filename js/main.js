@@ -76,6 +76,28 @@ function mostrarNumeroConComas(numero) {
    return numeroFormateado;
 }
 
+function numeroDeProductosEnElCarrito() {
+   const ls = JSON.parse(localStorage.getItem("carrito"));
+   const numeroDeProductos = document.getElementById("contenedorParaCarritoIndex");
+   numeroDeProductos.innerHTML = "";
+
+   let totalCantidad = 0;
+
+   if (ls) {
+      ls.forEach((item) => {
+         // Accedes a la propiedad "cantidad" de cada objeto en ls
+         totalCantidad += item.cantidad;
+      });
+   }
+
+   const numerito = document.createElement("p");
+   numerito.className = "numero-carrito";
+   numerito.innerText = totalCantidad; // Muestra el total de la cantidad de productos
+
+   numeroDeProductos.append(numerito);
+
+}
+
 function guardarProductoEnLocalStorage(producto, cantidad) {
 
    const agregarProducto = {
@@ -162,31 +184,15 @@ function renderizarProductos(productos) {
       botonComprar.className = "btn btn-primary";
       botonComprar.innerText = "Comprar"
 
-      const cantidadComprar = document.createElement("input");
-      cantidadComprar.className = "cantidad-comprar";
-      cantidadComprar.type = "number";
-      cantidadComprar.value = 1;
-      cantidadComprar.min = 1;
-
       const stock = document.createElement("p");
       stock.innerHTML = `<strong>Stock:</strong> ${stockAMostrar}`;
 
       botonComprar.addEventListener("click", () => {
-         const cantidad = cantidadComprar.value;
-
-         if (cantidad < 1) {
-            alert("INGRESE UN NÚMERO VÁLIDO")
-         } else {
-            if (cantidad > producto.stock) {
-               alert("STOCK INSUFICIENTE");
-            } else {
-               renderizarProductoIndividual(producto)
-            };
-         };
+         renderizarProductoIndividual(producto)
       });
 
       // Insertar elementos uno dentro de otro
-      contenedorParaBoton.append(botonComprar, cantidadComprar)
+      contenedorParaBoton.append(botonComprar)
       divCard.append(titulo, descripcion, stock, precio, contenedorParaBoton);
       divPadre.append(imagenProducto, divCard);
 
@@ -262,9 +268,10 @@ function renderizarProductoIndividual(producto) {
             guardarProductoEnLocalStorage(producto, cantidad);
             renderizarProductos(productos)
             document.body.classList.remove('no-scroll');
+            numeroDeProductosEnElCarrito();
          };
       };
-   })
+   });
 
    consultaCantidad.append(consultaCantidadLabel, consultaCantidadInput);
    formDeCompra.append(consultaCantidad, comprar);
@@ -292,3 +299,4 @@ renderizarProductos(productos);
 BarraDeBusqueda();
 filtradoPorOrden();
 obtenerProductosDeLocalStorage();
+numeroDeProductosEnElCarrito();
