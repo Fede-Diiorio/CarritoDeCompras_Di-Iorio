@@ -14,7 +14,6 @@ class Producto {
 
 // FUNCIONES
 
-
 function BarraDeBusqueda() {
    const formBusqueda = document.getElementById("formBusqueda");
    const BarraDeBusqueda = document.getElementById("inputBuscarProductos");
@@ -181,9 +180,7 @@ function renderizarProductos(productos) {
             if (cantidad > producto.stock) {
                alert("STOCK INSUFICIENTE");
             } else {
-               guardarProductoEnLocalStorage(producto, cantidad);
                renderizarProductoIndividual(producto)
-               renderizarProductos(productos)
             };
          };
       });
@@ -257,8 +254,9 @@ function renderizarProductoIndividual(producto) {
       if (cantidad < 1) {
          alert("INGRESE UN NÚMERO VÁLIDO")
       } else {
-         if (cantidad > producto.stock) {
+         if (cantidad > stockAMostrar) {
             alert("STOCK INSUFICIENTE");
+            renderizarProductoIndividual(producto);
          } else {
             guardarProductoEnLocalStorage(producto, cantidad);
             renderizarProductos(productos)
