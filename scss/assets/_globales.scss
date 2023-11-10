@@ -10,6 +10,11 @@ body {
     overflow-x: hidden;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
+
 .marco {
     background-color: $primario;
     border: 2px solid $primarioOscuro;

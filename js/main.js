@@ -12,8 +12,8 @@ class Producto {
    }
 };
 
-// FUNCIONES
 
+// FUNCIONES
 function BarraDeBusqueda() {
    const formBusqueda = document.getElementById("formBusqueda");
    const BarraDeBusqueda = document.getElementById("inputBuscarProductos");
@@ -198,6 +198,7 @@ function renderizarProductoIndividual(producto) {
 
    const contenedor = document.getElementById("producto-individual")
    contenedor.innerHTML = "";
+   document.body.classList.add('no-scroll');
 
    obtenerProductosDeLocalStorage()
 
@@ -209,7 +210,7 @@ function renderizarProductoIndividual(producto) {
 
    const imagen = document.createElement("img");
    imagen.setAttribute("src", producto.imagen);
-   imagen.className = "porducto-individual__imagen";
+   imagen.className = "producto-individual__imagen";
 
    const informacion = document.createElement("div");
    informacion.className = "producto-individual__informacion";
@@ -260,6 +261,7 @@ function renderizarProductoIndividual(producto) {
          } else {
             guardarProductoEnLocalStorage(producto, cantidad);
             renderizarProductos(productos)
+            document.body.classList.remove('no-scroll');
          };
       };
    })
@@ -285,7 +287,6 @@ const productos = [
 ];
 
 let carrito = [];
-console.log(carrito);
 
 renderizarProductos(productos);
 BarraDeBusqueda();

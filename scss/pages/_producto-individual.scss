@@ -1,15 +1,19 @@
 .producto-individual {
     display: flex;
-    margin-top: 3rem;
     gap: 2rem;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 1;
+    margin: -1rem;
 
     .producto-individual__imagen {
-        height: 45.6rem;
+        height: 40rem;
         border-radius: 2rem;
         border: 2px solid $primarioOscuro;
     }
 
     .producto-individual__informacion {
+        width: 100%;
 
         .producto-individual__descripcion {
             min-height: 12rem;
@@ -61,12 +65,14 @@
     }
 }
 
+
+
 @media (max-width: 1024px) {
     .producto-individual {
         flex-direction: column;
 
         .producto-individual__imagen {
-            height: 100%;
+            width: 80%;
         }
     }
 }
