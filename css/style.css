@@ -300,8 +300,9 @@ td {
     border-radius: 1rem;
     border: 2px solid #FFA500;
     margin-top: 2rem; }
+  .producto-individual .producto-individual__informacion .producto-individual__stock {
+    margin-top: 2rem; }
   .producto-individual .producto-individual__informacion .producto-individual__form {
-    margin-top: 5rem;
     display: flex;
     align-items: center;
     gap: 2rem; }

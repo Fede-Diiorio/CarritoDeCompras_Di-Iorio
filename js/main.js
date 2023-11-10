@@ -204,6 +204,9 @@ function renderizarProductoIndividual(producto) {
 
    obtenerProductosDeLocalStorage()
 
+   const productoEnCarrito = carrito.find((item) => item.nombre === producto.nombre);
+   const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
+
    const divPadre = document.createElement("div");
    divPadre.className = "producto-individual container marco";
 
@@ -225,6 +228,10 @@ function renderizarProductoIndividual(producto) {
    precio.className = "precio";
    precio.innerText = `$${mostrarNumeroConComas(producto.precio)}`;
 
+   const stock = document.createElement("p");
+   stock.className = "producto-individual__stock"
+   stock.innerHTML = `<strong>Stock:</strong> ${stockAMostrar}`;
+
    const formDeCompra = document.createElement("form");
    formDeCompra.className = "producto-individual__form";
 
@@ -244,9 +251,24 @@ function renderizarProductoIndividual(producto) {
    comprar.value = "Comprar";
    comprar.className = "boton";
 
+   comprar.addEventListener("click", () => {
+      const cantidad = consultaCantidadInput.value;
+
+      if (cantidad < 1) {
+         alert("INGRESE UN NÚMERO VÁLIDO")
+      } else {
+         if (cantidad > producto.stock) {
+            alert("STOCK INSUFICIENTE");
+         } else {
+            guardarProductoEnLocalStorage(producto, cantidad);
+            renderizarProductos(productos)
+         };
+      };
+   })
+
    consultaCantidad.append(consultaCantidadLabel, consultaCantidadInput);
    formDeCompra.append(consultaCantidad, comprar);
-   informacion.append(titulo, descripcion, precio, formDeCompra);
+   informacion.append(titulo, descripcion, precio, stock, formDeCompra);
    divPadre.append(imagen, informacion);
    contenedor.append(divPadre);
 }
