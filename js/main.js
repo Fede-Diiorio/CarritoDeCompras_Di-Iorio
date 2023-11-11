@@ -164,15 +164,14 @@ function renderizarProductos(productos) {
       imagenProducto.setAttribute("alt", producto.descripcionImagen);
 
       const divCard = document.createElement("div");
-      divCard.className = "card-body"
+      divCard.className = "card-cuerpo"
 
       const titulo = document.createElement("h4");
       titulo.className = "card-title";
       titulo.innerText = producto.nombre;
 
-      const descripcion = document.createElement("p");
-      descripcion.className = "card-text";
-      descripcion.innerText = producto.descripcion;
+      const contenedorPrecioStock = document.createElement("p");
+      contenedorPrecioStock.className = "contenedor-precio-stock";
 
       const precio = document.createElement("p");
       precio.className = "precio";
@@ -181,8 +180,8 @@ function renderizarProductos(productos) {
       const contenedorParaBoton = document.createElement("div");
       contenedorParaBoton.className = "contenedor-boton";
 
-      const botonComprar = document.createElement("label");
-      botonComprar.className = "btn btn-primary";
+      const botonComprar = document.createElement("p");
+      botonComprar.className = "boton";
       botonComprar.innerText = "Comprar"
 
       const stock = document.createElement("p");
@@ -193,8 +192,8 @@ function renderizarProductos(productos) {
       });
 
       // Insertar elementos uno dentro de otro
-      contenedorParaBoton.append(botonComprar)
-      divCard.append(titulo, descripcion, stock, precio, contenedorParaBoton);
+      contenedorPrecioStock.append(precio, stock);
+      divCard.append(titulo, contenedorPrecioStock, botonComprar);
       divPadre.append(imagenProducto, divCard);
 
       contenedor.append(divPadre);

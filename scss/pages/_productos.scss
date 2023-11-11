@@ -101,8 +101,10 @@
         &:hover {
             border: 2px solid $secundario;
 
-            .card-text {
-                border-bottom: 1px solid $secundario;
+            .card-cuerpo {
+                .card-title {
+                    border-top: 1px solid $secundario;
+                }
             }
 
             img {
@@ -110,34 +112,36 @@
             }
         }
 
-        .card-text {
-            min-height: 13rem;
-            border-bottom: 1px solid $gris;
-            transition: border 0.3s ease-in-out;
-        }
-
-        .btn {
-            font-size: 1.6rem;
-        }
-
-        .precio {
-            font-size: 2rem;
-            font-weight: bold;
-            color: $precio;
-        }
-
-        .contenedor-boton {
+        .card-cuerpo {
+            margin-top: 2rem;
             display: flex;
-            gap: 1rem;
+            flex-direction: column;
+            padding: 0 1rem;
 
-            .cantidad-comprar {
-                border: 2px solid $primarioOscuro;
-                border-radius: 1rem;
-                width: 20%;
+            .card-title {
+                border-top: 1px solid $gris;
+                padding-top: 2rem;
+                transition: border 0.3s ease-in-out;
+            }
 
-                &[type="number"] {
-                    padding-left: 1rem;
+            .contenedor-precio-stock {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin: 0;
+
+                .precio {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: $precio;
                 }
+
+            }
+
+            .boton {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+                text-align: center;
             }
         }
     }

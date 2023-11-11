@@ -43,7 +43,8 @@ body {
   .btn:hover {
     background-color: #FFA500;
     color: #1F363D;
-    border: 2px solid #FFA500; }
+    border: 2px solid #FFA500;
+    cursor: pointer; }
 
 .precio {
   font-size: 2rem;
@@ -250,29 +251,32 @@ td {
       transition: transform 0.5s ease-in-out; }
     .justify-content-sm-center .card:hover {
       border: 2px solid #FFA500; }
-      .justify-content-sm-center .card:hover .card-text {
-        border-bottom: 1px solid #FFA500; }
+      .justify-content-sm-center .card:hover .card-cuerpo .card-title {
+        border-top: 1px solid #FFA500; }
       .justify-content-sm-center .card:hover img {
         transform: scale(1.05); }
-    .justify-content-sm-center .card .card-text {
-      min-height: 13rem;
-      border-bottom: 1px solid #b1adad;
-      transition: border 0.3s ease-in-out; }
-    .justify-content-sm-center .card .btn {
-      font-size: 1.6rem; }
-    .justify-content-sm-center .card .precio {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #16a816; }
-    .justify-content-sm-center .card .contenedor-boton {
+    .justify-content-sm-center .card .card-cuerpo {
+      margin-top: 2rem;
       display: flex;
-      gap: 1rem; }
-      .justify-content-sm-center .card .contenedor-boton .cantidad-comprar {
-        border: 2px solid #1F363D;
-        border-radius: 1rem;
-        width: 20%; }
-        .justify-content-sm-center .card .contenedor-boton .cantidad-comprar[type="number"] {
-          padding-left: 1rem; }
+      flex-direction: column;
+      padding: 0 1rem; }
+      .justify-content-sm-center .card .card-cuerpo .card-title {
+        border-top: 1px solid #b1adad;
+        padding-top: 2rem;
+        transition: border 0.3s ease-in-out; }
+      .justify-content-sm-center .card .card-cuerpo .contenedor-precio-stock {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 0; }
+        .justify-content-sm-center .card .card-cuerpo .contenedor-precio-stock .precio {
+          font-size: 2rem;
+          font-weight: bold;
+          color: #16a816; }
+      .justify-content-sm-center .card .card-cuerpo .boton {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        text-align: center; }
 
 @media (max-width: 1400px) {
   .justify-content-sm-center .card {
