@@ -255,6 +255,16 @@ function renderizarProductoIndividual(producto) {
    comprar.value = "Comprar";
    comprar.className = "boton";
 
+   const volver = document.createElement("p");
+   volver.innerText = "Cancelar"
+   volver.className = "producto-individual__cancelar"
+
+   volver.addEventListener("click", () => {
+      contenedor.innerHTML = "";
+      renderizarProductos(productos);
+      document.body.classList.remove('no-scroll');
+   });
+
    comprar.addEventListener("click", () => {
       const cantidad = consultaCantidadInput.value;
 
@@ -266,7 +276,7 @@ function renderizarProductoIndividual(producto) {
             renderizarProductoIndividual(producto);
          } else {
             guardarProductoEnLocalStorage(producto, cantidad);
-            renderizarProductos(productos)
+            renderizarProductos(productos);
             document.body.classList.remove('no-scroll');
             numeroDeProductosEnElCarrito();
          };
@@ -274,7 +284,7 @@ function renderizarProductoIndividual(producto) {
    });
 
    consultaCantidad.append(consultaCantidadLabel, consultaCantidadInput);
-   formDeCompra.append(consultaCantidad, comprar);
+   formDeCompra.append(consultaCantidad, comprar, volver);
    informacion.append(titulo, descripcion, precio, stock, formDeCompra);
    divPadre.append(imagen, informacion);
    contenedor.append(divPadre);

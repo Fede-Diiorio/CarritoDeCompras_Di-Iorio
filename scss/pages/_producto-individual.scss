@@ -39,6 +39,10 @@
             align-items: center;
             gap: 2rem;
 
+            .boton {
+                box-shadow: 4px 5px 6px 3px $grisOscuro;
+            }
+
             .producto-individual__cantidad {
                 background-color: $blanco;
                 color: $negro;
@@ -59,6 +63,18 @@
                     border: none;
                     padding-left: 1rem;
                     outline: none;
+                }
+            }
+
+            .producto-individual__cancelar {
+                color: $blanco;
+                text-decoration: none;
+                cursor: pointer;
+                transition: color .3s ease-in-out;
+                margin: 0;
+
+                &:hover {
+                    color: $secundario;
                 }
             }
         }

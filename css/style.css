@@ -200,7 +200,19 @@ td {
       padding: 0;
       list-style-type: none; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .numero-carrito {
-        margin: 0; }
+        position: relative;
+        top: -1.5rem;
+        left: -2rem;
+        color: #ffffff;
+        transition: color .3s ease-in-out; }
+      .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping {
+        color: #ffffff;
+        font-size: 2rem;
+        transition: color .3s ease-in-out; }
+        .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping:hover {
+          color: #FFA500; }
+        .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping:hover + .numero-carrito {
+          color: #FFA500; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .btn.btn-secondary {
         color: #ffffff;
         text-decoration: none;
@@ -225,12 +237,6 @@ td {
           .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .dropdown-menu .dropdown-item:hover {
             background-color: transparent;
             color: #FFA500; }
-      .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping {
-        color: #ffffff;
-        font-size: 2rem;
-        transition: color .3s ease-in-out; }
-        .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping:hover {
-          color: #FFA500; }
     .barra-filtro .barra-filtro__nav .barra-filtro__busqueda input {
       font-size: 1.3rem;
       border-radius: 2rem;
@@ -320,6 +326,8 @@ td {
       display: flex;
       align-items: center;
       gap: 2rem; }
+      .producto-individual .producto-individual__informacion .producto-individual__form .boton {
+        box-shadow: 4px 5px 6px 3px #3d3d3d; }
       .producto-individual .producto-individual__informacion .producto-individual__form .producto-individual__cantidad {
         background-color: #ffffff;
         color: #000000;
@@ -337,6 +345,14 @@ td {
           border: none;
           padding-left: 1rem;
           outline: none; }
+      .producto-individual .producto-individual__informacion .producto-individual__form .producto-individual__cancelar {
+        color: #ffffff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color .3s ease-in-out;
+        margin: 0; }
+        .producto-individual .producto-individual__informacion .producto-individual__form .producto-individual__cancelar:hover {
+          color: #FFA500; }
 
 @media (max-width: 1024px) {
   .producto-individual {

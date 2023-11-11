@@ -18,8 +18,27 @@
             list-style-type: none;
 
             .numero-carrito {
-                margin: 0;
+                position: relative;
+                top: -1.5rem;
+                left: -2rem;
+                color: $blanco;
+                transition: color .3s ease-in-out;
             }
+
+            .fa-cart-shopping {
+                color: $blanco;
+                font-size: 2rem;
+                transition: color .3s ease-in-out;
+
+                &:hover {
+                    color: $secundario;
+                }
+
+                &:hover+.numero-carrito {
+                    color: $secundario;
+                }
+            }
+
 
             .barra-filtro__item {
 
@@ -58,15 +77,7 @@
                 }
             }
 
-            .fa-cart-shopping {
-                color: $blanco;
-                font-size: 2rem;
-                transition: color .3s ease-in-out;
 
-                &:hover {
-                    color: $secundario;
-                }
-            }
         }
 
         .barra-filtro__busqueda {
