@@ -154,8 +154,10 @@ function renderizarProductos(productos) {
       const divPadre = document.createElement("div");
       divPadre.className = "card col-12 col-md-6 col-lg-4 mb-5 width-card"
 
-      const productoEnCarrito = carrito.find((item) => item.nombre === producto.nombre);
-      const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
+      if (carrito !== null) {
+         const productoEnCarrito = carrito.find((item) => item.nombre === producto.nombre);
+         const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
+      }
 
       const imagenProducto = document.createElement("img");
       imagenProducto.className = "card-img-top";
