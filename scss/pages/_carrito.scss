@@ -25,6 +25,29 @@
     }
 }
 
+.cartel-total {
+    margin-top: 5rem;
+    text-align: right;
+
+    .cifra-total {
+        background-color: $blanco;
+        display: inline;
+        padding: 1rem 2rem;
+        border: 1px solid $primarioOscuro;
+        border-radius: 2rem;
+        color: $precio;
+        font-family: $fuenteParrafos;
+        font-weight: bold;
+
+        span {
+            color: $negro;
+            text-transform: uppercase;
+            font-size: 1.6rem;
+            font-weight: normal;
+        }
+    }
+}
+
 @media (max-width: 768px) {
 
     .grid-tabla-productos {

@@ -19,10 +19,10 @@
 
             .numero-carrito {
                 position: relative;
-                top: -1.5rem;
+                top: -1.8rem;
                 left: -2rem;
                 color: $blanco;
-                transition: color .3s ease-in-out;
+                margin: 0;
             }
 
             .fa-cart-shopping {
@@ -33,12 +33,7 @@
                 &:hover {
                     color: $secundario;
                 }
-
-                &:hover+.numero-carrito {
-                    color: $secundario;
-                }
             }
-
 
             .barra-filtro__item {
 

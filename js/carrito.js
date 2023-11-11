@@ -52,7 +52,9 @@ function renderizarTablaCarrito(productosCarrito) {
         divPadre.append(imagenProducto, nombreProducto, precioProducto, cantidadProducto, totalPorProducto, quitarProducto);
         contenedorCarrito.append(divPadre);
     }
-    MensajeCarritoVacio();
+    ocultarHtml("MensajeCarrito");
+    ocultarHtmlInvertido("mostrarTotal");
+    renderizarTotalDeProductos();
     numeroDeProductosEnElCarrito();
 }
 
@@ -76,13 +78,43 @@ function obtenerProductosDeLocalStorage() {
     }
 }
 
-function MensajeCarritoVacio() {
-    const vacio = document.getElementById("MensajeCarrito");
-    vacio.className = "mensajeCarrito";
+function sumarTotalDelCarrito() {
+    ls = JSON.parse(localStorage.getItem("carrito"));
+    return total = ls.reduce((acc, el) => acc + el.total, 0);
+}
+
+function renderizarTotalDeProductos() {
+    const total = sumarTotalDelCarrito()
+
+    const contenedorTotal = document.getElementById("mostrarTotal");
+    contenedorTotal.innerHTML = "";
+
+    const cartelTotal = document.createElement("div");
+    cartelTotal.classList.add("cartel-total");
+
+    const cifraTotal = document.createElement("h4");
+    cifraTotal.classList.add("cifra-total");
+    cifraTotal.innerHTML = `<span>Total: </span> $${mostrarNumeroConComas(total)}`;
+
+    cartelTotal.append(cifraTotal);
+    contenedorTotal.append(cartelTotal);
+}
+
+function ocultarHtml(id) {
+    const vacio = document.getElementById(id);
     if (carrito.length > 0) {
         vacio.classList.add("d-none");
     } else {
         vacio.classList.remove("d-none");
+    }
+}
+
+function ocultarHtmlInvertido(id) {
+    const vacio = document.getElementById(id);
+    if (carrito.length > 0) {
+        vacio.classList.remove("d-none");
+    } else {
+        vacio.classList.add("d-none");
     }
 }
 
@@ -112,4 +144,6 @@ let carrito = [];
 
 obtenerProductosDeLocalStorage()
 renderizarTablaCarrito(carrito)
-MensajeCarritoVacio();
+ocultarHtml("MensajeCarrito");
+
+

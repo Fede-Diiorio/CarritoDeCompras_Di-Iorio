@@ -12,7 +12,6 @@ class Producto {
    }
 };
 
-
 // FUNCIONES
 function BarraDeBusqueda() {
    const formBusqueda = document.getElementById("formBusqueda");

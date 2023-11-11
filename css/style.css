@@ -201,17 +201,15 @@ td {
       list-style-type: none; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .numero-carrito {
         position: relative;
-        top: -1.5rem;
+        top: -1.8rem;
         left: -2rem;
         color: #ffffff;
-        transition: color .3s ease-in-out; }
+        margin: 0; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping {
         color: #ffffff;
         font-size: 2rem;
         transition: color .3s ease-in-out; }
         .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping:hover {
-          color: #FFA500; }
-        .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping:hover + .numero-carrito {
           color: #FFA500; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .barra-filtro__item .btn.btn-secondary {
         color: #ffffff;
@@ -379,6 +377,24 @@ td {
     min-width: 6.3rem; }
   .tabla-productos .tabla-productos__texto.tabla-productos__texto--1 {
     min-width: 19rem; }
+
+.cartel-total {
+  margin-top: 5rem;
+  text-align: right; }
+  .cartel-total .cifra-total {
+    background-color: #ffffff;
+    display: inline;
+    padding: 1rem 2rem;
+    border: 1px solid #1F363D;
+    border-radius: 2rem;
+    color: #16a816;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: bold; }
+    .cartel-total .cifra-total span {
+      color: #000000;
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: normal; }
 
 @media (max-width: 768px) {
   .grid-tabla-productos {
