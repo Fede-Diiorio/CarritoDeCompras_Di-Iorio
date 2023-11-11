@@ -140,7 +140,8 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
 }
 
 function obtenerProductosDeLocalStorage() {
-   carrito = JSON.parse(localStorage.getItem("carrito"));
+   const carritoEnLocalStorage = JSON.parse(localStorage.getItem("carrito"));
+   carrito = carritoEnLocalStorage ? carritoEnLocalStorage : [];
 }
 
 function renderizarProductos(productos) {
@@ -154,10 +155,8 @@ function renderizarProductos(productos) {
       const divPadre = document.createElement("div");
       divPadre.className = "card col-12 col-md-6 col-lg-4 mb-5 width-card"
 
-      if (carrito !== null) {
-         const productoEnCarrito = carrito.find((item) => item.nombre === producto.nombre);
-         const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
-      }
+      const productoEnCarrito = carrito.find((item) => item.nombre === producto.nombre);
+      const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
 
       const imagenProducto = document.createElement("img");
       imagenProducto.className = "card-img-top";
@@ -296,6 +295,7 @@ const productos = [
 ];
 
 let carrito = [];
+console.log(carrito)
 
 renderizarProductos(productos);
 BarraDeBusqueda();
