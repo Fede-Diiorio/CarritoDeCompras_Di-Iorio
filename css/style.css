@@ -300,7 +300,8 @@ td {
   justify-content: space-around;
   position: fixed;
   z-index: 1;
-  margin: -1rem; }
+  margin-top: -15rem;
+  margin-left: -1rem; }
   .producto-individual .producto-individual__imagen {
     height: 40rem;
     border-radius: 2rem;
@@ -354,9 +355,36 @@ td {
 
 @media (max-width: 1024px) {
   .producto-individual {
-    flex-direction: column; }
+    flex-direction: column;
+    top: 25rem; }
     .producto-individual .producto-individual__imagen {
-      width: 80%; } }
+      width: 50%;
+      height: 50%;
+      margin: 0 auto; }
+    .producto-individual .producto-individual__informacion {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem; }
+      .producto-individual .producto-individual__informacion .precio {
+        margin: 0; }
+      .producto-individual .producto-individual__informacion .producto-individual__titulo {
+        display: none; }
+      .producto-individual .producto-individual__informacion .producto-individual__descripcion {
+        display: none; }
+      .producto-individual .producto-individual__informacion .producto-individual__stock {
+        display: none; }
+      .producto-individual .producto-individual__informacion .producto-individual__form .producto-individual__cantidad input {
+        width: 9rem; } }
+
+@media (max-width: 768px) {
+  .producto-individual {
+    text-align: center;
+    margin: 0 auto; }
+    .producto-individual .producto-individual__informacion {
+      flex-direction: column; }
+      .producto-individual .producto-individual__informacion .producto-individual__form {
+        flex-direction: column; } }
 
 .tabla-productos {
   display: flex;

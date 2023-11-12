@@ -221,6 +221,7 @@ function renderizarProductoIndividual(producto) {
    informacion.className = "producto-individual__informacion";
 
    const titulo = document.createElement("h2");
+   titulo.className = "producto-individual__titulo"
    titulo.innerText = `${producto.nombre}`;
 
    const descripcion = document.createElement("p");
