@@ -14,19 +14,11 @@ body {
     overflow: hidden;
 }
 
-
-
 .marco {
     background-color: $primario;
     border: 2px solid $primarioOscuro;
     border-radius: 2rem;
     padding: 2rem;
-}
-
-@media (max-width: 425px) {
-    .marco {
-        max-width: 90%;
-    }
 }
 
 .boton,
@@ -58,4 +50,10 @@ body {
     font-size: 2rem;
     font-weight: bold;
     color: $precio;
+}
+
+@media (max-width: 425px) {
+    .marco {
+        max-width: 90%;
+    }
 }

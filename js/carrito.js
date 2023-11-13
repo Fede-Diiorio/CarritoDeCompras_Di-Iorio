@@ -136,7 +136,9 @@ function numeroDeProductosEnElCarrito() {
     numerito.className = "numero-carrito";
     numerito.innerText = totalCantidad; // Muestra el total de la cantidad de productos
 
-    numeroDeProductos.append(numerito);
+    if (totalCantidad !== 0) {
+        numeroDeProductos.append(numerito);
+    }
 
 }
 

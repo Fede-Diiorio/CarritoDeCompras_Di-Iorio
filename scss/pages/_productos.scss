@@ -19,10 +19,15 @@
 
             .numero-carrito {
                 position: relative;
-                top: -1.8rem;
-                left: -2rem;
+                top: -1rem;
+                left: -3.9rem;
                 color: $blanco;
                 margin: 0;
+                background-color: $secundario;
+                padding: .3rem .5rem;
+                line-height: 1;
+                border-radius: 50%;
+
             }
 
             .fa-cart-shopping {
