@@ -210,6 +210,9 @@ function renderizarProductoIndividual(producto) {
    const productoEnCarrito = carrito.find((item) => item.nombre === producto.nombre);
    const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
 
+   const divAbuelo = document.createElement("div");
+   divAbuelo.className = "overlay"
+
    const divPadre = document.createElement("div");
    divPadre.className = "producto-individual container marco";
 
@@ -287,7 +290,8 @@ function renderizarProductoIndividual(producto) {
    formDeCompra.append(consultaCantidad, comprar, volver);
    informacion.append(titulo, descripcion, precio, stock, formDeCompra);
    divPadre.append(imagen, informacion);
-   contenedor.append(divPadre);
+   divAbuelo.append(divPadre);
+   contenedor.append(divAbuelo);
 }
 
 // INICIO DEL PROGRAMA
