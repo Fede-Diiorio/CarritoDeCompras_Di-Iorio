@@ -1,4 +1,4 @@
-.overlay {
+.overlayProducto {
     background-color: rgba(0, 0, 0, .7);
     bottom: 0;
     display: grid;
@@ -12,9 +12,9 @@
     z-index: 1;
 
     .producto-individual {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        justify-content: space-around;
         position: fixed;
         margin-top: -15rem;
 
@@ -22,6 +22,10 @@
             height: 40rem;
             border-radius: 2rem;
             border: 2px solid $primarioOscuro;
+        }
+
+        .producto-individual__agregado {
+            grid-column: 1 / 3;
         }
 
         .producto-individual__informacion {

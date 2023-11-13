@@ -214,7 +214,7 @@ function renderizarProductoIndividual(producto) {
    const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
 
    const divAbuelo = document.createElement("div");
-   divAbuelo.className = "overlay"
+   divAbuelo.className = "overlayProducto"
 
    const divPadre = document.createElement("div");
    divPadre.className = "producto-individual container marco";
@@ -256,14 +256,21 @@ function renderizarProductoIndividual(producto) {
    consultaCantidadInput.value = 1;
    consultaCantidadInput.min = 1;
 
-   const comprar = document.createElement("input");
-   comprar.type = "submit";
-   comprar.value = "Comprar";
+   const comprar = document.createElement("a");
+   comprar.innerText = "Comprar";
    comprar.className = "boton";
 
    const volver = document.createElement("p");
    volver.innerText = "Cancelar"
    volver.className = "producto-individual__cancelar"
+
+   const productoAgregado = document.createElement("h2");
+   productoAgregado.className = "producto-individual__agregado";
+   productoAgregado.innerText = "¡Agregado al Carrito!"
+
+   const stockInsuficiente = document.createElement("h2");
+   stockInsuficiente.className = "producto-individual__agregado";
+   stockInsuficiente.innerText = "Stock Insuficiente"
 
    volver.addEventListener("click", () => {
       contenedor.innerHTML = "";
@@ -278,13 +285,19 @@ function renderizarProductoIndividual(producto) {
          alert("INGRESE UN NÚMERO VÁLIDO")
       } else {
          if (cantidad > stockAMostrar) {
-            alert("STOCK INSUFICIENTE");
-            renderizarProductoIndividual(producto);
+            divPadre.append(imagen, informacion, stockInsuficiente);
+            setTimeout(() => {
+               renderizarProductoIndividual(producto);
+            }, 1000)
          } else {
             guardarProductoEnLocalStorage(producto, cantidad);
-            renderizarProductos(productos);
-            document.body.classList.remove('no-scroll');
-            numeroDeProductosEnElCarrito();
+            divPadre.append(imagen, informacion, productoAgregado);
+            setTimeout(() => {
+               document.body.classList.remove('no-scroll');
+               numeroDeProductosEnElCarrito();
+               renderizarProductos(productos);
+               contenedor.innerHTML = "";
+            }, 750)
          };
       };
    });
