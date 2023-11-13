@@ -8,6 +8,13 @@ body {
     background-color: $primarioAuxiliar;
     color: $blanco;
     overflow-x: hidden;
+    margin: 0;
+    padding-bottom: 31.5rem;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 .no-scroll {
