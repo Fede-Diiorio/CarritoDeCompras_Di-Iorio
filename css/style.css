@@ -199,15 +199,19 @@ td {
       padding: 0;
       list-style-type: none; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .numero-carrito {
+        text-decoration: none;
         position: relative;
         top: -1rem;
-        left: -3.9rem;
+        left: -3.7rem;
         color: #ffffff;
         margin: 0;
         background-color: #FFA500;
-        padding: .3rem .5rem;
+        padding: 0 .4rem;
         line-height: 1;
-        border-radius: 50%; }
+        border-radius: 50%;
+        transition: background-color .3s ease-in-out; }
+        .barra-filtro .barra-filtro__nav .barra-filtro__items .numero-carrito:hover {
+          background-color: #FF6200; }
       .barra-filtro .barra-filtro__nav .barra-filtro__items .fa-cart-shopping {
         color: #ffffff;
         font-size: 2rem;

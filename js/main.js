@@ -89,11 +89,12 @@ function numeroDeProductosEnElCarrito() {
       });
    }
 
-   const numerito = document.createElement("p");
+   const numerito = document.createElement("a");
    numerito.className = "numero-carrito";
    numerito.innerText = totalCantidad; // Muestra el total de la cantidad de productos
 
    if (totalCantidad !== 0) {
+      numerito.setAttribute('href', './pages/carrito.html');
       numeroDeProductos.append(numerito);
    }
 

@@ -18,16 +18,21 @@
             list-style-type: none;
 
             .numero-carrito {
+                text-decoration: none;
                 position: relative;
                 top: -1rem;
-                left: -3.9rem;
+                left: -3.7rem;
                 color: $blanco;
                 margin: 0;
                 background-color: $secundario;
-                padding: .3rem .5rem;
+                padding: 0 .4rem;
                 line-height: 1;
                 border-radius: 50%;
+                transition: background-color .3s ease-in-out;
 
+                &:hover {
+                    background-color: $secundarioOscuro;
+                }
             }
 
             .fa-cart-shopping {
