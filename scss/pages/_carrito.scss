@@ -28,7 +28,7 @@
 .cartel-total {
     margin-top: 5rem;
     text-align: right;
-    margin-bottom: 3rem;
+    margin-bottom: 7rem;
 
     .cifra-total {
         background-color: $blanco;
@@ -101,6 +101,12 @@
                 grid-area: eliminar;
             }
         }
+    }
+}
+
+@media (max-width: 520px) {
+    #MensajeCarrito {
+        margin-bottom: 20rem;
     }
 }
 

@@ -180,11 +180,16 @@ td {
           color: #FFA500; }
 
 @media (max-width: 1200px) {
-  .footer .footer__contenedor {
-    grid-template-columns: repeat(2, 1fr); } }
+  .footer {
+    height: 36.1rem; }
+    .footer .footer__contenedor {
+      grid-template-columns: repeat(2, 1fr); }
+    .footer p {
+      background-color: #1F363D; } }
 
 @media (max-width: 520px) {
   .footer .footer__contenedor {
+    background-color: #1F363D;
     display: block; }
     .footer .footer__contenedor .footer__menu {
       border-left: none;
@@ -436,7 +441,7 @@ td {
 .cartel-total {
   margin-top: 5rem;
   text-align: right;
-  margin-bottom: 3rem; }
+  margin-bottom: 7rem; }
   .cartel-total .cifra-total {
     background-color: #ffffff;
     display: inline;
@@ -481,6 +486,10 @@ td {
         display: none; }
       .grid-tabla-productos .tabla-productos .tabla-productos__texto--5 {
         grid-area: eliminar; } }
+
+@media (max-width: 520px) {
+  #MensajeCarrito {
+    margin-bottom: 20rem; } }
 
 @media (max-width: 475px) {
   .grid-tabla-productos {

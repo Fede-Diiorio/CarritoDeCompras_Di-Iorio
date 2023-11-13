@@ -86,15 +86,23 @@
 
 @media (max-width: 1200px) {
     .footer {
+        height: 36.1rem;
+
         .footer__contenedor {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        p {
+            background-color: $primarioOscuro;
         }
     }
 }
 
+
 @media (max-width: 520px) {
     .footer {
         .footer__contenedor {
+            background-color: $primarioOscuro;
             display: block;
 
             .footer__menu {
@@ -102,5 +110,7 @@
                 margin-top: 2rem;
             }
         }
+
+
     }
 }
