@@ -272,6 +272,11 @@ function renderizarProductoIndividual(producto) {
    stockInsuficiente.className = "producto-individual__agregado";
    stockInsuficiente.innerText = "Stock Insuficiente"
 
+   const numeroInvalido = document.createElement("h2");
+   numeroInvalido.className = "producto-individual__agregado";
+   numeroInvalido.innerText = "Debe ingresar un número mayor a 0."
+
+
    volver.addEventListener("click", () => {
       contenedor.innerHTML = "";
       renderizarProductos(productos);
@@ -282,7 +287,10 @@ function renderizarProductoIndividual(producto) {
       const cantidad = consultaCantidadInput.value;
 
       if (cantidad < 1) {
-         alert("INGRESE UN NÚMERO VÁLIDO")
+         divPadre.append(imagen, informacion, numeroInvalido);
+         setTimeout(() => {
+            renderizarProductoIndividual(producto);
+         }, 2000)
       } else {
          if (cantidad > stockAMostrar) {
             divPadre.append(imagen, informacion, stockInsuficiente);
