@@ -1,9 +1,8 @@
 <-- CON RESPECTO AL PROYECTO -->
 
-Para esta segunda entrega, decidí utilizar el proyecto que he desarrollado previamente en un curso de desarrollo web de CoderHouse y complementarlo con lo aprendido en este curso. 
-Con el fin de alcanzar los objetivos requeridos, desarrollé un programa que simula un carrito de compras de acuerdo a los productos presentados en el HTML.
-El programa puede agregar y quitar del carrito teniendo en cuenta el stock de los mismos.
-Logré esto mediante los temas solicitados en las consignas. Se aplican funciones de orden superior, arreglos y objetos además de los temas incluidos en la entrega anterior.
+Para esta tercer entrega, decidí utilizar el proyecto que he desarrollado previamente en un curso de desarrollo web de CoderHouse y complementarlo con lo aprendido en este curso. 
+Con el fin de alcanzar los objetivos requeridos, desarrollé un programa que simula un carrito de compras.
+El programa puede agregar y quitar del carrito teniendo en cuenta el stock de los mismos. Todo esto se lleva a cabo implementando DOM y el uso de Local Storage.
 
 <-- COMO INSTALAR SASS PARA EL CORRECTO FUNCIONAMIENTO DE ESTE PROYECTO -->
 
