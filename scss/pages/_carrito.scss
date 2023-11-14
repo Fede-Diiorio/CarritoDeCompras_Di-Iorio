@@ -33,18 +33,17 @@
     margin: 4rem auto;
 
     .finalizar-compra {
-        display: inline-block;
-        background-color: $blanco;
-        display: inline;
-        padding: 1rem 2rem;
-        border: 1px solid $primarioOscuro;
-        border-radius: 2rem;
-        color: $precio;
-        font-family: $fuenteParrafos;
-        font-weight: bold;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            background-color: $secundario;
+            color: $primarioOscuro;
+        }
     }
 
-    .cifra-total {
+    .cifra-total,
+    .finalizar-compra {
         background-color: $blanco;
         display: inline;
         padding: 1rem 2rem;
@@ -60,6 +59,26 @@
             font-size: 1.6rem;
             font-weight: normal;
         }
+    }
+}
+
+.overlayModal {
+    background-color: rgba(0, 0, 0, .7);
+    bottom: 0;
+    display: grid;
+    height: 100%;
+    left: 0;
+    place-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    .modal-final-compra__marco {
+        text-align: center;
+        margin: 0 auto 20rem auto;
+        border: 1px solid $secundario;
     }
 }
 

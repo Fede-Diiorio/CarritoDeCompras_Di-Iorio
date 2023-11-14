@@ -276,7 +276,6 @@ function renderizarProductoIndividual(producto) {
    numeroInvalido.className = "producto-individual__agregado";
    numeroInvalido.innerText = "Debe ingresar un número mayor a 0."
 
-
    volver.addEventListener("click", () => {
       contenedor.innerHTML = "";
       renderizarProductos(productos);

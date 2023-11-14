@@ -445,7 +445,13 @@ td {
   align-items: center;
   margin: 4rem auto; }
   .totalYCerrar .finalizar-compra {
-    display: inline-block;
+    cursor: pointer;
+    transition: all .3s ease-in-out; }
+    .totalYCerrar .finalizar-compra:hover {
+      background-color: #FFA500;
+      color: #1F363D; }
+  .totalYCerrar .cifra-total,
+  .totalYCerrar .finalizar-compra {
     background-color: #ffffff;
     display: inline;
     padding: 1rem 2rem;
@@ -454,20 +460,29 @@ td {
     color: #16a816;
     font-family: "Source Sans 3", sans-serif;
     font-weight: bold; }
-  .totalYCerrar .cifra-total {
-    background-color: #ffffff;
-    display: inline;
-    padding: 1rem 2rem;
-    border: 1px solid #1F363D;
-    border-radius: 2rem;
-    color: #16a816;
-    font-family: "Source Sans 3", sans-serif;
-    font-weight: bold; }
-    .totalYCerrar .cifra-total span {
+    .totalYCerrar .cifra-total span,
+    .totalYCerrar .finalizar-compra span {
       color: #000000;
       text-transform: uppercase;
       font-size: 1.6rem;
       font-weight: normal; }
+
+.overlayModal {
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  display: grid;
+  height: 100%;
+  left: 0;
+  place-items: center;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1; }
+  .overlayModal .modal-final-compra__marco {
+    text-align: center;
+    margin: 0 auto 20rem auto;
+    border: 1px solid #FFA500; }
 
 @media (max-width: 768px) {
   .grid-tabla-productos {
