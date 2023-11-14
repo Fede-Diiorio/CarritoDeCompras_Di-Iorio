@@ -438,11 +438,14 @@ td {
   .tabla-productos .tabla-productos__texto.tabla-productos__texto--1 {
     min-width: 19rem; }
 
-.cartel-total {
-  margin-top: 5rem;
-  text-align: right;
-  margin-bottom: 7rem; }
-  .cartel-total .cifra-total {
+.totalYCerrar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem auto; }
+  .totalYCerrar .finalizar-compra {
+    display: inline-block;
     background-color: #ffffff;
     display: inline;
     padding: 1rem 2rem;
@@ -451,7 +454,16 @@ td {
     color: #16a816;
     font-family: "Source Sans 3", sans-serif;
     font-weight: bold; }
-    .cartel-total .cifra-total span {
+  .totalYCerrar .cifra-total {
+    background-color: #ffffff;
+    display: inline;
+    padding: 1rem 2rem;
+    border: 1px solid #1F363D;
+    border-radius: 2rem;
+    color: #16a816;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: bold; }
+    .totalYCerrar .cifra-total span {
       color: #000000;
       text-transform: uppercase;
       font-size: 1.6rem;

@@ -5,6 +5,74 @@ function mostrarNumeroConComas(numero) {
     return numeroFormateado;
 }
 
+function terminarCompra() {
+
+    const terminarCompra = document.getElementById("terminarCompra");
+    terminarCompra.innerText = "";
+
+    const textoTerminarCompra = document.createElement("h4");
+    textoTerminarCompra.classList.add("finalizar-compra");
+    textoTerminarCompra.innerText = "Finalizar compra";
+
+    terminarCompra.append(textoTerminarCompra);
+}
+
+function renderizarTotalDeProductos() {
+    const total = sumarTotalDelCarrito()
+
+    const contenedorTotal = document.getElementById("mostrarTotal");
+    contenedorTotal.innerHTML = "";
+
+    const cifraTotal = document.createElement("h4");
+    cifraTotal.classList.add("cifra-total");
+    cifraTotal.innerHTML = `<span>Total: </span> $${mostrarNumeroConComas(total)}`;
+
+    contenedorTotal.append(cifraTotal);
+}
+
+function ocultarHtml(id) {
+    const vacio = document.getElementById(id);
+    if (carrito.length > 0) {
+        vacio.classList.add("d-none");
+    } else {
+        vacio.classList.remove("d-none");
+    }
+}
+
+function ocultarHtmlInvertido(id) {
+    const vacio = document.getElementById(id);
+    if (carrito.length > 0) {
+        vacio.classList.remove("d-none");
+    } else {
+        vacio.classList.add("d-none");
+    }
+}
+
+function numeroDeProductosEnElCarrito() {
+    const ls = JSON.parse(localStorage.getItem("carrito"));
+    const numeroDeProductos = document.getElementById("contenedorParaCarrito");
+    numeroDeProductos.innerHTML = "";
+
+    let totalCantidad = 0;
+
+    if (ls) {
+        ls.forEach((item) => {
+            // Accedes a la propiedad "cantidad" de cada objeto en ls
+            totalCantidad += item.cantidad;
+        });
+    }
+
+    const numerito = document.createElement("a");
+    numerito.className = "numero-carrito";
+    numerito.innerText = totalCantidad; // Muestra el total de la cantidad de productos
+
+    if (totalCantidad !== 0) {
+        numerito.setAttribute('href', '../index.html');
+        numeroDeProductos.append(numerito);
+    }
+
+}
+
 function renderizarTablaCarrito(productosCarrito) {
 
     const contenedorCarrito = document.querySelector("#carrito");
@@ -52,9 +120,11 @@ function renderizarTablaCarrito(productosCarrito) {
         divPadre.append(imagenProducto, nombreProducto, precioProducto, cantidadProducto, totalPorProducto, quitarProducto);
         contenedorCarrito.append(divPadre);
     }
-    ocultarHtml("MensajeCarrito");
+    ocultarHtml("mensajeCarrito");
+    ocultarHtmlInvertido("terminarCompra");
     ocultarHtmlInvertido("mostrarTotal");
     renderizarTotalDeProductos();
+    terminarCompra();
     numeroDeProductosEnElCarrito();
 }
 
@@ -83,70 +153,10 @@ function sumarTotalDelCarrito() {
     return total = ls.reduce((acc, el) => acc + el.total, 0);
 }
 
-function renderizarTotalDeProductos() {
-    const total = sumarTotalDelCarrito()
-
-    const contenedorTotal = document.getElementById("mostrarTotal");
-    contenedorTotal.innerHTML = "";
-
-    const cartelTotal = document.createElement("div");
-    cartelTotal.classList.add("cartel-total");
-
-    const cifraTotal = document.createElement("h4");
-    cifraTotal.classList.add("cifra-total");
-    cifraTotal.innerHTML = `<span>Total: </span> $${mostrarNumeroConComas(total)}`;
-
-    cartelTotal.append(cifraTotal);
-    contenedorTotal.append(cartelTotal);
-}
-
-function ocultarHtml(id) {
-    const vacio = document.getElementById(id);
-    if (carrito.length > 0) {
-        vacio.classList.add("d-none");
-    } else {
-        vacio.classList.remove("d-none");
-    }
-}
-
-function ocultarHtmlInvertido(id) {
-    const vacio = document.getElementById(id);
-    if (carrito.length > 0) {
-        vacio.classList.remove("d-none");
-    } else {
-        vacio.classList.add("d-none");
-    }
-}
-
-function numeroDeProductosEnElCarrito() {
-    const ls = JSON.parse(localStorage.getItem("carrito"));
-    const numeroDeProductos = document.getElementById("contenedorParaCarrito");
-    numeroDeProductos.innerHTML = "";
-
-    let totalCantidad = 0;
-
-    if (ls) {
-        ls.forEach((item) => {
-            // Accedes a la propiedad "cantidad" de cada objeto en ls
-            totalCantidad += item.cantidad;
-        });
-    }
-
-    const numerito = document.createElement("a");
-    numerito.className = "numero-carrito";
-    numerito.innerText = totalCantidad; // Muestra el total de la cantidad de productos
-
-    if (totalCantidad !== 0) {
-        numerito.setAttribute('href', '../index.html');
-        numeroDeProductos.append(numerito);
-    }
-
-}
-
 let carrito = [];
 
 obtenerProductosDeLocalStorage()
 renderizarTablaCarrito(carrito)
-ocultarHtml("MensajeCarrito");
+ocultarHtml("mensajeCarrito");
 
 

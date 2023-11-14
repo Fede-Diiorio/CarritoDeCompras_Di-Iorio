@@ -25,10 +25,24 @@
     }
 }
 
-.cartel-total {
-    margin-top: 5rem;
-    text-align: right;
-    margin-bottom: 7rem;
+.totalYCerrar {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem auto;
+
+    .finalizar-compra {
+        display: inline-block;
+        background-color: $blanco;
+        display: inline;
+        padding: 1rem 2rem;
+        border: 1px solid $primarioOscuro;
+        border-radius: 2rem;
+        color: $precio;
+        font-family: $fuenteParrafos;
+        font-weight: bold;
+    }
 
     .cifra-total {
         background-color: $blanco;
