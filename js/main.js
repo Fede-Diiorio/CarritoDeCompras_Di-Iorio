@@ -208,7 +208,7 @@ function renderizarProductoIndividual(producto) {
    contenedor.innerHTML = "";
    document.body.classList.add('no-scroll');
 
-   obtenerProductosDeLocalStorage()
+   obtenerProductosDeLocalStorage();
 
    const productoEnCarrito = carrito.find((item) => item.nombre === producto.nombre);
    const stockAMostrar = productoEnCarrito ? productoEnCarrito.stock : producto.stock;
