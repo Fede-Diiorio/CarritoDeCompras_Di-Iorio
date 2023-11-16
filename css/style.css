@@ -15,11 +15,22 @@ html {
   position: relative;
   min-height: 100%; }
 
-.swal2-confirm .swal2-styled {
-  background-color: #40798C; }
-
 .no-scroll {
   overflow: hidden; }
+
+.swal2-title {
+  font-size: 3rem; }
+
+.swal2-confirm.swal2-styled {
+  background-color: #40798C; }
+
+.swal2-confirm.swal2-styled,
+.swal2-deny.swal2-styled {
+  font-size: 1.5rem;
+  min-width: 6rem; }
+
+#swal2-html-container {
+  font-size: 1.6rem; }
 
 .marco {
   background-color: #40798C;

@@ -146,7 +146,19 @@ function renderizarTablaCarrito(productosCarrito) {
 
         // Agregar evento al boton
         botonEliminar.addEventListener("click", () => {
-            eliminarProducto(productoCarrito);
+            Swal.fire({
+                title: "¿Desea eliminar este producto del carrito?",
+                showDenyButton: true,
+                confirmButtonText: "Si",
+                denyButtonText: `No`
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    eliminarProducto(productoCarrito);
+                } else if (result.isDenied) {
+                    renderizarTablaCarrito(carrito);
+                }
+            });
         });
 
         // Agregar elementos uno adentro de otro
