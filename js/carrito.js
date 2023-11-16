@@ -75,10 +75,11 @@ function terminarCompra() {
     terminarCompra.addEventListener("click", () => {
         localStorage.setItem("carrito", JSON.stringify([]));
         obtenerProductosDeLocalStorage();
-        renderizarModalDeFinalizarCompra();
-        setTimeout(() => {
-            ocultarHtmlInvertido("modalFinCompra")
-        }, 2000)
+        Swal.fire({
+            title: "¡Compra finalizada!",
+            text: "Lo esperamos en nuestro local para retirar su pedido.",
+            icon: "success"
+        });
     });
 }
 
