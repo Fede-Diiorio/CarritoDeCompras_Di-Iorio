@@ -286,25 +286,29 @@ function renderizarProductoIndividual(producto) {
       const cantidad = consultaCantidadInput.value;
 
       if (cantidad < 1) {
-         divPadre.append(imagen, informacion, numeroInvalido);
-         setTimeout(() => {
-            renderizarProductoIndividual(producto);
-         }, 2000)
+         Swal.fire({
+            icon: "error",
+            title: "Número Inválido",
+            text: "Debe ingresar un número mayor a 0.",
+         });
+         renderizarProductoIndividual(producto);
       } else {
          if (cantidad > stockAMostrar) {
-            divPadre.append(imagen, informacion, stockInsuficiente);
-            setTimeout(() => {
-               renderizarProductoIndividual(producto);
-            }, 1000)
+            Swal.fire({
+               icon: "error",
+               title: "Stock Insuficiente",
+            });
+            renderizarProductoIndividual(producto);
          } else {
             guardarProductoEnLocalStorage(producto, cantidad);
-            divPadre.append(imagen, informacion, productoAgregado);
-            setTimeout(() => {
-               document.body.classList.remove('no-scroll');
-               numeroDeProductosEnElCarrito();
-               renderizarProductos(productos);
-               contenedor.innerHTML = "";
-            }, 750)
+            Swal.fire({
+               icon: "success",
+               title: "¡Agregado al Carrito!",
+            });
+            document.body.classList.remove('no-scroll');
+            numeroDeProductosEnElCarrito();
+            renderizarProductos(productos);
+            contenedor.innerHTML = "";
          };
       };
    });

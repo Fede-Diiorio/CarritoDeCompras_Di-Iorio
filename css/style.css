@@ -15,6 +15,9 @@ html {
   position: relative;
   min-height: 100%; }
 
+.swal2-confirm .swal2-styled {
+  background-color: #40798C; }
+
 .no-scroll {
   overflow: hidden; }
 

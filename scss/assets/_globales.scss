@@ -17,6 +17,10 @@ html {
     min-height: 100%;
 }
 
+.swal2-confirm .swal2-styled {
+    background-color: $primario;
+}
+
 .no-scroll {
     overflow: hidden;
 }
