@@ -140,9 +140,9 @@ function renderizarTablaCarrito(productosCarrito) {
         const quitarProducto = document.createElement("p");
         quitarProducto.className = "tabla-productos__texto tabla-productos__texto--5";
 
-        const botonEliminar = document.createElement("button");
-        botonEliminar.className = "btn btn-danger";
-        botonEliminar.innerText = "X";
+        const botonEliminar = document.createElement("div");
+        botonEliminar.className = "tabla-productos__boton";
+        botonEliminar.innerHTML = '<i class="fa-solid fa-trash"></i>';
 
         // Agregar evento al boton
         botonEliminar.addEventListener("click", () => {

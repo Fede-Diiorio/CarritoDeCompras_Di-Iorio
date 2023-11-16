@@ -20,6 +20,19 @@
         min-width: 6.3rem;
     }
 
+    .tabla-productos__boton {
+        .fa-trash {
+            font-size: 2.2rem;
+            color: $eliminar;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                color: $eliminarOscuro;
+            }
+        }
+    }
+
     .tabla-productos__texto.tabla-productos__texto--1 {
         min-width: 19rem;
     }

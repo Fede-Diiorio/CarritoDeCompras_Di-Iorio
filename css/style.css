@@ -438,6 +438,13 @@ td {
     margin: 0;
     text-align: center;
     min-width: 6.3rem; }
+  .tabla-productos .tabla-productos__boton .fa-trash {
+    font-size: 2.2rem;
+    color: #fa3333;
+    transition: all .3s ease-in-out;
+    cursor: pointer; }
+    .tabla-productos .tabla-productos__boton .fa-trash:hover {
+      color: #992121; }
   .tabla-productos .tabla-productos__texto.tabla-productos__texto--1 {
     min-width: 19rem; }
 
