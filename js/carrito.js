@@ -22,7 +22,6 @@ function numeroDeProductosEnElCarrito() {
 
     if (ls) {
         ls.forEach((item) => {
-            // Accedes a la propiedad "cantidad" de cada objeto en ls
             totalCantidad += item.cantidad;
         });
     }
@@ -40,20 +39,12 @@ function numeroDeProductosEnElCarrito() {
 
 function ocultarHtml(id) {
     const vacio = document.getElementById(id);
-    if (carrito.length > 0) {
-        vacio.classList.add("d-none");
-    } else {
-        vacio.classList.remove("d-none");
-    }
+    carrito.length > 0 ? vacio.classList.add("d-none") : vacio.classList.remove("d-none");
 }
 
 function ocultarHtmlInvertido(id) {
     const vacio = document.getElementById(id);
-    if (carrito.length > 0) {
-        vacio.classList.remove("d-none");
-    } else {
-        vacio.classList.add("d-none");
-    }
+    carrito.length > 0 ? vacio.classList.remove("d-none") : vacio.classList.add("d-none");
 }
 
 function sumarTotalDelCarrito() {
@@ -153,7 +144,6 @@ function renderizarTablaCarrito(productosCarrito) {
                 confirmButtonText: "Si",
                 denyButtonText: `No`
             }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     eliminarProducto(productoCarrito);
                 } else if (result.isDenied) {

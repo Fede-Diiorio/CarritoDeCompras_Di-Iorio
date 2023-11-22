@@ -15,7 +15,7 @@ class Producto {
 // FUNCIONES
 function obtenerProductosDeJSON() {
    return new Promise((resolve, reject) => {
-      fetch('/productos.json').then((response) => {
+      fetch('../productos.json').then((response) => {
          return response.json();
       }).then((responseJson) => {
          productos.push(...responseJson);
@@ -95,14 +95,13 @@ function numeroDeProductosEnElCarrito() {
 
    if (ls) {
       ls.forEach((item) => {
-         // Accedes a la propiedad "cantidad" de cada objeto en ls
          totalCantidad += item.cantidad;
       });
    }
 
    const numerito = document.createElement("a");
    numerito.className = "numero-carrito";
-   numerito.innerText = totalCantidad; // Muestra el total de la cantidad de productos
+   numerito.innerText = totalCantidad;
 
    if (totalCantidad !== 0) {
       numerito.setAttribute('href', './pages/carrito.html');
@@ -127,15 +126,10 @@ function guardarProductoEnLocalStorage(producto, cantidad) {
       carrito = [agregarProducto];
 
    } else {
-
       if (agregarProducto.stock >= agregarProducto.cantidad) {
          agregarProducto.stock -= agregarProducto.cantidad;
-      } else {
-         alert("Stock insuficiente.");
-         return; // No agregamos el producto si no hay suficiente stock
       }
 
-      // Buscar indice de producto en local storage
       const buscarIndiceDeProducto = carrito.findIndex((el) => {
          return el.nombre === agregarProducto.nombre;
       });
