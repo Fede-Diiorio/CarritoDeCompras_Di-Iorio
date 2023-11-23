@@ -18,7 +18,9 @@ function obtenerProductosDeJSON() {
       fetch('../productos.json').then((response) => {
          return response.json();
       }).then((responseJson) => {
-         productos.push(...responseJson);
+         for (const producto of responseJson) {
+            productos.push(new Producto(...producto));
+         }
          resolve();
       });
    });
