@@ -1,8 +1,6 @@
 <-- CON RESPECTO AL PROYECTO -->
 
-Para esta tercer entrega, decidí utilizar el proyecto que he desarrollado previamente en un curso de desarrollo web de CoderHouse y complementarlo con lo aprendido en este curso. 
-Con el fin de alcanzar los objetivos requeridos, desarrollé un programa que simula un carrito de compras.
-El programa puede agregar y quitar del carrito teniendo en cuenta el stock de los mismos. Todo esto se lleva a cabo implementando DOM y el uso de Local Storage.
+Para esta entrega final, decidí utilizar el proyecto que he desarrollado previamente en un curso de desarrollo web de CoderHouse y complementarlo con lo aprendido en este curso. Con el fin de alcanzar los objetivos requeridos, desarrollé un programa que simula un carrito de compras. El programa puede agregar y quitar del carrito teniendo en cuenta el stock de los mismos. Todo esto se lleva a cabo implementando DOM y el uso de Local Storage. En esta última versión del simulador se ha utilizado fetch y un archivo .json para simular una base de datos e importar los productos desde allí. Además de esta última innovación, también aplico otros contenidos repasados en el curso, tales como el uso de funciones, objetos, arreglos y condicionales.
 
 <-- COMO INSTALAR SASS PARA EL CORRECTO FUNCIONAMIENTO DE ESTE PROYECTO -->
 
