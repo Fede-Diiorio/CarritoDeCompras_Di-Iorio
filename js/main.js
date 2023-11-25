@@ -1,6 +1,6 @@
 //CLASES
 class Producto {
-   constructor(id, nombre, precio, stock, imagen, descripcion, descripcionImagen, categoria) {
+   constructor(id, nombre, precio, stock, imagen, descripcion, descripcionImagen) {
       this.id = id;
       this.nombre = nombre;
       this.precio = precio;
@@ -8,7 +8,6 @@ class Producto {
       this.imagen = imagen;
       this.descripcion = descripcion
       this.descripcionImagen = descripcionImagen;
-      this.categoria = categoria;
    }
 };
 
@@ -84,8 +83,7 @@ function filtradoPorOrden() {
 
 function mostrarNumeroConComas(numero) {
    const numeroConDecimales = Number(numero).toFixed(2);
-   const numeroFormateado = numeroConDecimales.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-   return numeroFormateado;
+   return numeroFormateado = numeroConDecimales.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function numeroDeProductosEnElCarrito() {

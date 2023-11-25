@@ -9,8 +9,8 @@ function obtenerProductosDeLocalStorage() {
 
 function mostrarNumeroConComas(numero) {
     const numeroConDecimales = Number(numero).toFixed(2);
-    const numeroFormateado = numeroConDecimales.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return numeroFormateado;
+    return numeroFormateado = numeroConDecimales.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 }
 
 function numeroDeProductosEnElCarrito() {
@@ -48,7 +48,7 @@ function ocultarHtmlInvertido(id) {
 }
 
 function sumarTotalDelCarrito() {
-    ls = JSON.parse(localStorage.getItem("carrito"));
+    let ls = JSON.parse(localStorage.getItem("carrito"));
     return total = ls.reduce((acc, el) => acc + el.total, 0);
 }
 
@@ -163,30 +163,6 @@ function renderizarTablaCarrito(productosCarrito) {
     renderizarTotalDeProductos();
     terminarCompra();
     numeroDeProductosEnElCarrito();
-}
-
-function renderizarModalDeFinalizarCompra() {
-
-    const modal = document.getElementById("modalFinCompra");
-    modal.innerHTML = "";
-
-    const modalMarcoFondo = document.createElement("div");
-    modalMarcoFondo.classList.add("overlayModal")
-
-    const modalMarco = document.createElement("div");
-    modalMarco.classList.add("marco", "modal-final-compra__marco");
-
-    const modalEncabezado = document.createElement("h2");
-    modalEncabezado.classList.add("modal-final-compra__titulo");
-    modalEncabezado.innerHTML = "¡Compra Finalizada!"
-
-    const modalMensaje = document.createElement("P");
-    modalMensaje.classList.add("modal-final-compra__mensaje");
-    modalMensaje.innerText = "Su pedido ha pasado a la siguiente instancia. Lo esperamos en nuestro local para retirarlo. Muchas gracias por su compra."
-
-    modalMarcoFondo.append(modalMarco);
-    modalMarco.append(modalEncabezado, modalMensaje);
-    modal.append(modalMarcoFondo);
 }
 
 let carrito = [];
